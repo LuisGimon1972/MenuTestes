@@ -59,6 +59,7 @@ body {
 
 /* LOG (painel direito) */
 .log {
+  width: 800px;
   background: #1e1e1e;
   color: #b1c7f5;
   font-family: Arial;
@@ -68,15 +69,13 @@ body {
 
 /* TERMINAL */
 #log {
-  width: 100%;
-  height: calc(100vh - 60px);
-  width: 660px;
+  width: 800px;
+  height: calc(100vh - 60px); 
   background: #1e1e1e;
   font-family: Arial;
   font-size: 14px;
   color: #e5e7eb;
   padding: 10px;
   overflow-y: auto;
-  border-radius: 6px;
-  
+  border-radius: 6px;  
 }
