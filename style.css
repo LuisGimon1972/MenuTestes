@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: #1e1e1e; /* cinza escuro geral */
+  background: #191A1B; /* cinza escuro geral */
   font-family: Arial;
   color: #e5e7eb;
 }
@@ -9,16 +9,6 @@ body {
   background: #1F2937;
 }
 
-.header {
-  width: 100%;
-  text-align: center;
-  font-size: 22px;
-  font-weight: 600;  
-  padding: 15px;
-  background: #ffffff;
-  color: #111;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
 
 /* 🔥 ocupa tela toda */
 .container {
@@ -60,7 +50,7 @@ body {
 /* LOG (painel direito) */
 .log {
   width: 800px;
-  background: #1e1e1e;
+  background: #191A1B;
   color: #b1c7f5;
   font-family: Arial;
   padding: 15px;
@@ -71,11 +61,61 @@ body {
 #log {
   width: 800px;
   height: calc(100vh - 60px); 
-  background: #1e1e1e;
+  background: #191A1B;
   font-family: Arial;
   font-size: 14px;
   color: #e5e7eb;
   padding: 10px;
   overflow-y: auto;
   border-radius: 6px;  
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #1e1e1e;
+  color: #fff;
+  padding: 10px 15px;
+}
+
+/* título central */
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* banner */
+.marquee {
+  margin-left: 1200px;
+  overflow: hidden;
+  white-space: nowrap;
+  background: #1e1e1e;
+  padding: 5px 10px;
+  border-radius: 4px;
+  max-width: 45%;
+  position: relative;
+}
+
+/* efeito mais suave e contínuo */
+.marquee span {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: scroll 25s linear infinite;
+}
+
+/* movimento mais longo (recorrido maior) */
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
 }
