@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel de Testes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+  PLAYWRIGHT TEST SGMW Paraguay
+</div>  
+<div class="container">
+
+  <div class="menu">
+    <h4 style="text-align: center;">PAINEL DE TESTES</h4>
+
+    <button onclick="executar('login')"> Autenticação</button>
+    <button onclick="executar('navegacao')"> Navegação</button>
+    <button onclick="executar('pessoas')"> Cadastro de Pessoas</button>
+    <button onclick="executar('usuarios')"> Cadastro de Usuários</button>
+    <button onclick="executar('perfil')"> Cadastro de Perfil de Acesso</button>
+    <button onclick="executar('funcionarios')"> Cadastro de Funcionários</button>
+    <button onclick="executar('produtos')"> Cadastro de Produtos</button>
+    <button onclick="executar('especies')"> Cadastro de Espécies</button>
+    <button onclick="executar('cotacao')"> Cadastro de Cotação Moedas</button>
+    <button onclick="executar('grupos')"> Cadastro de Grupos</button>
+    <button onclick="executar('subgrupos')"> Cadastro de Subgrupos</button>
+    <button onclick="executar('marcas')"> Cadastro de Marcas</button>
+    <button onclick="executar('validacaopessoas')"> Validação Dados Pessoas</button>
+    <button onclick="executar('validacaoprodutos')"> Validação Dados Produtos</button>
+
+    <button onclick="executarTodos()">🚀 Executar Todos os Testes</button>
+  </div>
+
+  <div class="logs">
+    <h4 style="margin-top: 35px;margin-left: 15px;">PAINEL DE EXECUÇÃO</h4>
+    <pre id="log"></pre>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

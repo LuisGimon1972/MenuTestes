@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  background: #1e1e1e; /* cinza escuro geral */
+  font-family: Arial;
+  color: #e5e7eb;
+}
+
+.sidebar {
+  background: #1F2937;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;  
+  padding: 15px;
+  background: #ffffff;
+  color: #111;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 🔥 ocupa tela toda */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* MENU */
+.menu {
+  width: 260px;
+  background: #111827; /* ajustado para combinar com dark mode */
+  padding: 15px;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+}
+
+/* título do menu */
+.menu h3 {
+  margin-top: 0;
+  color: #fff;
+}
+
+/* BOTÕES */
+.menu button {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+  border: 1px solid #374151;
+  background: #2563EB;
+  cursor: pointer;
+  color: white;
+  border-radius: 6px;
+}
+
+.menu button:hover {
+  background: #1D4ED8;
+}
+
+/* LOG (painel direito) */
+.log {
+  background: #1e1e1e;
+  color: #b1c7f5;
+  font-family: Arial;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* TERMINAL */
+#log {
+  width: 100%;
+  height: calc(100vh - 60px);
+  width: 560px;
+  background: #1e1e1e;
+  font-family: Arial;
+  font-size: 14px;
+  color: #e5e7eb;
+  padding: 10px;
+  overflow-y: auto;
+  border-radius: 6px;
+  
+}
