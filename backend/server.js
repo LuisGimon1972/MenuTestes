@@ -25,6 +25,7 @@ app.post('/executar', (req, res) => {
     marcas: 'npx playwright test tests/marca.spec.ts --headed',     
     validacaopessoas: 'npx playwright test tests/validacaopessoas.spec.ts --headed',
     validacaoprodutos: 'npx playwright test tests/validacaoprodutos.spec.ts --headed',
+    validacaofuncionarios: 'npx playwright test tests/validacaofuncionarios.spec.ts --headed',
     todos: 'npx playwright test --headed'
   }
 
