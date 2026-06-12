@@ -34,6 +34,7 @@ app.post('/executar', (req, res) => {
     validacaosubgrupos: 'npx playwright test tests/validacaosubgrupos.spec.ts --headed',
     validacaomarcas: 'npx playwright test tests/validacaomarcas.spec.ts --headed',
     buscapessoas: 'npx playwright test tests/buscapessoas.spec.ts --headed',
+    buscaprodutos: 'npx playwright test tests/buscaprodutos.spec.ts --headed',
     todos: 'npx playwright test --headed'
   }
 
