@@ -122,9 +122,20 @@ switch (cmd) {
 }
 
 function toggleSection(id) {
-    const section = document.getElementById(id);
-    section.style.display = section.style.display === "none" ? "block" : "none";
-  }
+  // Lista de seções que devem se comportar como acordeão
+  const sections = ["cadastros", "validacoes"];
+  
+  sections.forEach(sec => {
+    const el = document.getElementById(sec);
+    if (sec === id) {
+      // Abre apenas o que foi clicado
+      el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
+    } else {
+      // Fecha os demais
+      el.style.display = "none";
+    }
+  });
+}
 
 function limparLogs() {
    document.getElementById("log").textContent = "";
