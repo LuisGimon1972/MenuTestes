@@ -64,6 +64,10 @@ switch (cmd) {
     valorcmd = "Validação de Funcionários";
     break;
 
+  case "validacaoespecies":
+    valorcmd = "Validação de Espécies";
+    break;  
+
   case "todos":
     valorcmd = "Execução completa dos testes";
     break;
@@ -93,11 +97,17 @@ switch (cmd) {
   log.scrollTop = log.scrollHeight
 }
 
+function toggleSection(id) {
+    const section = document.getElementById(id);
+    section.style.display = section.style.display === "none" ? "block" : "none";
+  }
+
 async function executarTodos() {
   const comandos = [
     'login','navegacao','pessoas','usuarios','perfil',
     'funcionarios','produtos','especies','cotacao',
-    'grupos','subgrupos','marcas','validacaopessoas','validacaoprodutos', 'validacaofuncionarios'
+    'grupos','subgrupos','marcas','validacaopessoas',
+    'validacaoprodutos', 'validacaofuncionarios', 'validacaoespecies'
   ]
 
   for (const cmd of comandos) {
