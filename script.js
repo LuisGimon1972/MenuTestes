@@ -92,6 +92,10 @@ switch (cmd) {
     valorcmd = "Validação de dados de Marcas";
     break;    
 
+  case "buscapessoas":
+    valorcmd = "Buscas de Pessoas";
+    break;      
+
   case "todos":
     valorcmd = "Execução completa dos testes";
     break;
@@ -123,7 +127,7 @@ switch (cmd) {
 
 function toggleSection(id) {
   // Lista de seções que devem se comportar como acordeão
-  const sections = ["cadastros", "validacoes"];
+  const sections = ["cadastros", "validacoes","buscas"];
   
   sections.forEach(sec => {
     const el = document.getElementById(sec);
@@ -149,7 +153,8 @@ async function executarTodos() {
     'validacaoprodutos', 'validacaofuncionarios', 
     'validacaoespecies', 'validacaousuarios',
     'validacaocotacao' , 'validacaoperfil', 
-    'validacaogrupos', 'validacaosubgrupos', 'validacaomarcas' 
+    'validacaogrupos', 'validacaosubgrupos', 'validacaomarcas',
+    'buscapessoas' 
   ]
 
   for (const cmd of comandos) {
