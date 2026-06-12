@@ -53,27 +53,27 @@ switch (cmd) {
     break;
 
   case "validacaopessoas":
-    valorcmd = "Validação de Pessoas";
+    valorcmd = "Validação de dados de Pessoas";
     break;
 
   case "validacaoprodutos":
-    valorcmd = "Validação de Produtos";
+    valorcmd = "Validação de dados de Produtos";
     break;
 
   case "validacaofuncionarios":
-    valorcmd = "Validação de Funcionários";
+    valorcmd = "Validação de dados de Funcionários";
     break;
 
   case "validacaoespecies":
-    valorcmd = "Validação de Espécies";
+    valorcmd = "Validação de dados de Espécies";
     break;  
 
   case "validacaousuarios":
-    valorcmd = "Validação de Usuários";
+    valorcmd = "Validação de dados de Usuários";
     break;  
   
   case "validacaocotacao":
-    valorcmd = "Validação de Cotação";
+    valorcmd = "Validação de dados de Cotação de moedas";
     break;  
 
   case "todos":
