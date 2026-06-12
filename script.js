@@ -37,7 +37,7 @@ switch (cmd) {
     break;
 
   case "cotacao":
-    valorcmd = "Consulta de Cotação de moedad";
+    valorcmd = "Cadastro de Cotação de moedas";
     break;
 
   case "grupos":
