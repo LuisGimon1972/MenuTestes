@@ -32,6 +32,7 @@ const comandos = {
   buscafaturamento: "Buscas de Faturas",
   buscaperfil: "Buscas de Perfil de Acesso",
   buscaespecies: "Buscas de Espécies",
+  buscacotacao: "Buscas de Cotação de Moedas",
   todos: "Execução completa dos testes"
 };
 
@@ -86,7 +87,9 @@ async function executarTodos() {
     'validacaocotacao' , 'validacaoperfil', 
     'validacaogrupos', 'validacaosubgrupos', 'validacaomarcas',
     'buscapessoas', 'buscaprodutos', 'buscausuarios', 
-    'buscafaturamento', 'buscaperfil', 'buscaespecies'
+    'buscafaturamento', 'buscaperfil', 'buscaespecies',
+    'buscacotacao'
+
   ]
 
   for (const cmd of comandos) {
