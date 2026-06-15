@@ -7,6 +7,7 @@ const comandos = {
   login: "Autenticação do Sistema",
   navegacao: "Navegação do Sistema",
   pessoas: "Cadastro de Pessoas",
+  fornecedor: "Cadastro de Fornecedores",
   usuarios: "Cadastro de Usuários",
   perfil: "Gestão de Perfis",
   funcionarios: "Cadastro de Funcionários",
@@ -88,7 +89,7 @@ async function executarTodos() {
     'validacaogrupos', 'validacaosubgrupos', 'validacaomarcas',
     'buscapessoas', 'buscaprodutos', 'buscausuarios', 
     'buscafaturamento', 'buscaperfil', 'buscaespecies',
-    'buscacotacao'
+    'buscacotacao', 'fornecedor'
 
   ]
 
