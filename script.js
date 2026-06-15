@@ -35,6 +35,7 @@ const comandos = {
   buscaespecies: "Buscas de Espécies",
   buscacotacao: "Buscas de Cotação de Moedas",
   buscagrupos: "Buscas de Grupos",
+  buscasubgrupos: "Buscas de Subgrupos",
   todos: "Execução completa dos testes"
 };
 
@@ -90,7 +91,7 @@ async function executarTodos() {
     'validacaogrupos', 'validacaosubgrupos', 'validacaomarcas',
     'buscapessoas', 'buscaprodutos', 'buscausuarios', 
     'buscafaturamento', 'buscaperfil', 'buscaespecies',
-    'buscacotacao', 'fornecedor', 'buscagrupos'
+    'buscacotacao', 'fornecedor', 'buscagrupos', 'buscasubgrupos' 
 
   ]
 
