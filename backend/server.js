@@ -38,6 +38,7 @@ app.post('/executar', (req, res) => {
     buscafaturamento: 'npx playwright test tests/buscafaturamento.spec.ts --headed',
     buscausuarios: 'npx playwright test tests/buscausuarios.spec.ts --headed',
     buscaperfil: 'npx playwright test tests/buscaperfil.spec.ts --headed',
+    buscaespecies: 'npx playwright test tests/buscaespecies.spec.ts --headed',
     todos: 'npx playwright test --headed'
   }
 
