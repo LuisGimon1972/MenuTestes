@@ -36,7 +36,7 @@ const comandos = {
   buscacotacao: "Buscas de Cotação de Moedas",
   buscagrupos: "Buscas de Grupos",
   buscasubgrupos: "Buscas de Subgrupos",
-  buscaslotes: "Buscas de Lotes",
+  buscalotes: "Buscas de Lotes",
   todos: "Execução completa dos testes"
 };
 
