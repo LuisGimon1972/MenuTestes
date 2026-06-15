@@ -104,6 +104,10 @@ switch (cmd) {
     valorcmd = "Buscas de Usuários";
     break;      
 
+  case "buscafaturamento":  
+  valorcmd = "Buscas de Faturas";
+    break;      
+
   case "todos":
     valorcmd = "Execução completa dos testes";
     break;
@@ -162,7 +166,7 @@ async function executarTodos() {
     'validacaoespecies', 'validacaousuarios',
     'validacaocotacao' , 'validacaoperfil', 
     'validacaogrupos', 'validacaosubgrupos', 'validacaomarcas',
-    'buscapessoas', 'buscaprodutos', 'buscausuarios' 
+    'buscapessoas', 'buscaprodutos', 'buscausuarios', 'buscafaturamento' 
   ]
 
   for (const cmd of comandos) {

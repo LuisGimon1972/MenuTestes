@@ -60,7 +60,7 @@ body {
 
 /* TERMINAL */
 #log {
-  width: 800px;
+  width: 1300px;
   height: calc(100vh - 60px); 
   background: #191A1B;
   font-family: Arial;
@@ -92,8 +92,6 @@ body {
   background-color: #a93226; /* vermelho ainda mais escuro ao clicar */
   transform: scale(0.95);    /* leve redução ao clicar */
 }
-
-
 
 .header {
   position: relative;
