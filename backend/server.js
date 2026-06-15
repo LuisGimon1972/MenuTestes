@@ -43,6 +43,7 @@ app.post('/executar', (req, res) => {
     buscacotacao: 'npx playwright test tests/buscacotacao.spec.ts --headed',
     buscagrupos: 'npx playwright test tests/buscagrupos.spec.ts --headed',
     buscasubgrupos: 'npx playwright test tests/buscasubgrupos.spec.ts --headed',
+    buscalotes: 'npx playwright test tests/buscalotes.spec.ts --headed',
     todos: 'npx playwright test --headed'
   }
 
@@ -51,8 +52,7 @@ app.post('/executar', (req, res) => {
   if (!comando) {
     return res.status(400).send('Comando inválido')
   }
-
-  // 🔥 AQUI
+  
   exec(comando, {
     cwd: 'C:/SGMWPyTestes',
     shell: true
