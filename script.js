@@ -1,123 +1,43 @@
 async function executar(cmd) {
   
-  const log = document.getElementById('log')
+ const log = document.getElementById('log')
  let valorcmd;
 
-switch (cmd) {
-  case "login":
-    valorcmd = "Autenticação do Sistema";
-    break;
+const comandos = {
+  login: "Autenticação do Sistema",
+  navegacao: "Navegação do Sistema",
+  pessoas: "Cadastro de Pessoas",
+  usuarios: "Cadastro de Usuários",
+  perfil: "Gestão de Perfis",
+  funcionarios: "Cadastro de Funcionários",
+  produtos: "Cadastro de Produtos",
+  especies: "Cadastro de Espécies",
+  cotacao: "Cadastro de Cotação de moedas",
+  grupos: "Cadastro de Grupos",
+  subgrupos: "Cadastro de Subgrupos",
+  marcas: "Cadastro de Marcas",
+  validacaopessoas: "Validação de dados de Pessoas",
+  validacaoprodutos: "Validação de dados de Produtos",
+  validacaofuncionarios: "Validação de dados de Funcionários",
+  validacaoespecies: "Validação de dados de Espécies",
+  validacaousuarios: "Validação de dados de Usuários",
+  validacaocotacao: "Validação de dados de Cotação de moedas",
+  validacaoperfil: "Validação de dados de Perfil de Usuários",
+  validacaogrupos: "Validação de dados de Grupos",
+  validacaosubgrupos: "Validação de dados de Subgrupos",
+  validacaomarcas: "Validação de dados de Marcas",
+  buscapessoas: "Buscas de Pessoas",
+  buscaprodutos: "Buscas de Produtos",
+  buscausuarios: "Buscas de Usuários",
+  buscafaturamento: "Buscas de Faturas",
+  buscaperfil: "Buscas de Perfil de Acesso",
+  todos: "Execução completa dos testes"
+};
 
-  case "navegacao":
-    valorcmd = "Navegação do Sistema";
-    break;
+let resultadoCmd = comandos[cmd] || "Comando não encontrado";
 
-  case "pessoas":
-    valorcmd = "Cadastro de Pessoas";
-    break;
 
-  case "usuarios":
-    valorcmd = "Cadastro de Usuários";
-    break;
-
-  case "perfil":
-    valorcmd = "Gestão de Perfis";
-    break;
-
-  case "funcionarios":
-    valorcmd = "Cadastro de Funcionários";
-    break;
-
-  case "produtos":
-    valorcmd = "Cadastro de Produtos";
-    break;
-
-  case "especies":
-    valorcmd = "Cadastro de Espécies";
-    break;
-
-  case "cotacao":
-    valorcmd = "Cadastro de Cotação de moedas";
-    break;
-
-  case "grupos":
-    valorcmd = "Cadastro de Grupos";
-    break;
-
-  case "subgrupos":
-    valorcmd = "Cadastro de Subgrupos";
-    break;
-
-  case "marcas":
-    valorcmd = "Cadastro de Marcas";
-    break;
-
-  case "validacaopessoas":
-    valorcmd = "Validação de dados de Pessoas";
-    break;
-
-  case "validacaoprodutos":
-    valorcmd = "Validação de dados de Produtos";
-    break;
-
-  case "validacaofuncionarios":
-    valorcmd = "Validação de dados de Funcionários";
-    break;
-
-  case "validacaoespecies":
-    valorcmd = "Validação de dados de Espécies";
-    break;  
-
-  case "validacaousuarios":
-    valorcmd = "Validação de dados de Usuários";
-    break;  
-  
-  case "validacaocotacao":
-    valorcmd = "Validação de dados de Cotação de moedas";
-    break;  
-  
-  case "validacaoperfil":
-    valorcmd = "Validação de dados de Perfil de Usuários";
-    break;  
-
-  case "validacaogrupos":
-    valorcmd = "Validação de dados de Grupos";
-    break;  
-
-  case "validacaosubgrupos":
-    valorcmd = "Validação de dados de Subgrupos";
-    break;    
-
-  case "validacaomarcas":
-    valorcmd = "Validação de dados de Marcas";
-    break;    
-
-  case "buscapessoas":
-    valorcmd = "Buscas de Pessoas";
-    break;      
-
-  case "buscaprodutos":
-    valorcmd = "Buscas de Produtos";
-    break;      
-
-  case "buscausuarios":
-    valorcmd = "Buscas de Usuários";
-    break;      
-
-  case "buscafaturamento":  
-  valorcmd = "Buscas de Faturas";
-    break;      
-
-  case "todos":
-    valorcmd = "Execução completa dos testes";
-    break;
-
-  default:
-    valorcmd = "Comando não encontrado";
-    break;
-}
-
-  log.innerText += '\n⏳ Executando: ' + valorcmd + '\n'
+  log.innerText += '\n⏳ Executando: ' + resultadoCmd + '\n'
 
   try {
     const res = await fetch('http://localhost:3000/executar', {
@@ -138,13 +58,11 @@ switch (cmd) {
 }
 
 function toggleSection(id) {
-  // Lista de seções que devem se comportar como acordeão
   const sections = ["cadastros", "validacoes","buscas"];
   
   sections.forEach(sec => {
     const el = document.getElementById(sec);
-    if (sec === id) {
-      // Abre apenas o que foi clicado
+    if (sec === id) {      
       el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
     } else {
       // Fecha os demais
@@ -166,7 +84,8 @@ async function executarTodos() {
     'validacaoespecies', 'validacaousuarios',
     'validacaocotacao' , 'validacaoperfil', 
     'validacaogrupos', 'validacaosubgrupos', 'validacaomarcas',
-    'buscapessoas', 'buscaprodutos', 'buscausuarios', 'buscafaturamento' 
+    'buscapessoas', 'buscaprodutos', 'buscausuarios', 
+    'buscafaturamento', 'buscaperfil'
   ]
 
   for (const cmd of comandos) {
