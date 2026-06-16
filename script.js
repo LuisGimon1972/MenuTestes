@@ -39,6 +39,7 @@ const comandos = {
   buscalote: "Buscas de Lotes",
   buscamarcas: "Buscas de Marcas",
   buscafuncionario:"Buscas de Funcionários",
+  edicaopessoas:"Edição de Dados Pessoas",
   todos: "Execução completa dos testes"
 };
 
@@ -66,7 +67,7 @@ let resultadoCmd = comandos[cmd] || "Comando não encontrado";
 }
 
 function toggleSection(id) {
-  const sections = ["cadastros", "validacoes","buscas"];
+  const sections = ["cadastros", "validacoes", "edicoes", "buscas"];
   
   sections.forEach(sec => {
     const el = document.getElementById(sec);
@@ -96,7 +97,7 @@ async function executarTodos() {
     'buscafaturamento', 'buscaperfil', 'buscaespecies',
     'buscacotacao', 'fornecedor', 'buscagrupos', 
     'buscasubgrupos', 'buscalote', 'buscamarcas',
-    'buscafuncionario' 
+    'buscafuncionario', 'edicaopessoas' 
 
   ]
 
