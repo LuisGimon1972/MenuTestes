@@ -40,6 +40,12 @@
     <button onclick="executar('subgrupos')">Cadastro de Subgrupos</button>
     <button onclick="executar('marcas')">Cadastro de Marcas</button>
   </div>
+
+  <button onclick="toggleSection('edicoes')">📝 Testes de Edições</button>
+  <div id="edicoes" style="display:none; margin-left:20px;">
+    <button onclick="executar('edicaopessoas')">Edição de Pessoas</button>        
+    <button onclick="executar('edicaoprodutos')">Edição de Produtos</button>        
+  </div> 
   
   <button onclick="toggleSection('validacoes')">✅ Testes de Validações</button>
   <div id="validacoes" style="display:none; margin-left:20px;">
@@ -54,13 +60,7 @@
     <button onclick="executar('validacaosubgrupos')">Validação Dados Subgrupos</button>
     <button onclick="executar('validacaomarcas')">Validação Dados Marcas</button>
     
-  </div> 
-
-  <button onclick="toggleSection('edicoes')">📝 Testes de Edições</button>
-  <div id="edicoes" style="display:none; margin-left:20px;">
-    <button onclick="executar('edicaopessoas')">Edição de Pessoas</button>        
-    <button onclick="executar('edicaoprodutos')">Edição de Produtos</button>        
-  </div> 
+  </div>   
 
   <button onclick="toggleSection('buscas')">🔍 Testes de Buscas</button>
   <div id="buscas" style="display:none; margin-left:20px;">
