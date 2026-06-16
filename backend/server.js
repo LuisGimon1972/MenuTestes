@@ -37,13 +37,14 @@ app.post('/executar', (req, res) => {
     buscapessoas: 'npx playwright test tests/buscapessoas.spec.ts --headed',
     buscaprodutos: 'npx playwright test tests/buscaprodutos.spec.ts --headed',
     buscafaturamento: 'npx playwright test tests/buscafaturamento.spec.ts --headed',
+    buscalote: 'npx playwright test tests/buscalote.spec.ts --headed',
     buscausuarios: 'npx playwright test tests/buscausuarios.spec.ts --headed',
     buscaperfil: 'npx playwright test tests/buscaperfil.spec.ts --headed',
     buscaespecies: 'npx playwright test tests/buscaespecies.spec.ts --headed',
     buscacotacao: 'npx playwright test tests/buscacotacao.spec.ts --headed',
     buscagrupos: 'npx playwright test tests/buscagrupos.spec.ts --headed',
     buscasubgrupos: 'npx playwright test tests/buscasubgrupos.spec.ts --headed',
-    buscalote: 'npx playwright test tests/buscalote.spec.ts --headed',
+    buscamarcas: 'npx playwright test tests/buscamarcas.spec.ts --headed',    
     todos: 'npx playwright test --headed'
   }
 
