@@ -45,6 +45,7 @@ app.post('/executar', (req, res) => {
     buscagrupos: 'npx playwright test tests/buscagrupos.spec.ts --headed',
     buscasubgrupos: 'npx playwright test tests/buscasubgrupos.spec.ts --headed',
     buscamarcas: 'npx playwright test tests/buscamarcas.spec.ts --headed',    
+    buscafuncionario: 'npx playwright test tests/buscafuncionario.spec.ts --headed',    
     todos: 'npx playwright test --headed'
   }
 
