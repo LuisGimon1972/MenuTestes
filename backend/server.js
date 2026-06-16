@@ -47,7 +47,8 @@ app.post('/executar', (req, res) => {
     buscamarcas: 'npx playwright test tests/buscas/buscamarcas.spec.ts --headed',    
     buscafuncionario: 'npx playwright test tests/buscas/buscafuncionario.spec.ts --headed',    
     edicaopessoas: 'npx playwright test tests/edicao/edicaopessoas.spec.ts --headed',    
-    edicaoprodutos: 'npx playwright test tests/edicao/edicaoprodutos.spec.ts --headed',    
+    edicaoprodutos: 'npx playwright test tests/edicao/edicaoprodutos.spec.ts --headed',   
+    edicaoespecies: 'npx playwright test tests/edicao/edicaoespecies.spec.ts --headed',    
     todos: 'npx playwright test --headed'
   }
 

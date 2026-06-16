@@ -41,6 +41,7 @@ const comandos = {
   buscafuncionario:"Buscas de Funcionários",
   edicaopessoas:"Edição de Dados Pessoas",
   edicaoprodutos:"Edição de Dados Produtos",
+  edicaoespecies:"Edição de Dados Espécies",
   todos: "Execução completa dos testes"
 };
 
@@ -98,7 +99,8 @@ async function executarTodos() {
     'buscafaturamento', 'buscaperfil', 'buscaespecies',
     'buscacotacao', 'fornecedor', 'buscagrupos', 
     'buscasubgrupos', 'buscalote', 'buscamarcas',
-    'buscafuncionario', 'edicaopessoas', 'edicaoprodutos' 
+    'buscafuncionario', 'edicaopessoas', 'edicaoprodutos',
+    'edicaoespecies' 
 
   ]
 
