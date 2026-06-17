@@ -43,7 +43,7 @@ const comandos = {
   edicaofuncionarios:"Edição de Dados Funcionários",
   edicaoprodutos:"Edição de Dados Produtos",
   edicaoespecies:"Edição de Dados Espécies",
-  edicaocotacao:"Edição de Dados Cotatação dee Moedas",
+  edicaocotacao:"Edição de Dados Cotatação de Moedas",
   todos: "Execução completa dos testes"
 };
 
