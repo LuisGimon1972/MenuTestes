@@ -48,6 +48,7 @@ const comandos = {
   edicaosubgrupos:"Edição de Dados Subgrupos",
   edicaomarcas:"Edição de Dados Marcas",
   exclusaopessoas:"Exclusão de Dados Pessoas",
+  exclusaoprodutos:"Exclusão de Dados Protutos",
   todos: "Execução completa dos testes"
 };
 
@@ -108,7 +109,7 @@ async function executarTodos() {
     'buscafuncionario', 'edicaopessoas', 'edicaoprodutos',
     'edicaoespecies', 'edicaofuncionarios', 'edicaocotacao',
     'edicaogrupos','edicaosubgrupos', 'edicaomarcas',
-    'exclusaopessoas'  
+    'exclusaopessoas', 'exclusaoprodutos'  
   ]
 
   for (const cmd of comandos) {
