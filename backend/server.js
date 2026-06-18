@@ -60,6 +60,7 @@ app.post('/executar', (req, res) => {
     exclusaoespecies: 'npx playwright test tests/exclusao/exclusaoespecies.spec.ts --headed',    
     exclusaocotacao: 'npx playwright test tests/exclusao/exclusaocotacao.spec.ts --headed',    
     exclusaogrupos: 'npx playwright test tests/exclusao/exclusaogrupos.spec.ts --headed',    
+    exclusaosubgrupos: 'npx playwright test tests/exclusao/exclusaosubgrupos.spec.ts --headed',    
     todos: 'npx playwright test --headed'
   }
 
