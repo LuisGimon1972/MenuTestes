@@ -9,7 +9,7 @@ const comandos = {
   pessoas: "Cadastro de Pessoas",
   fornecedor: "Cadastro de Fornecedores",
   usuarios: "Cadastro de Usuários",
-  perfil: "Gestão de Perfis",
+  perfil: "Cadastro de Perfil de Acesso",
   funcionarios: "Cadastro de Funcionários",
   produtos: "Cadastro de Produtos",
   especies: "Cadastro de Espécies",
@@ -97,6 +97,18 @@ function toggleSection(id) {
 function limparLogs() {
    document.getElementById("log").textContent = "";
   }
+
+function sair() {
+  // Exemplo: limpar logs
+  limparLogs();
+
+  // Exemplo: redirecionar para página inicial
+  window.location.href = "https://www.sgbr.com.br";
+
+  // Se quiser apenas fechar a aba (funciona em alguns navegadores):
+  // window.close();
+}
+
 
 async function executarTodos() {
   const comandos = [

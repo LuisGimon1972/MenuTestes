@@ -142,3 +142,19 @@ body {
     transform: translateX(-200%);
   }
 }
+
+.btn-sair {
+  background-color: #e74c3c !important; 
+  color: #fff !important;               
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-sair:hover {
+  background-color: #b30000 !important; /* vermelho escuro no hover */
+}

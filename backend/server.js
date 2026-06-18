@@ -21,7 +21,7 @@ app.post('/executar', (req, res) => {
     produtos: 'npx playwright test tests/cadastros/produtos.spec.ts --headed',
     especies: 'npx playwright test tests/cadastros/especies.spec.ts --headed',
     cotacao: 'npx playwright test tests/cadastros/cotacao.spec.ts --headed',
-    grupos: 'npx playwright test tests/cadastros/cadastros/grupo.spec.ts --headed',
+    grupos: 'npx playwright test tests/cadastros/grupo.spec.ts --headed',
     subgrupos: 'npx playwright test tests/cadastros/subgrupo.spec.ts --headed',     
     marcas: 'npx playwright test tests/cadastros/marca.spec.ts --headed',     
     validacaopessoas: 'npx playwright test tests/validacoes/validacaopessoas.spec.ts --headed',
