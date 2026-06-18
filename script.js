@@ -60,7 +60,7 @@ const comandos = {
 
 let resultadoCmd = comandos[cmd] || "Comando não encontrado";
 
-  log.innerText += '\n⏳ Executando: ' + resultadoCmd + '\n'
+  log.innerText += '\n🖥️ Executando: ' + resultadoCmd + '\n'
 
   try {
     const res = await fetch('http://localhost:3000/executar', {
