@@ -103,7 +103,7 @@ function sair() {
   limparLogs();
 
   // Exemplo: redirecionar para página inicial
-  window.location.href = "https://www.sgbr.com.br";
+  window.location.href = "about:blank";
 
   // Se quiser apenas fechar a aba (funciona em alguns navegadores):
   // window.close();
