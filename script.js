@@ -52,11 +52,11 @@ const comandos = {
   exclusaofuncionarios:"Exclusão de Dados Funcionários",
   exclusaoespecies:"Exclusão de Dados Espécies",
   exclusaocotacao:"Exclusão de Dados Cotação de moedas",
+  exclusaogrupos:"Exclusão de Dados Grupos",
   todos: "Execução completa dos testes"
 };
 
 let resultadoCmd = comandos[cmd] || "Comando não encontrado";
-
 
   log.innerText += '\n⏳ Executando: ' + resultadoCmd + '\n'
 
@@ -113,7 +113,7 @@ async function executarTodos() {
     'edicaoespecies', 'edicaofuncionarios', 'edicaocotacao',
     'edicaogrupos','edicaosubgrupos', 'edicaomarcas',
     'exclusaopessoas', 'exclusaoprodutos', 'exclusaofuncionarios',
-    'exclusaoespecies', 'exclusaocotacao'  
+    'exclusaoespecies', 'exclusaocotacao', 'exclusaogrupos'  
   ]
 
   for (const cmd of comandos) {
