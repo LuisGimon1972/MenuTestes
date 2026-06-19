@@ -31,6 +31,7 @@ const comandos = {
   buscaprodutos: "Buscas de Produtos",
   buscausuarios: "Buscas de Usuários",
   buscafaturamento: "Buscas de Faturas",
+  buscadav: "Buscas de DAVs",
   buscaperfil: "Buscas de Perfil de Acesso",
   buscaespecies: "Buscas de Espécies",
   buscacotacao: "Buscas de Cotação de Moedas",
@@ -128,7 +129,7 @@ async function executarTodos() {
     'edicaogrupos','edicaosubgrupos', 'edicaomarcas',
     'exclusaopessoas', 'exclusaoprodutos', 'exclusaofuncionarios',
     'exclusaoespecies', 'exclusaocotacao', 'exclusaogrupos',  
-    'exclusaosubgrupos', 'exclusaomarcas'  
+    'exclusaosubgrupos', 'exclusaomarcas', 'buscadav'  
   ]
 
   for (const cmd of comandos) {
