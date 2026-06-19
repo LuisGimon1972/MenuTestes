@@ -22,11 +22,11 @@
 <div class="menu">
   <h4 style="text-align: center;">PAINEL DE TESTES</h4>
 
-  <button onclick="executar('login')">Autenticação</button>
-  <button onclick="executar('navegacao')">Navegação</button>
+  <button onclick="executar('login')">🔐 Autenticação</button>
+  <button onclick="executar('navegacao')">🧭 Navegação</button>
   <button onclick="executarTodos()">🚀 Executar todos os testes</button>
 
-  <button onclick="toggleSection('cadastros')">📋 Testes de Cadastros</button>
+  <button class="btn-sectioncad" onclick="toggleSection('cadastros')">📋 Testes de Cadastros</button>
   <div id="cadastros" style="display:none; margin-left:20px;">
     <button onclick="executar('pessoas')">Cadastro de Clientes</button>
     <button onclick="executar('fornecedor')">Cadastro de Fornecedores</button>
@@ -41,7 +41,19 @@
     <button onclick="executar('marcas')">Cadastro de Marcas</button>
   </div>
 
-  <button onclick="toggleSection('buscas')">🔍 Testes de Buscas</button>
+  <button class="btn-sectionedit" onclick="toggleSection('edicoes')">📝 Testes de Edições</button>
+  <div id="edicoes" style="display:none; margin-left:20px;">
+    <button onclick="executar('edicaopessoas')">Edição de Pessoas</button>        
+    <button onclick="executar('edicaoprodutos')">Edição de Produtos</button>        
+    <button onclick="executar('edicaofuncionarios')">Edição de Funcionários</button>        
+    <button onclick="executar('edicaocotacao')">Edição de Cotação de Moedas</button>        
+    <button onclick="executar('edicaoespecies')">Edição de Espécies</button>        
+    <button onclick="executar('edicaogrupos')">Edição de Grupos</button>        
+    <button onclick="executar('edicaosubgrupos')">Edição de Subgrupos</button>        
+    <button onclick="executar('edicaomarcas')">Edição de Marcas</button>        
+  </div> 
+
+  <button class="btn-sectionbus" onclick="toggleSection('buscas')">🔍 Testes de Buscas</button>
   <div id="buscas" style="display:none; margin-left:20px;">
     <button onclick="executar('buscapessoas')">Busca Pessoas</button>        
     <button onclick="executar('buscaprodutos')">Busca Produtos</button>        
@@ -55,21 +67,9 @@
     <button onclick="executar('buscasubgrupos')">Busca Subgrupos</button>            
     <button onclick="executar('buscamarcas')">Busca Marcas</button>            
     <button onclick="executar('buscafuncionario')">Busca Funcionários</button>            
-  </div> 
+  </div>   
 
-  <button onclick="toggleSection('edicoes')">📝 Testes de Edições</button>
-  <div id="edicoes" style="display:none; margin-left:20px;">
-    <button onclick="executar('edicaopessoas')">Edição de Pessoas</button>        
-    <button onclick="executar('edicaoprodutos')">Edição de Produtos</button>        
-    <button onclick="executar('edicaofuncionarios')">Edição de Funcionários</button>        
-    <button onclick="executar('edicaocotacao')">Edição de Cotação de Moedas</button>        
-    <button onclick="executar('edicaoespecies')">Edição de Espécies</button>        
-    <button onclick="executar('edicaogrupos')">Edição de Grupos</button>        
-    <button onclick="executar('edicaosubgrupos')">Edição de Subgrupos</button>        
-    <button onclick="executar('edicaomarcas')">Edição de Marcas</button>        
-  </div> 
-
-  <button onclick="toggleSection('exclusoes')">🗑️ Testes de Exclusões</button>
+  <button  class="btn-sectionex" onclick="toggleSection('exclusoes')">🗑️ Testes de Exclusões</button>
   <div id="exclusoes" style="display:none; margin-left:20px;">
     <button onclick="executar('exclusaopessoas')">Exclusão de Pessoas</button>        
     <button onclick="executar('exclusaoprodutos')">Exclusão de Produtos</button>            
@@ -81,7 +81,7 @@
     <button onclick="executar('exclusaomarcas')">Exclusão de Marcas</button>            
   </div> 
   
-  <button onclick="toggleSection('validacoes')">✅ Testes de Validações</button>
+  <button class="btn-sectionval" onclick="toggleSection('validacoes')">✅ Testes de Validações</button>
   <div id="validacoes" style="display:none; margin-left:20px;">
     <button onclick="executar('validacaopessoas')">Validação Dados Pessoas</button>
     <button onclick="executar('validacaousuarios')">Validação Dados Usuários</button>
@@ -101,9 +101,9 @@
 </div>
 
   <div class="logs">
-    <h4 style="margin-top: 25px;margin-left: 15px;">
+    <h4 style="margin-top: 35px;margin-left: 35px;">
       PAINEL DE EXECUÇÃO
-          <button style="margin-left: 950px;" class="btn-limpar" onclick="limparLogs()">🧹 Limpar Logs</button>
+          <button style="margin-left: 1350px;" class="btn-limpar" onclick="limparLogs()">🧹 Limpar Logs</button>
     </h4>
     <pre style="margin-top: -25px;" id="log"></pre>
   </div>

@@ -18,7 +18,7 @@ body {
 
 /* MENU */
 .menu {
-  width: 260px;
+  width: 290px;
   background: #111827; /* ajustado para combinar com dark mode */
   padding: 15px;
   overflow-y: auto;
@@ -49,7 +49,7 @@ body {
 
 /* LOG (painel direito) */
 .log {
-  width: 800px;
+  width: 950px;
   background: #191A1B;
   color: #b1c7f5;
   font-family: Arial;
@@ -60,7 +60,7 @@ body {
 
 /* TERMINAL */
 #log {
-  width: 1300px;
+  width: 1540px;
   height: calc(100vh - 60px); 
   background: #191A1B;
   font-family: Arial;
@@ -72,7 +72,7 @@ body {
 }
 
 .btn-limpar {
-  background-color: #e74c3c; /* vermelho principal */
+  background-color: rgb(192, 57, 43); /* vermelho principal */
   color: #fff;
   border: none;
   padding: 8px 14px;
@@ -143,8 +143,54 @@ body {
   }
 }
 
+.btn-sectioncad {
+  background: rgb(15, 102, 119) !important; 
+  color: #e5e7eb !important; 
+}
+
+.btn-sectioncad:hover {
+  background: rgb(20, 125, 146) !important; 
+}
+
+.btn-sectionbus {
+  background: rgb(30, 58, 138) !important; 
+  color: #e5e7eb !important; 
+}
+
+.btn-sectionbus:hover {
+  background: rgb(30, 58, 108) !important; 
+}
+
+.btn-sectionedit {
+  background: rgb(20, 125, 146) !important; 
+  color: #e5e7eb !important; 
+}
+
+.btn-sectionedit:hover {
+  background: rgb(37, 99, 130) !important; 
+}
+
+.btn-sectionex {
+  background: rgb(30, 64, 175) !important; 
+  color: #e5e7eb !important; 
+}
+
+.btn-sectionex:hover {
+  background: rgb(30, 64, 130) !important; 
+}
+
+.btn-sectionval {
+  background: rgb(30, 64, 70) !important; 
+  color: #e5e7eb !important; 
+}
+
+.btn-sectionval:hover {
+  background: rgb(30, 64, 90) !important; 
+}
+
+
 .btn-sair {
-  background-color: #e74c3c !important; 
+  background-color: rgb(192, 57, 43) !important; 
   color: #fff !important;               
   font-weight: bold;
   border: none;
