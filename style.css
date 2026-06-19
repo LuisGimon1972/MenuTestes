@@ -60,7 +60,7 @@ body {
 
 /* TERMINAL */
 #log {
-  width: 1540px;
+  width: 1580px;
   height: calc(100vh - 60px); 
   background: #191A1B;
   font-family: Arial;
