@@ -57,6 +57,7 @@ const comandos = {
   exclusaogrupos:"Exclusão de Dados Grupos",
   exclusaosubgrupos:"Exclusão de Dados Subgrupos",
   exclusaomarcas:"Exclusão de Dados Marcas",
+  desempenhologin:"Desempenho de Login",
   todos: "Execução completa dos testes"
 };
 
@@ -83,7 +84,7 @@ let resultadoCmd = comandos[cmd] || "Comando não encontrado";
 }
 
 function toggleSection(id) {
-  const sections = ["cadastros", "validacoes", "edicoes", "exclusoes", "buscas"];
+  const sections = ["cadastros", "validacoes", "edicoes", "exclusoes", "buscas", "desempenho"];
   
   sections.forEach(sec => {
     const el = document.getElementById(sec);
@@ -127,7 +128,8 @@ async function executarTodos() {
     'edicaogrupos','edicaosubgrupos', 'edicaomarcas',
     'exclusaopessoas', 'exclusaoprodutos', 'exclusaofuncionarios',
     'exclusaoespecies', 'exclusaocotacao', 'exclusaogrupos',  
-    'exclusaosubgrupos', 'exclusaomarcas', 'buscadav'  
+    'exclusaosubgrupos', 'exclusaomarcas', 'buscadav',
+    'desempenhologin'  
   ]
 
   for (const cmd of comandos) {

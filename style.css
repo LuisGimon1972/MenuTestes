@@ -193,6 +193,16 @@ body {
   background: rgb(30, 64, 90) !important; 
 }
 
+.btn-sectiondes {
+  background: rgb(15, 102, 90) !important; 
+  color: #e5e7eb !important; 
+  margin-top: -2px !important;
+}
+
+.btn-sectiondes:hover {
+  background: rgb(30, 64, 90) !important; 
+}
+
 .btn-sair {
   background-color: rgb(192, 57, 43) !important; 
   color: #fff !important;               
