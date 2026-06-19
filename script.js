@@ -5,7 +5,8 @@ async function executar(cmd) {
 
 const comandos = {
   login: "Autenticação do Sistema",
-  navegacao: "Navegação do Sistema",
+  seguranca: "Segurança do Sistema",
+  navegacao: "Navegação do Sistema",  
   pessoas: "Cadastro de Pessoas",
   fornecedor: "Cadastro de Fornecedores",
   usuarios: "Cadastro de Usuários",
@@ -100,12 +101,9 @@ function limparLogs() {
   }
 
 function sair() {
-  // Exemplo: limpar logs
-  limparLogs();
-
-  // Exemplo: redirecionar para página inicial
+  
+  limparLogs();  
   window.location.href = "about:blank";
-
   // Se quiser apenas fechar a aba (funciona em alguns navegadores):
   // window.close();
 }
@@ -113,7 +111,7 @@ function sair() {
 
 async function executarTodos() {
   const comandos = [
-    'login','navegacao','pessoas','usuarios','perfil',
+    'login','navegacao', 'seguranca','pessoas','usuarios','perfil',
     'funcionarios','produtos','especies','cotacao',
     'grupos','subgrupos','marcas','validacaopessoas',
     'validacaoprodutos', 'validacaofuncionarios', 
