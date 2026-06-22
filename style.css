@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: #191A1B; /* cinza escuro geral */
+  background: #191A1B; 
   font-family: Arial;
   color: #e5e7eb;
 }
@@ -19,7 +19,7 @@ body {
 /* MENU */
 .menu {
   width: 290px;
-  background: #111827; /* ajustado para combinar com dark mode */
+  background: #111827; 
   padding: 15px;
   overflow-y: auto;
   box-shadow: 2px 0 5px rgba(0,0,0,0.3);
@@ -72,7 +72,7 @@ body {
 }
 
 .btn-limpar {
-  background-color: rgb(192, 57, 43); /* vermelho principal */
+  background-color: rgb(192, 57, 43); 
   color: #fff;
   border: none;
   padding: 8px 14px;
@@ -84,13 +84,13 @@ body {
 }
 
 .btn-limpar:hover {
-  background-color: #c0392b; /* vermelho mais escuro no hover */
-  transform: scale(1.05);    /* leve aumento ao passar o mouse */
+  background-color: #c0392b;
+  transform: scale(1.05);    
 }
 
 .btn-limpar:active {
-  background-color: #a93226; /* vermelho ainda mais escuro ao clicar */
-  transform: scale(0.95);    /* leve redução ao clicar */
+  background-color: #a93226; 
+  transform: scale(0.95);    
 }
 
 .header {
@@ -135,7 +135,7 @@ body {
   position: relative;
 }
 
-/* efeito mais suave e contínuo */
+
 .marquee span {
   display: inline-block;
   white-space: nowrap;
