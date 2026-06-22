@@ -65,6 +65,7 @@ const comandos = {
   cadastroespecies:"Desempenho de Cadastro Espécies",
   desbuscapessoas:"Desempenho de Buscas Pessoas",
   desbuscaprodutos:"Desempenho de Buscas Produtos",
+  desbuscafuncionarios:"Desempenho de Buscas Funcionários",
   todos: "Execução completa dos testes"
 };
 
@@ -138,7 +139,7 @@ async function executarTodos() {
     'exclusaosubgrupos', 'exclusaomarcas', 'buscadav',
     'desempenhologin', 'cadastropessoas', 'cadastroprodutos',
     'cadastrofuncionarios', 'cadastrousuarios', 'cadastroespecies',
-    'desbuscapessoas', 'desbuscaprodutos'  
+    'desbuscapessoas', 'desbuscaprodutos', 'desbuscafuncionarios'  
   ]
 
   for (const cmd of comandos) {
