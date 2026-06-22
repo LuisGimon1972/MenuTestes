@@ -70,6 +70,7 @@ app.post('/executar', (req, res) => {
     cadastrofuncionarios: 'npx playwright test tests/desempenho/cadastrofuncionarios.spec.ts --headed',    
     cadastrousuarios: 'npx playwright test tests/desempenho/cadastrousuarios.spec.ts --headed',    
     cadastroespecies: 'npx playwright test tests/desempenho/cadastroespecies.spec.ts --headed',    
+    desbuscapessoas: 'npx playwright test tests/desempenho/desbuscapessoas.spec.ts --headed',    
     todos: 'npx playwright test --headed'
   }
 
