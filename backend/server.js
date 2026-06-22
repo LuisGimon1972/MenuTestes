@@ -75,7 +75,7 @@ app.post('/executar', (req, res) => {
     desbuscafuncionarios: 'npx playwright test tests/desempenho/desbuscafuncionarios.spec.ts --headed',    
     desbuscausuarios: 'npx playwright test tests/desempenho/desbuscausuarios.spec.ts --headed',    
     desbuscaespecies: 'npx playwright test tests/desempenho/desbuscaespecies.spec.ts --headed',    
-    desbuscaespecies: 'npx playwright test tests/resposividade/responsividadenavegacao.spec.ts --headed',    
+    desbuscaespecies: 'npx playwright test tests/resposividade/navegacaomobile.spec.ts --headed',    
     todos: 'npx playwright test --headed'
   }
 
