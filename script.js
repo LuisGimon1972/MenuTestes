@@ -95,10 +95,6 @@ let resultadoCmd = comandos[cmd] || "Comando não encontrado";
   log.scrollTop = log.scrollHeight
 }
 
-// Seleciona o botão pelo atributo onclick
-//document.querySelector('button[onclick="toggleSection(\'buscas\')"]').click();
-
-
 function toggleSection(id) {
   const sections = ["cadastros", "validacoes", "edicoes", "exclusoes", "buscas", "desempenho", "responsividade"];
   
