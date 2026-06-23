@@ -69,6 +69,7 @@ const comandos = {
   desbuscausuarios:"Desempenho de Buscas Usuários",
   desbuscaespecies:"Desempenho de Buscas Espécies",
   navegacaomobile:"Responsividade Navegação Mobile",
+  navegacaotablet:"Responsividade Navegação Tablet",
   todos: "Execução completa dos testes"
 };
 
@@ -143,7 +144,8 @@ async function executarTodos() {
     'desempenhologin', 'cadastropessoas', 'cadastroprodutos',
     'cadastrofuncionarios', 'cadastrousuarios', 'cadastroespecies',
     'desbuscapessoas', 'desbuscaprodutos', 'desbuscafuncionarios',
-    'desbuscausuarios', 'desbuscaespecies', 'navegacaomobile'  
+    'desbuscausuarios', 'desbuscaespecies', 'navegacaomobile',
+    'navegacaotablet'  
   ]
 
   for (const cmd of comandos) {
