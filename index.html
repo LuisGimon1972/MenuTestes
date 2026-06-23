@@ -45,19 +45,19 @@
 
   <button class="btn-sectionedit" onclick="toggleSection('edicoes')">📝 Testes de Edições</button>
   <div id="edicoes" style="display:none; margin-left:20px;">
-    <button class="btn-sectionedit" style="margin-top: -2px" onclick="executar('edicaopessoas')">Edição de Pessoas</button>        
-    <button class="btn-sectionedit" style="margin-top: -2px" onclick="executar('edicaoprodutos')">Edição de Produtos</button>        
-    <button class="btn-sectionedit" style="margin-top: -2px" onclick="executar('edicaofuncionarios')">Edição de Funcionários</button>        
-    <button class="btn-sectionedit" style="margin-top: -2px" onclick="executar('edicaocotacao')">Edição de Cotação de Moedas</button>        
-    <button class="btn-sectionedit" style="margin-top: -2px" onclick="executar('edicaoespecies')">Edição de Espécies</button>        
-    <button class="btn-sectionedit" style="margin-top: -2px" onclick="executar('edicaogrupos')">Edição de Grupos</button>        
-    <button class="btn-sectionedit" style="margin-top: -2px" onclick="executar('edicaosubgrupos')">Edição de Subgrupos</button>        
-    <button class="btn-sectionedit" style="margin-top: -2px" onclick="executar('edicaomarcas')">Edição de Marcas</button>        
+    <button class="btn-sectionedit" onclick="executar('edicaopessoas')">Edição de Pessoas</button>        
+    <button class="btn-sectionedit" onclick="executar('edicaoprodutos')">Edição de Produtos</button>        
+    <button class="btn-sectionedit" onclick="executar('edicaofuncionarios')">Edição de Funcionários</button>        
+    <button class="btn-sectionedit" onclick="executar('edicaocotacao')">Edição de Cotação de Moedas</button>        
+    <button class="btn-sectionedit" onclick="executar('edicaoespecies')">Edição de Espécies</button>        
+    <button class="btn-sectionedit" onclick="executar('edicaogrupos')">Edição de Grupos</button>        
+    <button class="btn-sectionedit" onclick="executar('edicaosubgrupos')">Edição de Subgrupos</button>        
+    <button class="btn-sectionedit" onclick="executar('edicaomarcas')">Edição de Marcas</button>        
   </div> 
 
   <button class="btn-sectionbus" onclick="toggleSection('buscas')">🔍 Testes de Buscas</button>
   <div id="buscas" style="display:none; margin-left:20px;">
-    <button class="btn-sectionbus" onclick="executar('buscapessoas')">Busca Pessoas</button>        
+    <button class="btn-sectionbus" onclick="executar('buscapessoas', buscas = true) ">Busca Pessoas</button>        
     <button class="btn-sectionbus" onclick="executar('buscaprodutos')">Busca Produtos</button>        
     <button class="btn-sectionbus" onclick="executar('buscafaturamento')">Busca Faturas</button>        
     <button class="btn-sectionbus" onclick="executar('buscadav')">Busca DAVs</button>        
