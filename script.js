@@ -70,6 +70,7 @@ const comandos = {
   desbuscaespecies:"Desempenho de Buscas Espécies",
   navegacaomobile:"Responsividade Navegação Mobile",
   navegacaotablet:"Responsividade Navegação Tablet",
+  pessoa_fatura:"Integração Cliente e Faturamento",
   todos: "Execução completa dos testes"
 };
 
@@ -96,7 +97,7 @@ let resultadoCmd = comandos[cmd] || "Comando não encontrado";
 }
 
 function toggleSection(id) {
-  const sections = ["cadastros", "validacoes", "edicoes", "exclusoes", "buscas", "desempenho", "responsividade"];
+  const sections = ["cadastros", "validacoes", "edicoes", "exclusoes", "buscas", "desempenho", "responsividade", "integracao"];
   
   sections.forEach(sec => {
     const el = document.getElementById(sec);
@@ -145,7 +146,7 @@ async function executarTodos() {
     'cadastrofuncionarios', 'cadastrousuarios', 'cadastroespecies',
     'desbuscapessoas', 'desbuscaprodutos', 'desbuscafuncionarios',
     'desbuscausuarios', 'desbuscaespecies', 'navegacaomobile',
-    'navegacaotablet'  
+    'navegacaotablet', 'pessoa_fatura'  
   ]
 
   for (const cmd of comandos) {

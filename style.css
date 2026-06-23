@@ -223,6 +223,16 @@ body {
   background: rgb(30, 64, 150) !important; 
 }
 
+.btn-sectionint {  
+  background: rgb(1, 46, 54) !important; 
+  color: #e5e7eb !important; 
+  margin-top: -2px !important;
+  
+}
+.btn-sectionint:hover {
+  background: rgb(20, 125, 146) !important; 
+}
+
 .btn-sair {
   background-color: rgb(192, 57, 43) !important; 
   color: #fff !important;               

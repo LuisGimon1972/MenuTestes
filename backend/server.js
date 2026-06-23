@@ -91,6 +91,7 @@ app.post('/executar', (req, res) => {
     desbuscaespecies: 'npx playwright test tests/desempenho/desbuscaespecies.spec.ts --headed',    
     navegacaomobile: 'npx playwright test tests/responsividade/navegacaomobile.spec.ts --headed',    
     navegacaotablet: 'npx playwright test tests/responsividade/navegacaotablet.spec.ts --headed',    
+    pessoa_fatura: 'npx playwright test tests/integracao/pessoa_fatura.spec.ts --headed',    
     todos: 'npx playwright test --headed'
   }
 
