@@ -1,11 +1,25 @@
 import express from 'express'
 import cors from 'cors'
 import { exec } from 'child_process'
+import fs from 'fs'
+import path from 'path'
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
+
+function limparCache() {
+  const cachePath = path.join(process.env.USERPROFILE, 'AppData', 'Local', 'Temp', 'playwright-transform-cache')
+  try {
+    if (fs.existsSync(cachePath)) {
+      fs.rmSync(cachePath, { recursive: true, force: true })
+      console.log('🧹 Cache do Playwright removido!')
+    }
+  } catch (error) {
+    console.error('Erro ao limpar cache:', error)
+  }
+}
 
 app.post('/executar', (req, res) => {
   const { cmd } = req.body
@@ -82,19 +96,16 @@ app.post('/executar', (req, res) => {
 
   const comando = comandos[cmd]
 
-  if (!comando) {
+    if (!comando) {
     return res.status(400).send('Comando inválido')
-  }
-  
-  exec(comando, {
-    cwd: 'C:/SGMWPyTestes',
-    shell: true
-  }, (err, stdout, stderr) => {
+  }  
+  limparCache()  
+  exec(comando, { cwd: 'C:/SGMWPyTestes', shell: true }, (err, stdout, stderr) => {    
+    limparCache()
     if (err) {
       console.error(err)
       return res.status(500).send(err.message)
     }
-
     res.send(stdout || 'Sem retorno')
   })
 })
