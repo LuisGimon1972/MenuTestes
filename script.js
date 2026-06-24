@@ -78,6 +78,7 @@ const comandos = {
   produto_dav:"Integração Produto e DAV",
   fornecedor_produto:"Integração Fornecedor e Produto",
   usuario_funcionario:"Integração Usuário e Funcionário",
+  perfil_usuario:"Integração Perfil de Acesso e Usuários",
   todos: "Execução completa dos testes"
 };
 
@@ -155,7 +156,8 @@ async function executarTodos() {
     'desbuscausuarios', 'desbuscaespecies', 'navegacaomobile',
     'navegacaotablet', 'pessoa_fatura', 'pessoa_dav', 
     'produto_fatura', 'produto_dav', 'funcionario_fatura',
-    'funcionario_dav', 'fornecedor_produto', 'usuario_funcionario'  
+    'funcionario_dav', 'fornecedor_produto', 'usuario_funcionario',
+    'perfil_usuario'  
   ]
 
   for (const cmd of comandos) {
