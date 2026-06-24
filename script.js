@@ -73,6 +73,7 @@ const comandos = {
   pessoa_fatura:"Integração Cliente e Faturamento",
   pessoa_dav:"Integração Cliente e DAV",
   funcionario_fatura:"Integração Funcionário e Faturamento",
+  funcionario_dav:"Integração Funcionário e DAV",
   produto_fatura:"Integração Produto e Faturamento",
   produto_dav:"Integração Produto e DAV",
   todos: "Execução completa dos testes"
@@ -151,7 +152,8 @@ async function executarTodos() {
     'desbuscapessoas', 'desbuscaprodutos', 'desbuscafuncionarios',
     'desbuscausuarios', 'desbuscaespecies', 'navegacaomobile',
     'navegacaotablet', 'pessoa_fatura', 'pessoa_dav', 
-    'produto_fatura', 'produto_dav', 'funcionario_fatura'  
+    'produto_fatura', 'produto_dav', 'funcionario_fatura',
+    'funcionario_dav'  
   ]
 
   for (const cmd of comandos) {
