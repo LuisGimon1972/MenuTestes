@@ -72,7 +72,7 @@ const comandos = {
   navegacaotablet:"Responsividade Navegação Tablet",
   pessoa_fatura:"Integração Cliente e Faturamento",
   produto_fatura:"Integração Produto e Faturamento",
-  produto_dav:"Integração Produto e Faturamento",
+  produto_dav:"Integração Produto e DAV",
   todos: "Execução completa dos testes"
 };
 
