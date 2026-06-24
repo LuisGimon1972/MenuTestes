@@ -72,6 +72,7 @@ const comandos = {
   navegacaotablet:"Responsividade Navegação Tablet",
   pessoa_fatura:"Integração Cliente e Faturamento",
   produto_fatura:"Integração Produto e Faturamento",
+  produto_dav:"Integração Produto e Faturamento",
   todos: "Execução completa dos testes"
 };
 
@@ -147,7 +148,8 @@ async function executarTodos() {
     'cadastrofuncionarios', 'cadastrousuarios', 'cadastroespecies',
     'desbuscapessoas', 'desbuscaprodutos', 'desbuscafuncionarios',
     'desbuscausuarios', 'desbuscaespecies', 'navegacaomobile',
-    'navegacaotablet', 'pessoa_fatura', 'produto_fatura'  
+    'navegacaotablet', 'pessoa_fatura', 'produto_fatura',
+    'produto_dav'  
   ]
 
   for (const cmd of comandos) {
