@@ -97,6 +97,7 @@ app.post('/executar', (req, res) => {
     funcionario_dav: 'npx playwright test tests/integracao/funcionario_dav.spec.ts --headed',    
     produto_fatura: 'npx playwright test tests/integracao/produto_fatura.spec.ts --headed',    
     produto_dav: 'npx playwright test tests/integracao/produto_dav.spec.ts --headed',        
+    fornecedor_produto: 'npx playwright test tests/integracao/fornecedor_produto.spec.ts --headed',        
     todos: 'npx playwright test --headed'
   }
 
