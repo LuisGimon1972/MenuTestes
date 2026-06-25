@@ -28,6 +28,7 @@ app.post('/executar', (req, res) => {
     login: 'npx playwright test tests/setup.spec.ts --headed',
     navegacao: 'npx playwright test tests/navegacao.spec.ts --headed',
     seguranca: 'npx playwright test tests/seguranca.spec.ts --headed',
+    integridade: 'npx playwright test tests/integridade.spec.ts --headed',
     pessoas: 'npx playwright test tests/cadastros/pessoas.spec.ts --headed',
     fornecedor: 'npx playwright test tests/cadastros/fornecedor.spec.ts --headed',
     usuarios: 'npx playwright test tests/cadastros/usuarios.spec.ts --headed',
