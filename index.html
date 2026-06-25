@@ -137,12 +137,17 @@
 </div>
 
   <div class="logs">
-    <h4 style="margin-top: 35px;margin-left: 35px;">
-      PAINEL DE EXECUÇÃO
-          <button style="margin-left: 1370px;" class="btn-limpar" onclick="limparLogs()">🧹 Limpar Logs</button>
-    </h4>
-    <pre style="margin-top: -47px;" id="log"></pre>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin: 35px;">
+    <h4 style="margin: 0;">PAINEL DE EXECUÇÃO</h4>
+    <div style="display: flex; gap: 15px;">
+      <button class="btn-descarregar" onclick="downloadLogs()">📥 Descarregar Logs</button>
+      <button class="btn-limpar" onclick="limparLogs()">🧹 Limpar Logs</button>
+    </div>
   </div>
+
+  <pre id="log" style="margin-top: -45px;"></pre>
+</div>
+
 
 </div>
 

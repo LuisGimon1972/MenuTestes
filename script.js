@@ -130,6 +130,28 @@ function sair() {
   // window.close();
 }
 
+function downloadLogs() {
+  const logContent = document.getElementById("log").innerText;  
+  if (!logContent.trim()) {
+    alert("Não há logs para descarregar!");
+    return;
+  }  
+  const now = new Date();
+  const day = String(now.getDate()).padStart(2, '0');
+  const month = String(now.getMonth() + 1).padStart(2, '0'); // meses começam em 0
+  const year = now.getFullYear();  
+  const dateStr = `${day}-${month}-${year}`;  
+  const randomNumber = Math.floor(Math.random() * 1000000) + Date.now();  
+  const fileName = `logs_${dateStr}_${randomNumber}.txt`;
+  const blob = new Blob([logContent], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = fileName;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 
 async function executarTodos() {
   const comandos = [
