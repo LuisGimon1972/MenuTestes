@@ -5,12 +5,50 @@ async function executar(cmd) {
 
  const botoesAtivos = document.querySelectorAll('button.ativo');
   botoesAtivos.forEach(btn => btn.classList.remove('ativo'));
-
-  // Localiza dinamicamente o botão que dispara este comando específico e adiciona o realce
+  
   const botaoAlvo = document.querySelector(`button[onclick*="'${cmd}'"]`) || document.querySelector(`button[onclick*='executarTodos']`);
   if (botaoAlvo) {
     botaoAlvo.classList.add('ativo');
   }
+
+  const relacaoComandoSecao = {
+      pessoas: "cadastros", fornecedor: "cadastros", usuarios: "cadastros", perfil: "cadastros",
+      funcionarios: "cadastros", produtos: "cadastros", especies: "cadastros", cotacao: "cadastros",
+      grupos: "cadastros", subgrupos: "cadastros", marcas: "cadastros",
+      validacaopessoas: "validacoes", validacaoprodutos: "validacoes", validacaofuncionarios: "validacoes",
+      validacaoespecies: "validacoes", validacaousuarios: "validacoes", validacaocotacao: "validacoes",
+      validacaoperfil: "validacoes", validacaogrupos: "validacoes", validacaosubgrupos: "validacoes", validacaomarcas: "validacoes",
+      edicaopessoas: "edicoes", edicaofuncionarios: "edicoes", edicaoprodutos: "edicoes",
+      edicaoespecies: "edicoes", edicaocotacao: "edicoes", edicaogrupos: "edicoes",
+      edicaosubgrupos: "edicoes", edicaomarcas: "edicoes",
+      exclusaopessoas: "exclusoes", exclusaoprodutos: "exclusoes", exclusaofuncionarios: "exclusoes",
+      exclusaoespecies: "exclusoes", exclusaocotacao: "exclusoes", exclusaogrupos: "exclusoes",
+      exclusaosubgrupos: "exclusoes", exclusaomarcas: "exclusoes",
+      buscapessoas: "buscas", buscaprodutos: "buscas", buscausuarios: "buscas",
+      buscafaturamento: "buscas", buscadav: "buscas", buscaperfil: "buscas",
+      buscaespecies: "buscas", buscacotacao: "buscas", buscagrupos: "buscas",
+      buscasubgrupos: "buscas", buscalote: "buscas", buscamarcas: "buscas", buscafuncionario: "buscas",
+      desempenhologin: "desempenho", cadastropessoas: "desempenho", cadastroprodutos: "desempenho",
+      cadastrofuncionarios: "desempenho", cadastrousuarios: "desempenho", cadastroespecies: "desempenho",
+      desbuscapessoas: "desempenho", desbuscaprodutos: "desempenho", desbuscafuncionarios: "desempenho",
+      desbuscausuarios: "desempenho", desbuscaespecies: "desempenho",
+      navegacaomobile: "responsividade", navegacaotablet: "responsividade",
+      pessoa_fatura: "integracao", pessoa_dav: "integracao", funcionario_fatura: "integracao",
+      funcionario_dav: "integracao", produto_fatura: "integracao", produto_dav: "integracao",
+      fornecedor_produto: "integracao", usuario_funcionario: "integracao", perfil_usuario: "integracao"
+    };
+
+    const secaoAlvo = relacaoComandoSecao[cmd];
+    if (secaoAlvo) {
+      const sections = ["cadastros", "validacoes", "edicoes", "exclusoes", "buscas", "desempenho", "responsividade", "integracao"];
+      sections.forEach(sec => {
+        const el = document.getElementById(sec);
+        if (el) el.style.display = (sec === secaoAlvo) ? "block" : "none";
+      });
+    } 
+  
+
+  
 
 const comandos = {
   login: "Autenticação do Sistema",
@@ -176,6 +214,16 @@ function downloadLogs() {
 
 async function executarTodos() {
 
+  const botoesAtivos = document.querySelectorAll('button.ativo');
+  botoesAtivos.forEach(btn => btn.classList.remove('ativo'));
+  
+  const btnTodos = document.querySelector(`button[onclick*='executarTodos']`);
+
+  const sections = ["cadastros", "validacoes", "edicoes", "exclusoes", "buscas", "desempenho", "responsividade", "integracao"];
+  sections.forEach(sec => {
+    const el = document.getElementById(sec);
+    if (el) el.style.display = "none";
+  });
   
   const comandos = [
     'login','navegacao', 'seguranca', 'integridade', 'pessoas','usuarios','perfil',
