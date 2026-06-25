@@ -3,6 +3,15 @@ async function executar(cmd) {
  const log = document.getElementById('log')
  let valorcmd;
 
+ const botoesAtivos = document.querySelectorAll('button.ativo');
+  botoesAtivos.forEach(btn => btn.classList.remove('ativo'));
+
+  // Localiza dinamicamente o botão que dispara este comando específico e adiciona o realce
+  const botaoAlvo = document.querySelector(`button[onclick*="'${cmd}'"]`) || document.querySelector(`button[onclick*='executarTodos']`);
+  if (botaoAlvo) {
+    botaoAlvo.classList.add('ativo');
+  }
+
 const comandos = {
   login: "Autenticação do Sistema",
   seguranca: "Segurança do Sistema",
@@ -166,6 +175,8 @@ function downloadLogs() {
 
 
 async function executarTodos() {
+
+  
   const comandos = [
     'login','navegacao', 'seguranca', 'integridade', 'pessoas','usuarios','perfil',
     'funcionarios','produtos','especies','cotacao',
