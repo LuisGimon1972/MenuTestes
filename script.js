@@ -226,31 +226,27 @@ async function executarTodos() {
   });
   
   const comandos = [
-    'login','navegacao', 'seguranca', 'integridade', 'pessoas','usuarios','perfil',
-    'funcionarios','produtos','especies','cotacao',
-    'grupos','subgrupos','marcas','validacaopessoas',
-    'validacaoprodutos', 'validacaofuncionarios', 
-    'validacaoespecies', 'validacaousuarios',
-    'validacaocotacao' , 'validacaoperfil', 
-    'validacaogrupos', 'validacaosubgrupos', 'validacaomarcas',
-    'buscapessoas', 'buscaprodutos', 'buscausuarios', 
-    'buscafaturamento', 'buscaperfil', 'buscaespecies',
-    'buscacotacao', 'fornecedor', 'buscagrupos', 
-    'buscasubgrupos', 'buscalote', 'buscamarcas',
-    'buscafuncionario', 'edicaopessoas', 'edicaoprodutos',
-    'edicaoespecies', 'edicaofuncionarios', 'edicaocotacao',
+    'login', 'seguranca','integridade', 'navegacao', 'pessoas', 'fornecedor',
+    'usuarios','perfil', 'funcionarios','produtos','especies','cotacao',
+    'grupos','subgrupos','marcas', 'edicaopessoas', 
+    'edicaoprodutos', 'edicaofuncionarios','edicaocotacao','edicaoespecies',  
     'edicaogrupos','edicaosubgrupos', 'edicaomarcas',
+    'buscapessoas', 'buscaprodutos', 'buscafaturamento', 
+    'buscafaturamento', 'buscadav', 'buscalote', 'buscausuarios','buscaperfil', 'buscaespecies',
+    'buscacotacao', 'buscagrupos', 'buscasubgrupos', 'buscamarcas', 'buscafuncionario',          
     'exclusaopessoas', 'exclusaoprodutos', 'exclusaofuncionarios',
     'exclusaoespecies', 'exclusaocotacao', 'exclusaogrupos',  
-    'exclusaosubgrupos', 'exclusaomarcas', 'buscadav',
+    'exclusaosubgrupos', 'exclusaomarcas', 
+    'validacaopessoas', 'validacaousuarios', 'validacaoperfil',  'validacaofuncionarios', 
+    'validacaoprodutos', 'validacaoespecies', 'validacaocotacao' ,  
+    'validacaogrupos', 'validacaosubgrupos', 'validacaomarcas',    
     'desempenhologin', 'cadastropessoas', 'cadastroprodutos',
     'cadastrofuncionarios', 'cadastrousuarios', 'cadastroespecies',
     'desbuscapessoas', 'desbuscaprodutos', 'desbuscafuncionarios',
     'desbuscausuarios', 'desbuscaespecies', 'navegacaomobile',
     'navegacaotablet', 'pessoa_fatura', 'pessoa_dav', 
-    'produto_fatura', 'produto_dav', 'funcionario_fatura',
-    'funcionario_dav', 'fornecedor_produto', 'usuario_funcionario',
-    'perfil_usuario'  
+    'fornecedor_produto', 'usuario_funcionario', 'perfil_usuario',
+    'funcionario_fatura', 'funcionario_dav',  'produto_fatura', 'produto_dav'    
   ]
 
   for (const cmd of comandos) {
