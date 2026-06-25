@@ -130,10 +130,20 @@ function sair() {
   // window.close();
 }
 
+function showToast(message, type = "success") {
+  const toast = document.getElementById("toast");
+  toast.innerText = message;
+  toast.className = "show " + type;
+
+  setTimeout(() => {
+    toast.className = toast.className.replace("show", "").trim();
+  }, 3000);
+}
+
 function downloadLogs() {
   const logContent = document.getElementById("log").innerText;  
   if (!logContent.trim()) {
-    alert("Não há logs para descarregar!");
+    showToast("⚠ Não há logs para descarregar!", "error");
     return;
   }  
   const now = new Date();
@@ -150,6 +160,7 @@ function downloadLogs() {
   a.download = fileName;
   a.click();
   URL.revokeObjectURL(url);
+  showToast("✅ Logs descarregados com sucesso!");
 }
 
 

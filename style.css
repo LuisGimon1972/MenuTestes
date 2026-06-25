@@ -260,3 +260,38 @@ body {
 .btn-sair:hover {
   background-color: #b30000 !important; /* vermelho escuro no hover */
 }
+
+/* Toast base */
+#toast {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+  transform: translateX(-50%);
+  transition: visibility 0s, opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+/* Quando ativo */
+#toast.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Sucesso */
+#toast.success {
+  background-color: #28a745; /* verde */
+}
+
+/* Erro */
+#toast.error {
+  background-color: #dc3545; /* vermelho */
+}
