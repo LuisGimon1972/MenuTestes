@@ -232,7 +232,7 @@ async function executarTodos() {
     'edicaoprodutos', 'edicaofuncionarios','edicaocotacao','edicaoespecies',  
     'edicaogrupos','edicaosubgrupos', 'edicaomarcas',
     'buscapessoas', 'buscaprodutos', 'buscafaturamento', 
-    'buscafaturamento', 'buscadav', 'buscalote', 'buscausuarios','buscaperfil', 'buscaespecies',
+    'buscadav', 'buscalote', 'buscausuarios','buscaperfil', 'buscaespecies',
     'buscacotacao', 'buscagrupos', 'buscasubgrupos', 'buscamarcas', 'buscafuncionario',          
     'exclusaopessoas', 'exclusaoprodutos', 'exclusaofuncionarios',
     'exclusaoespecies', 'exclusaocotacao', 'exclusaogrupos',  
