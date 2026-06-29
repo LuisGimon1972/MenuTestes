@@ -379,6 +379,10 @@ body {
   border-radius: 7px 7px 0 0 ; /* só os cantos inferiores */
 }
 
+.btn-primeiro:hover {
+  background: #1D4ED8 !important; /* vermelho escuro no hover */
+}
+
 .btn-sair:hover {
   background-color: #b30000 !important; /* vermelho escuro no hover */
 }
