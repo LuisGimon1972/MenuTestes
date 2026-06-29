@@ -40,7 +40,7 @@ body {
   background: #2563EB;
   cursor: pointer;
   color: white;
-  border-radius: 6px;
+  border: none   
 }
 
 .menu button:hover {
@@ -57,8 +57,6 @@ body {
   border-radius: 8px;
 }
 
-
-/* TERMINAL */
 #log {
   width: 1580px;
   height: calc(100vh - 60px); 
@@ -147,7 +145,6 @@ body {
   position: relative;
 }
 
-
 .marquee span {
   display: inline-block;
   white-space: nowrap;
@@ -165,84 +162,193 @@ body {
   }
 }
 
-.btn-sectioncad {  
+.btn-sectioncad {   
   background: rgb(15, 102, 119) !important; 
   color: #e5e7eb !important; 
-  margin-top: -3px !important;
-  
+  margin-top: -6px !important;    
 }
 .btn-sectioncad:hover {
   background: rgb(20, 125, 146) !important; 
 }
 
+.btn-sectioncadt {
+  background: rgb(15, 102, 119) !important; 
+  color: #e5e7eb !important; 
+  margin-top: -6px !important;    
+}
+/* adiciona seta no canto direito do botão */
+.btn-sectioncadt::after {
+  content: "▼";              /* seta para baixo */
+  float: right;              /* posiciona à direita */
+  margin-left: 8px;          /* espaço entre texto e seta */
+  font-size: 12px;           /* tamanho da seta */  
+}
+
 .btn-sectionbus {
   background: rgb(30, 58, 138) !important; 
   color: #e5e7eb !important; 
-  margin-top: -3px !important;
+  margin-top: -6px !important;
 }
 
 .btn-sectionbus:hover {
   background: rgb(30, 58, 108) !important; 
 }
 
+.btn-sectionbust {
+  background: rgb(30, 58, 138) !important; 
+  color: #e5e7eb !important; 
+  margin-top: -6px !important;
+}
+
+.btn-sectionbust::after {
+  content: "▼";              /* seta para baixo */
+  float: right;              /* posiciona à direita */
+  margin-left: 8px;          /* espaço entre texto e seta */
+  font-size: 12px;           /* tamanho da seta */
+  
+}
+
 .btn-sectionedit {
   background: rgb(20, 125, 146) !important; 
   color: #e5e7eb !important; 
-  margin-top: -3px !important;
+  margin-top: -6px !important;
 }
 
 .btn-sectionedit:hover {
   background: rgb(37, 99, 130) !important; 
 }
 
+.btn-sectioneditt {
+  background: rgb(20, 125, 146) !important; 
+  color: #e5e7eb !important; 
+  margin-top: -6px !important;
+}
+
+.btn-sectioneditt::after {
+  content: "▼";              /* seta para baixo */
+  float: right;              /* posiciona à direita */
+  margin-left: 8px;          /* espaço entre texto e seta */
+  font-size: 12px;           /* tamanho da seta */
+  
+}
+
 .btn-sectionex {
   background: rgb(30, 64, 175) !important; 
   color: #e5e7eb !important; 
-  margin-top: -3px !important;
+  margin-top: -6px !important;
 }
 
 .btn-sectionex:hover {
   background: rgb(30, 64, 130) !important; 
 }
 
+.btn-sectionext {
+  background: rgb(30, 64, 175) !important; 
+  color: #e5e7eb !important; 
+  margin-top: -6px !important;
+}
+
+.btn-sectionext::after {
+  content: "▼";              /* seta para baixo */
+  float: right;              /* posiciona à direita */
+  margin-left: 8px;          /* espaço entre texto e seta */
+  font-size: 12px;           /* tamanho da seta */  
+}
+
 .btn-sectionval {
   background: rgb(30, 64, 70) !important; 
   color: #e5e7eb !important; 
-  margin-top: -3px !important;
+  margin-top: -6px !important;
 }
 
 .btn-sectionval:hover {
   background: rgb(30, 64, 90) !important; 
 }
 
+.btn-sectionvalt {
+  background: rgb(30, 64, 70) !important; 
+  color: #e5e7eb !important; 
+  margin-top: -6px !important;
+}
+
+.btn-sectionvalt::after {
+  content: "▼";              /* seta para baixo */
+  float: right;              /* posiciona à direita */
+  margin-left: 8px;          /* espaço entre texto e seta */
+  font-size: 12px;           /* tamanho da seta */  
+}
+
 .btn-sectiondes {
   background: rgb(15, 102, 90) !important; 
   color: #e5e7eb !important; 
-  margin-top: -3px !important;
+  margin-top: -6px !important;
 }
 
 .btn-sectiondes:hover {
   background: rgb(30, 64, 90) !important; 
 }
 
+.btn-sectiondest {
+  background: rgb(15, 102, 90) !important; 
+  color: #e5e7eb !important; 
+  margin-top: -6px !important;
+}
+
+.btn-sectiondest::after {
+  content: "▼";              /* seta para baixo */
+  float: right;              /* posiciona à direita */
+  margin-left: 8px;          /* espaço entre texto e seta */
+  font-size: 12px;           /* tamanho da seta */
+  
+}
+
 .btn-sectionres {
   background: rgb(30, 64, 195) !important; 
   color: #e5e7eb !important; 
-  margin-top: -3px !important;
+  margin-top: -6px !important;
 }
 
 .btn-sectionres:hover {
   background: rgb(30, 64, 150) !important; 
 }
 
+.btn-sectionrest {
+  background: rgb(30, 64, 195) !important; 
+  color: #e5e7eb !important; 
+  margin-top: -6px !important;
+}
+
+.btn-sectionrest::after {
+  content: "▼";              /* seta para baixo */
+  float: right;              /* posiciona à direita */
+  margin-left: 8px;          /* espaço entre texto e seta */
+  font-size: 12px;           /* tamanho da seta */
+  
+}
+
 .btn-sectionint {  
   background: rgb(1, 46, 54) !important; 
   color: #e5e7eb !important; 
-  margin-top: -3px !important;
+  margin-top: -6px !important;
   
 }
 .btn-sectionint:hover {
   background: rgb(20, 125, 146) !important; 
+}
+
+.btn-sectionintt {  
+  background: rgb(1, 46, 54) !important; 
+  color: #e5e7eb !important; 
+  margin-top: -6px !important;
+  
+}
+
+.btn-sectionintt::after {
+  content: "▼";              /* seta para baixo */
+  float: right;              /* posiciona à direita */
+  margin-left: 8px;          /* espaço entre texto e seta */
+  font-size: 12px;           /* tamanho da seta */
+  
 }
 
 .btn-sair {
@@ -251,10 +357,21 @@ body {
   font-weight: bold;
   border: none;
   padding: 10px 20px;
-  margin-top: 15px;
-  cursor: pointer;
-  border-radius: 5px;
+  margin-top: -6px !important;
+  cursor: pointer;  
+  border-radius: 0 0 7px 7px; /* só os cantos inferiores */
   transition: background-color 0.3s ease;
+}
+
+.btn-primeiro {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+  border: none;
+  background: #2563EB !important;
+  cursor: pointer;
+  color: white !important;
+  border-radius: 7px 7px 0 0 ; /* só os cantos inferiores */
 }
 
 .btn-sair:hover {

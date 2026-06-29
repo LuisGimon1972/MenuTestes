@@ -23,15 +23,15 @@
 <div class="menu">
   <h4 style="text-align: center;">PAINEL DE TESTES</h4>
 
-  <button onclick="executar('login')">🔑 Autenticação do Sistema</button>
-  <button style="margin-top: -3px" onclick="executar('seguranca')">🔐 Segurança do Sistema</button>
-  <button style="margin-top: -3px" onclick="executar('integridade')">🛡️ Integridade do Sistema</button>
-  <button style="margin-top: -3px" onclick="executar('navegacao')">🧭 Navegação das Urls</button>
-  <button style="margin-top: -3px" onclick="executarTodos()">🚀 Executar todos os testes</button>
+  <button class = "btn-primeiro" onclick="executar('login')">🔑 Autenticação do Sistema</button>
+  <button style="margin-top: -6px" onclick="executar('seguranca')">🔐 Segurança do Sistema</button>
+  <button style="margin-top: -6px" onclick="executar('integridade')">🛡️ Integridade do Sistema</button>
+  <button style="margin-top: -6px" onclick="executar('navegacao')">🧭 Navegação das Urls</button>
+  <button style="margin-top: -6px" onclick="executarTodos()">🚀 Executar todos os testes</button>
 
-  <button class="btn-sectioncad" onclick="toggleSection('cadastros')">📋 Testes de Cadastros</button>
+  <button class="btn-sectioncadt" onclick="toggleSection('cadastros')">📋 Testes de Cadastros</button>
   <div id="cadastros" style="display:none; margin-left:20px;">
-    <button class="btn-sectioncad" onclick="executar('pessoas')">Cadastro de Clientes</button>
+    <button class="btn-sectioncad submenu" onclick="executar('pessoas')">Cadastro de Clientes</button>
     <button class="btn-sectioncad" onclick="executar('fornecedor')">Cadastro de Fornecedores</button>
     <button class="btn-sectioncad" onclick="executar('usuarios')">Cadastro de Usuários</button>
     <button class="btn-sectioncad" onclick="executar('perfil')">Cadastro de Perfil de Acesso</button>
@@ -44,7 +44,7 @@
     <button class="btn-sectioncad" onclick="executar('marcas')">Cadastro de Marcas</button>
   </div>
 
-  <button class="btn-sectionedit" onclick="toggleSection('edicoes')">📝 Testes de Edições</button>
+  <button class="btn-sectioneditt" onclick="toggleSection('edicoes')">📝 Testes de Edições </button>
   <div id="edicoes" style="display:none; margin-left:20px;">
     <button class="btn-sectionedit" onclick="executar('edicaopessoas')">Edição de Pessoas</button>        
     <button class="btn-sectionedit" onclick="executar('edicaoprodutos')">Edição de Produtos</button>        
@@ -56,7 +56,7 @@
     <button class="btn-sectionedit" onclick="executar('edicaomarcas')">Edição de Marcas</button>        
   </div> 
 
-  <button class="btn-sectionbus" onclick="toggleSection('buscas')">🔍 Testes de Buscas</button>
+  <button class="btn-sectionbust" onclick="toggleSection('buscas')">🔍 Testes de Buscas</button>
   <div id="buscas" style="display:none; margin-left:20px;">
     <button class="btn-sectionbus" onclick="executar('buscapessoas', buscas = true) ">Busca Pessoas</button>        
     <button class="btn-sectionbus" onclick="executar('buscaprodutos')">Busca Produtos</button>        
@@ -73,7 +73,7 @@
     <button class="btn-sectionbus" onclick="executar('buscafuncionario')">Busca Funcionários</button>            
   </div>   
 
-  <button class="btn-sectionex" onclick="toggleSection('exclusoes')">🗑️ Testes de Exclusões</button>
+  <button class="btn-sectionext" onclick="toggleSection('exclusoes')">🗑️ Testes de Exclusões</button>
   <div id="exclusoes" style="display:none; margin-left:20px;">
     <button class="btn-sectionex" onclick="executar('exclusaopessoas')">Exclusão de Pessoas</button>        
     <button class="btn-sectionex" onclick="executar('exclusaoprodutos')">Exclusão de Produtos</button>            
@@ -85,7 +85,7 @@
     <button class="btn-sectionex" onclick="executar('exclusaomarcas')">Exclusão de Marcas</button>            
   </div> 
   
-  <button style="margin-top: -2px" class="btn-sectionval" onclick="toggleSection('validacoes')">✅ Testes de Validações</button>
+  <button style="margin-top: -2px" class="btn-sectionvalt" onclick="toggleSection('validacoes')">✅ Testes de Validações</button>
   <div id="validacoes" style="display:none; margin-left:20px;">
     <button class="btn-sectionval" onclick="executar('validacaopessoas')">Validação Dados Pessoas</button>
     <button class="btn-sectionval" onclick="executar('validacaousuarios')">Validação Dados Usuários</button>
@@ -99,7 +99,7 @@
     <button class="btn-sectionval" onclick="executar('validacaomarcas')">Validação Dados Marcas</button>    
   </div>   
 
-  <button style="margin-top: -2px" class="btn-sectiondes" onclick="toggleSection('desempenho')">📊 Testes de Desempenho</button>
+  <button style="margin-top: -2px" class="btn-sectiondest" onclick="toggleSection('desempenho')">📊 Testes de Desempenho</button>
   <div id="desempenho" style="display:none; margin-left:20px;">
     <button class="btn-sectiondes" onclick="executar('desempenhologin')">Desempenho de Login</button>
     <button class="btn-sectiondes" onclick="executar('cadastropessoas')">Desempenho de Cadastro Pessoas</button>    
@@ -114,13 +114,13 @@
     <button class="btn-sectiondes" onclick="executar('desbuscaespecies')">Desempenho de Buscas Espécies</button>    
   </div>   
 
-  <button style="margin-top: -2px" class="btn-sectionres" onclick="toggleSection('responsividade')">📱 Testes de Responsividade</button>
+  <button style="margin-top: -2px" class="btn-sectionrest" onclick="toggleSection('responsividade')">📱 Testes de Responsividade</button>
   <div id="responsividade" style="display:none; margin-left:20px;">
     <button class="btn-sectionres" onclick="executar('navegacaomobile')">Responsividade de Navegação Mobile</button>
     <button class="btn-sectionres" onclick="executar('navegacaotablet')">Responsividade de Navegação Tablet</button>    
   </div>   
 
-  <button style="margin-top: -2px" class="btn-sectionint" onclick="toggleSection('integracao')">🧩 Testes de Integração</button>
+  <button style="margin-top: -2px" class="btn-sectionintt" onclick="toggleSection('integracao')">🧩 Testes de Integração</button>
   <div id="integracao" style="display:none; margin-left:20px;">
     <button class="btn-sectionint" onclick="executar('pessoa_fatura')">Integração Cliente e Faturamento</button>    
     <button class="btn-sectionint" onclick="executar('pessoa_dav')">Integração Cliente e DAV</button>    
