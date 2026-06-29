@@ -30,7 +30,7 @@
   <button style="margin-top: -6px" onclick="executarTodos()">🚀 Executar todos os testes</button>
 
   <button class="btn-sectioncadt" onclick="toggleSection('cadastros')">📋 Testes de Cadastros</button>
-  <div id="cadastros" style="display:none; margin-left:20px;">
+  <div id="cadastros" style="display:none;">
     <button class="btn-sectioncad submenu" onclick="executar('pessoas')">Cadastro de Clientes</button>
     <button class="btn-sectioncad" onclick="executar('fornecedor')">Cadastro de Fornecedores</button>
     <button class="btn-sectioncad" onclick="executar('usuarios')">Cadastro de Usuários</button>
@@ -45,7 +45,7 @@
   </div>
 
   <button class="btn-sectioneditt" onclick="toggleSection('edicoes')">📝 Testes de Edições </button>
-  <div id="edicoes" style="display:none; margin-left:20px;">
+  <div id="edicoes" style="display:none">
     <button class="btn-sectionedit" onclick="executar('edicaopessoas')">Edição de Pessoas</button>        
     <button class="btn-sectionedit" onclick="executar('edicaoprodutos')">Edição de Produtos</button>        
     <button class="btn-sectionedit" onclick="executar('edicaofuncionarios')">Edição de Funcionários</button>        
@@ -57,7 +57,7 @@
   </div> 
 
   <button class="btn-sectionbust" onclick="toggleSection('buscas')">🔍 Testes de Buscas</button>
-  <div id="buscas" style="display:none; margin-left:20px;">
+  <div id="buscas" style="display:none">
     <button class="btn-sectionbus" onclick="executar('buscapessoas', buscas = true) ">Busca Pessoas</button>        
     <button class="btn-sectionbus" onclick="executar('buscaprodutos')">Busca Produtos</button>        
     <button class="btn-sectionbus" onclick="executar('buscafaturamento')">Busca Faturas</button>        
@@ -86,7 +86,7 @@
   </div> 
   
   <button style="margin-top: -2px" class="btn-sectionvalt" onclick="toggleSection('validacoes')">✅ Testes de Validações</button>
-  <div id="validacoes" style="display:none; margin-left:20px;">
+  <div id="validacoes" style="display:none">
     <button class="btn-sectionval" onclick="executar('validacaopessoas')">Validação Dados Pessoas</button>
     <button class="btn-sectionval" onclick="executar('validacaousuarios')">Validação Dados Usuários</button>
     <button class="btn-sectionval" onclick="executar('validacaoperfil')">Validação Dados Perfil de Usuários</button>
@@ -100,7 +100,7 @@
   </div>   
 
   <button style="margin-top: -2px" class="btn-sectiondest" onclick="toggleSection('desempenho')">📊 Testes de Desempenho</button>
-  <div id="desempenho" style="display:none; margin-left:20px;">
+  <div id="desempenho" style="display:none">
     <button class="btn-sectiondes" onclick="executar('desempenhologin')">Desempenho de Login</button>
     <button class="btn-sectiondes" onclick="executar('cadastropessoas')">Desempenho de Cadastro Pessoas</button>    
     <button class="btn-sectiondes" onclick="executar('cadastroprodutos')">Desempenho de Cadastro Produtos</button>    
@@ -115,13 +115,13 @@
   </div>   
 
   <button style="margin-top: -2px" class="btn-sectionrest" onclick="toggleSection('responsividade')">📱 Testes de Responsividade</button>
-  <div id="responsividade" style="display:none; margin-left:20px;">
+  <div id="responsividade" style="display:none">
     <button class="btn-sectionres" onclick="executar('navegacaomobile')">Responsividade de Navegação Mobile</button>
     <button class="btn-sectionres" onclick="executar('navegacaotablet')">Responsividade de Navegação Tablet</button>    
   </div>   
 
   <button style="margin-top: -2px" class="btn-sectionintt" onclick="toggleSection('integracao')">🧩 Testes de Integração</button>
-  <div id="integracao" style="display:none; margin-left:20px;">
+  <div id="integracao" style="display:none">
     <button class="btn-sectionint" onclick="executar('pessoa_fatura')">Integração Cliente e Faturamento</button>    
     <button class="btn-sectionint" onclick="executar('pessoa_dav')">Integração Cliente e DAV</button>    
     <button class="btn-sectionint" onclick="executar('fornecedor_produto')">Integração Fornecedor e Produto</button>    

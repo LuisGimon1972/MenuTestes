@@ -174,14 +174,15 @@ body {
 .btn-sectioncadt {
   background: rgb(15, 102, 119) !important; 
   color: #e5e7eb !important; 
-  margin-top: -6px !important;    
+  margin-top: -6px !important;      
+  border-bottom: 2px solid #000 !important;
 }
 /* adiciona seta no canto direito do botão */
 .btn-sectioncadt::after {
   content: "▼";              /* seta para baixo */
   float: right;              /* posiciona à direita */
   margin-left: 8px;          /* espaço entre texto e seta */
-  font-size: 12px;           /* tamanho da seta */  
+  font-size: 12px;           /* tamanho da seta */    
 }
 
 .btn-sectionbus {
@@ -198,14 +199,14 @@ body {
   background: rgb(30, 58, 138) !important; 
   color: #e5e7eb !important; 
   margin-top: -6px !important;
+  border-bottom: 2px solid #000 !important;
 }
 
 .btn-sectionbust::after {
   content: "▼";              /* seta para baixo */
   float: right;              /* posiciona à direita */
   margin-left: 8px;          /* espaço entre texto e seta */
-  font-size: 12px;           /* tamanho da seta */
-  
+  font-size: 12px;           /* tamanho da seta */  
 }
 
 .btn-sectionedit {
@@ -222,6 +223,7 @@ body {
   background: rgb(20, 125, 146) !important; 
   color: #e5e7eb !important; 
   margin-top: -6px !important;
+  border-bottom: 2px solid #000 !important;
 }
 
 .btn-sectioneditt::after {
@@ -246,6 +248,7 @@ body {
   background: rgb(30, 64, 175) !important; 
   color: #e5e7eb !important; 
   margin-top: -6px !important;
+  border-bottom: 2px solid #000 !important;
 }
 
 .btn-sectionext::after {
@@ -269,6 +272,7 @@ body {
   background: rgb(30, 64, 70) !important; 
   color: #e5e7eb !important; 
   margin-top: -6px !important;
+  border-bottom: 2px solid #000 !important;
 }
 
 .btn-sectionvalt::after {
@@ -292,6 +296,7 @@ body {
   background: rgb(15, 102, 90) !important; 
   color: #e5e7eb !important; 
   margin-top: -6px !important;
+  border-bottom: 2px solid #000 !important;
 }
 
 .btn-sectiondest::after {
@@ -316,6 +321,7 @@ body {
   background: rgb(30, 64, 195) !important; 
   color: #e5e7eb !important; 
   margin-top: -6px !important;
+  border-bottom: 2px solid #000 !important;
 }
 
 .btn-sectionrest::after {
@@ -340,7 +346,7 @@ body {
   background: rgb(1, 46, 54) !important; 
   color: #e5e7eb !important; 
   margin-top: -6px !important;
-  
+  border-bottom: 2px solid #000 !important;
 }
 
 .btn-sectionintt::after {
@@ -359,7 +365,7 @@ body {
   padding: 10px 20px;
   margin-top: -6px !important;
   cursor: pointer;  
-  border-radius: 0 0 7px 7px; /* só os cantos inferiores */
+  
   transition: background-color 0.3s ease;
 }
 
