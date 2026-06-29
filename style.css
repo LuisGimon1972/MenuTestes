@@ -335,8 +335,7 @@ body {
 .btn-sectionint {  
   background: rgb(1, 46, 54) !important; 
   color: #e5e7eb !important; 
-  margin-top: -6px !important;
-  
+  margin-top: -6px !important;  
 }
 .btn-sectionint:hover {
   background: rgb(20, 125, 146) !important; 
@@ -365,7 +364,7 @@ body {
   padding: 10px 20px;
   margin-top: -6px !important;
   cursor: pointer;  
-  
+  border-radius: 0 0 7px 7px  ; /* só os cantos inferiores */
   transition: background-color 0.3s ease;
 }
 
