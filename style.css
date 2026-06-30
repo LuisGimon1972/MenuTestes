@@ -256,7 +256,7 @@ body {
 }
 
 button.ativo {
-  background-color: #333536 !important; /* Cor de destaque */
+  background-color: #0d3244 !important; /* Cor de destaque */
   border-color: #71adee !important;
   color: #fff !important;
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Efeito brilhante opcional */  
