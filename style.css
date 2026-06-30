@@ -192,13 +192,12 @@ body {
 
 .btn-sair {
   background: #3B82F6 !important; 
-  color: #fff !important;               
-  font-weight: bold;
+  color: #fff !important;                 
   border: none;
-  padding: 10px 20px;
-  margin-top: -6px !important;
+  padding: 8px 16px;           
+  margin-top: -6px !important;    
   cursor: pointer;  
-  border-radius: 0 0 10px 0  ; /* só os cantos inferiores */
+  border-radius: 0 0 10px 0;   
   transition: background-color 0.3s ease;
 }
 

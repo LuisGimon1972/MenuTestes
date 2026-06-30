@@ -23,13 +23,68 @@
 <div class="menu">
   <h4 style="text-align: center;">PAINEL DE TESTES</h4>
 
-  <button class = "btn-primeiro" onclick="executar('login')">🔑 Autenticação do Sistema</button>
-  <button style="margin-top: -6px" onclick="executar('seguranca')">🔐 Segurança do Sistema</button>
-  <button style="margin-top: -6px" onclick="executar('integridade')">🛡️ Integridade do Sistema</button>
-  <button style="margin-top: -6px" onclick="executar('navegacao')">🧭 Navegação das Urls</button>
-  <button style="margin-top: -6px" onclick="executarTodos()">🚀 Executar todos os testes</button>
+  <button class="btn-primeiro" onclick="executar('login')" 
+        style="height:32px; line-height:32px; padding:0 10px; font-size:14px;">
+  <table style="width:100%; border-collapse:collapse; height:100%;">
+    <tr>
+      <td style="width:30px; text-align:left;">🔑</td>
+      <td style="text-align:center;">Autenticação do Sistema</td>
+    </tr>
+  </table>
+</button>
 
-  <button class="btn-sectioncadt" onclick="toggleSection('cadastros')">📋 Testes de Cadastros</button>
+  <button style="height:32px; line-height:32px; padding:0 10px; font-size:14px; margin-top:-6px;" 
+        onclick="executar('seguranca')">
+  <table style="width:100%; border-collapse:collapse; height:100%;">
+    <tr>
+      <td style="width:30px; text-align:left;">🔐</td>
+      <td style="text-align:center;">Segurança do Sistema</td>
+    </tr>
+  </table>
+</button>
+
+  <button style="height:32px; line-height:32px; padding:0 10px; font-size:14px; margin-top:-6px;" 
+        onclick="executar('integridade')">
+  <table style="width:100%; border-collapse:collapse; height:100%;">
+    <tr>
+      <td style="width:30px; text-align:left;">🛡️</td>
+      <td style="text-align:center;">Integridade do Sistema</td>
+    </tr>
+  </table>
+</button>
+
+<button style="height:32px; line-height:32px; padding:0 10px; font-size:14px; margin-top:-6px;" 
+        onclick="executar('navegacao')">
+  <table style="width:100%; border-collapse:collapse; height:100%;">
+    <tr>
+      <td style="width:30px; text-align:left;">🧭</td>
+      <td style="text-align:center;">Navegação das Urls</td>
+    </tr>
+  </table>
+</button>
+
+  <button style="height:32px; line-height:32px; padding:0 10px; font-size:14px; margin-top:-6px;" 
+        onclick="executarTodos()">
+  <table style="width:100%; border-collapse:collapse; height:100%;">
+    <tr>
+      <td style="width:30px; text-align:left;">🚀</td>
+      <td style="text-align:center;">Executar todos os testes</td>
+    </tr>
+  </table>
+</button>
+
+
+  <button class="btn-sectioncadt" onclick="toggleSection('cadastros')" 
+        style="height:40px; line-height:32px; padding:0; font-size:14px;">
+    <table style="width:100%; border-collapse:collapse; height:100%;">
+      <tr>
+        <td style="width:30px; margin-left: 10px;">📝</td>
+        <td style="text-align:center;">Testes de Cadastros</td>
+        <td style="width:30px; margin-right: 10px;">▼</td>
+      </tr>
+    </table>
+  </button>
+
   <div id="cadastros" style="display:none;">
     <button class="btn-sectioncad submenu" onclick="executar('pessoas')">Cadastro de Clientes</button>
     <button class="btn-sectioncad" onclick="executar('fornecedor')">Cadastro de Fornecedores</button>
@@ -44,7 +99,16 @@
     <button class="btn-sectioncad" onclick="executar('marcas')">Cadastro de Marcas</button>
   </div>
 
-  <button class="btn-sectioncadt" onclick="toggleSection('edicoes')">📝 Testes de Edições </button>
+  <button class="btn-sectioncadt" onclick="toggleSection('edicoes')" 
+      style="height:40px; line-height:32px; padding:0; font-size:14px;">
+    <table style="width:100%; border-collapse:collapse; height:100%;">
+      <tr>
+        <td style="width:30px; margin-left: 10px;">✏️</td>
+        <td style="text-align:center;">Testes de Edições</td>
+        <td style="width:30px; margin-right: 10px;">▼</td>
+      </tr>
+    </table>
+  </button>
   <div id="edicoes" style="display:none">
     <button class="btn-sectioncad" onclick="executar('edicaopessoas')">Edição de Pessoas</button>        
     <button class="btn-sectioncad" onclick="executar('edicaoprodutos')">Edição de Produtos</button>        
@@ -56,7 +120,16 @@
     <button class="btn-sectioncad" onclick="executar('edicaomarcas')">Edição de Marcas</button>        
   </div> 
 
-  <button class="btn-sectioncadt" onclick="toggleSection('buscas')">🔍 Testes de Buscas</button>
+  <button class="btn-sectioncadt" onclick="toggleSection('buscas')" 
+      style="height:40px; line-height:32px; padding:0; font-size:14px;">
+    <table style="width:100%; border-collapse:collapse; height:100%;">
+      <tr>
+        <td style="width:30px; margin-left: 10px;">🔍</td>
+        <td style="text-align:center;">Testes de Buscas</td>
+        <td style="width:30px; margin-right: 10px;">▼</td>
+      </tr>
+    </table>
+  </button>  
   <div id="buscas" style="display:none">
     <button class="btn-sectioncad" onclick="executar('buscapessoas', buscas = true) ">Busca Pessoas</button>        
     <button class="btn-sectioncad" onclick="executar('buscaprodutos')">Busca Produtos</button>        
@@ -73,7 +146,16 @@
     <button class="btn-sectioncad" onclick="executar('buscafuncionario')">Busca Funcionários</button>            
   </div>   
 
-  <button class="btn-sectioncadt" onclick="toggleSection('exclusoes')">🗑️ Testes de Exclusões</button>
+  <button class="btn-sectioncadt" onclick="toggleSection('exclusoes')" 
+      style="height:40px; line-height:32px; padding:0; font-size:14px;">
+    <table style="width:100%; border-collapse:collapse; height:100%;">
+      <tr>
+        <td style="width:30px; margin-left: 10px;">🗑️</td>
+        <td style="text-align:center;">Testes de Exclusões</td>
+        <td style="width:30px; margin-right: 10px;">▼</td>
+      </tr>
+    </table>
+  </button>    
   <div id="exclusoes" style="display:none">
     <button class="btn-sectioncad" onclick="executar('exclusaopessoas')">Exclusão de Pessoas</button>        
     <button class="btn-sectioncad" onclick="executar('exclusaoprodutos')">Exclusão de Produtos</button>            
@@ -85,7 +167,16 @@
     <button class="btn-sectioncad" onclick="executar('exclusaomarcas')">Exclusão de Marcas</button>            
   </div> 
   
-  <button style="margin-top: -2px" class="btn-sectioncadt" onclick="toggleSection('validacoes')">✅ Testes de Validações</button>
+  <button class="btn-sectioncadt" onclick="toggleSection('validacoes')" 
+      style="height:40px; line-height:32px; padding:0; font-size:14px;">
+    <table style="width:100%; border-collapse:collapse; height:100%;">
+      <tr>
+        <td style="width:30px; margin-left: 10px;">✅</td>
+        <td style="text-align:center;">Testes de Validações</td>
+        <td style="width:30px; margin-right: 10px;">▼</td>
+      </tr>
+    </table>
+  </button>      
   <div id="validacoes" style="display:none">
     <button class="btn-sectioncad" onclick="executar('validacaopessoas')">Validação Dados Pessoas</button>
     <button class="btn-sectioncad" onclick="executar('validacaousuarios')">Validação Dados Usuários</button>
@@ -99,7 +190,16 @@
     <button class="btn-sectioncad" onclick="executar('validacaomarcas')">Validação Dados Marcas</button>    
   </div>   
 
-  <button style="margin-top: -2px" class="btn-sectioncadt" onclick="toggleSection('desempenho')">📊 Testes de Desempenho</button>
+  <button class="btn-sectioncadt" onclick="toggleSection('desempenho')" 
+      style="height:40px; line-height:32px; padding:0; font-size:14px;">
+    <table style="width:100%; border-collapse:collapse; height:100%;">
+      <tr>
+        <td style="width:30px; margin-left: 10px;">📊</td>
+        <td style="text-align:center;">Testes de Desempenho</td>
+        <td style="width:30px; margin-right: 10px;">▼</td>
+      </tr>
+    </table>
+  </button>        
   <div id="desempenho" style="display:none">
     <button class="btn-sectioncad" onclick="executar('desempenhologin')">Desempenho de Login</button>
     <button class="btn-sectioncad" onclick="executar('cadastropessoas')">Desempenho de Cadastro Pessoas</button>    
@@ -114,13 +214,31 @@
     <button class="btn-sectioncad" onclick="executar('desbuscaespecies')">Desempenho de Buscas Espécies</button>    
   </div>   
 
-  <button style="margin-top: -2px" class="btn-sectioncadt" onclick="toggleSection('responsividade')">📱 Testes de Responsividade</button>
+  <button class="btn-sectioncadt" onclick="toggleSection('responsividade')" 
+      style="height:40px; line-height:32px; padding:0; font-size:14px;">
+    <table style="width:100%; border-collapse:collapse; height:100%;">
+      <tr>
+        <td style="width:30px; margin-left: 10px;">📱</td>
+        <td style="text-align:center;">Testes de Responsividade</td>
+        <td style="width:30px; margin-right: 10px;">▼</td>
+      </tr>
+    </table>
+  </button>          
   <div id="responsividade" style="display:none">
     <button class="btn-sectioncad" onclick="executar('navegacaomobile')">Responsividade de Navegação Mobile</button>
     <button class="btn-sectioncad" onclick="executar('navegacaotablet')">Responsividade de Navegação Tablet</button>    
   </div>   
 
-  <button style="margin-top: -2px" class="btn-sectioncadt" onclick="toggleSection('integracao')">🧩 Testes de Integração</button>
+  <button class="btn-sectioncadt" onclick="toggleSection('integracao')" 
+      style="height:40px; line-height:32px; padding:0; font-size:14px;">
+    <table style="width:100%; border-collapse:collapse; height:100%;">
+      <tr>
+        <td style="width:30px; margin-left: 10px;">🧩</td>
+        <td style="text-align:center;">Testes de Integração</td>
+        <td style="width:30px; margin-right: 10px;">▼</td>
+      </tr>
+    </table>
+  </button>            
   <div id="integracao" style="display:none">
     <button class="btn-sectioncad" onclick="executar('pessoa_fatura')">Integração Cliente e Faturamento</button>    
     <button class="btn-sectioncad" onclick="executar('pessoa_dav')">Integração Cliente e DAV</button>    
@@ -133,7 +251,17 @@
     <button class="btn-sectioncad" onclick="executar('produto_dav')">Integração Produto e DAV</button>    
   </div>   
 
-  <button style="margin-top: -2px" class="btn-sair" onclick="sair()">❌ Sair dos Testes</button>  
+  <button class="btn-sair" onclick="sair()" 
+      style="height:40px; line-height:32px; padding:0; font-size:14px;">
+    <table style="width:100%; border-collapse:collapse; height:100%;">
+      <tr>
+        <td style="width:30px; ">❌</td>
+        <td>Sair dos Testes</td>        
+        <td style="width:30px; margin-right: 10px;"></td>
+      </tr>
+    </table>
+  </button>            
+  
 
 </div>
 
