@@ -19,7 +19,7 @@ body {
 /* MENU */
 .menu {
   width: 290px;
-  background: #191A1B; 
+  background: #080147; 
   padding: 15px;
   overflow-y: auto;
   box-shadow: 2px 0 5px rgba(0,0,0,0.3);
@@ -256,7 +256,7 @@ body {
 }
 
 button.ativo {
-  background-color: #333536 !important; /* Cor de destaque */
+  background-color: #09628f !important; /* Cor de destaque */
   border-color: #71adee !important;
   color: #fff !important;
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Efeito brilhante opcional */  
