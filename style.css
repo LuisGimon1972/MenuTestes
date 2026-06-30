@@ -37,7 +37,8 @@ body {
   margin: 5px 0;
   padding: 8px;
   border: 1px solid #374151;
-  background: #2563EB;
+  
+  background: #3B82F6;
   cursor: pointer;
   color: white;
   border: none   
@@ -163,19 +164,23 @@ body {
 }
 
 .btn-sectioncad {   
-  background: rgb(15, 102, 119) !important; 
+  background: #5694f7 !important; 
   color: #e5e7eb !important; 
   margin-top: -6px !important;    
 }
 .btn-sectioncad:hover {
-  background: rgb(20, 125, 146) !important; 
+  background: rgb(21, 136, 250) !important; 
 }
 
 .btn-sectioncadt {
-  background: rgb(15, 102, 119) !important; 
+  background: #3B82F6 !important; 
   color: #e5e7eb !important; 
   margin-top: -6px !important;      
   border-bottom: 2px solid #000 !important;
+}
+
+.btn-sectioncadt:hover {
+  background: rgb(21, 136, 212) !important; 
 }
 /* adiciona seta no canto direito do botão */
 .btn-sectioncadt::after {
@@ -185,186 +190,15 @@ body {
   font-size: 12px;           /* tamanho da seta */    
 }
 
-.btn-sectionbus {
-  background: rgb(30, 58, 138) !important; 
-  color: #e5e7eb !important; 
-  margin-top: -6px !important;
-}
-
-.btn-sectionbus:hover {
-  background: rgb(30, 58, 108) !important; 
-}
-
-.btn-sectionbust {
-  background: rgb(30, 58, 138) !important; 
-  color: #e5e7eb !important; 
-  margin-top: -6px !important;
-  border-bottom: 2px solid #000 !important;
-}
-
-.btn-sectionbust::after {
-  content: "▼";              /* seta para baixo */
-  float: right;              /* posiciona à direita */
-  margin-left: 8px;          /* espaço entre texto e seta */
-  font-size: 12px;           /* tamanho da seta */  
-}
-
-.btn-sectionedit {
-  background: rgb(20, 125, 146) !important; 
-  color: #e5e7eb !important; 
-  margin-top: -6px !important;
-}
-
-.btn-sectionedit:hover {
-  background: rgb(37, 99, 130) !important; 
-}
-
-.btn-sectioneditt {
-  background: rgb(20, 125, 146) !important; 
-  color: #e5e7eb !important; 
-  margin-top: -6px !important;
-  border-bottom: 2px solid #000 !important;
-}
-
-.btn-sectioneditt::after {
-  content: "▼";              /* seta para baixo */
-  float: right;              /* posiciona à direita */
-  margin-left: 8px;          /* espaço entre texto e seta */
-  font-size: 12px;           /* tamanho da seta */
-  
-}
-
-.btn-sectionex {
-  background: rgb(30, 64, 175) !important; 
-  color: #e5e7eb !important; 
-  margin-top: -6px !important;
-}
-
-.btn-sectionex:hover {
-  background: rgb(30, 64, 130) !important; 
-}
-
-.btn-sectionext {
-  background: rgb(30, 64, 175) !important; 
-  color: #e5e7eb !important; 
-  margin-top: -6px !important;
-  border-bottom: 2px solid #000 !important;
-}
-
-.btn-sectionext::after {
-  content: "▼";              /* seta para baixo */
-  float: right;              /* posiciona à direita */
-  margin-left: 8px;          /* espaço entre texto e seta */
-  font-size: 12px;           /* tamanho da seta */  
-}
-
-.btn-sectionval {
-  background: rgb(30, 64, 70) !important; 
-  color: #e5e7eb !important; 
-  margin-top: -6px !important;
-}
-
-.btn-sectionval:hover {
-  background: rgb(30, 64, 90) !important; 
-}
-
-.btn-sectionvalt {
-  background: rgb(30, 64, 70) !important; 
-  color: #e5e7eb !important; 
-  margin-top: -6px !important;
-  border-bottom: 2px solid #000 !important;
-}
-
-.btn-sectionvalt::after {
-  content: "▼";              /* seta para baixo */
-  float: right;              /* posiciona à direita */
-  margin-left: 8px;          /* espaço entre texto e seta */
-  font-size: 12px;           /* tamanho da seta */  
-}
-
-.btn-sectiondes {
-  background: rgb(15, 102, 90) !important; 
-  color: #e5e7eb !important; 
-  margin-top: -6px !important;
-}
-
-.btn-sectiondes:hover {
-  background: rgb(30, 64, 90) !important; 
-}
-
-.btn-sectiondest {
-  background: rgb(15, 102, 90) !important; 
-  color: #e5e7eb !important; 
-  margin-top: -6px !important;
-  border-bottom: 2px solid #000 !important;
-}
-
-.btn-sectiondest::after {
-  content: "▼";              /* seta para baixo */
-  float: right;              /* posiciona à direita */
-  margin-left: 8px;          /* espaço entre texto e seta */
-  font-size: 12px;           /* tamanho da seta */
-  
-}
-
-.btn-sectionres {
-  background: rgb(30, 64, 195) !important; 
-  color: #e5e7eb !important; 
-  margin-top: -6px !important;
-}
-
-.btn-sectionres:hover {
-  background: rgb(30, 64, 150) !important; 
-}
-
-.btn-sectionrest {
-  background: rgb(30, 64, 195) !important; 
-  color: #e5e7eb !important; 
-  margin-top: -6px !important;
-  border-bottom: 2px solid #000 !important;
-}
-
-.btn-sectionrest::after {
-  content: "▼";              /* seta para baixo */
-  float: right;              /* posiciona à direita */
-  margin-left: 8px;          /* espaço entre texto e seta */
-  font-size: 12px;           /* tamanho da seta */
-  
-}
-
-.btn-sectionint {  
-  background: rgb(1, 46, 54) !important; 
-  color: #e5e7eb !important; 
-  margin-top: -6px !important;  
-}
-.btn-sectionint:hover {
-  background: rgb(20, 125, 146) !important; 
-}
-
-.btn-sectionintt {  
-  background: rgb(1, 46, 54) !important; 
-  color: #e5e7eb !important; 
-  margin-top: -6px !important;
-  border-bottom: 2px solid #000 !important;
-}
-
-.btn-sectionintt::after {
-  content: "▼";              /* seta para baixo */
-  float: right;              /* posiciona à direita */
-  margin-left: 8px;          /* espaço entre texto e seta */
-  font-size: 12px;           /* tamanho da seta */
-  
-}
-
 .btn-sair {
-  background-color: rgb(192, 57, 43) !important; 
+  background: #3B82F6 !important; 
   color: #fff !important;               
   font-weight: bold;
   border: none;
   padding: 10px 20px;
   margin-top: -6px !important;
   cursor: pointer;  
-  border-radius: 0 0 7px 7px  ; /* só os cantos inferiores */
+  border-radius: 0 0 10px 0  ; /* só os cantos inferiores */
   transition: background-color 0.3s ease;
 }
 
@@ -373,10 +207,10 @@ body {
   margin: 5px 0;
   padding: 8px;
   border: none;
-  background: #2563EB !important;
+  background: #3B82F6 !important;
   cursor: pointer;
   color: white !important;
-  border-radius: 7px 7px 0 0 ; /* só os cantos inferiores */
+  border-radius: 0 10px 0 0 ; /* só os cantos inferiores */
 }
 
 .btn-primeiro:hover {
