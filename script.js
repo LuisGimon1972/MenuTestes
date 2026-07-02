@@ -167,8 +167,17 @@ function toggleSection(id) {
 }
 
 function limparLogs() {
-   document.getElementById("log").textContent = "";
-  }
+ if(document.getElementById("log").textContent != "")
+ {
+    document.getElementById("log").textContent = "";
+    showToast("🧹 Logs removidos com sucesso!", "success");
+    return;
+ }
+ else{
+    showToast("⚠️ Nenhum log encontrado para limpeza.", "error");
+    return;
+ }   
+ }
 
 function sair() {
   
@@ -191,7 +200,7 @@ function showToast(message, type = "success") {
 function downloadLogs() {
   const logContent = document.getElementById("log").innerText;  
   if (!logContent.trim()) {
-    showToast("⚠ Não há logs para descarregar!", "error");
+    showToast("⚠️ Não há logs para descarregar!", "error");
     return;
   }  
   const now = new Date();
@@ -210,7 +219,6 @@ function downloadLogs() {
   URL.revokeObjectURL(url);
   showToast("✅ Logs descarregados com sucesso!");
 }
-
 
 async function executarTodos() {
 
