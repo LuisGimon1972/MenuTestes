@@ -184,7 +184,7 @@ body {
 }
 
 .btn-sectioncadt:hover {
-  background: rgb(21, 136, 212) !important; 
+  background: #1D4ED8!important; 
 }
 /* adiciona seta no canto direito do botão */
 .btn-sectioncadt::after {
