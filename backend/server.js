@@ -76,6 +76,7 @@ app.post('/executar', (req, res) => {
     exclusaoprodutos: 'npx playwright test tests/exclusao/exclusaoprodutos.spec.ts --headed',    
     exclusaofuncionarios: 'npx playwright test tests/exclusao/exclusaofuncionarios.spec.ts --headed',    
     exclusaousuarios: 'npx playwright test tests/exclusao/exclusaousuarios.spec.ts --headed',    
+    exclusaoperfil: 'npx playwright test tests/exclusao/exclusaoperfil.spec.ts --headed',    
     exclusaoespecies: 'npx playwright test tests/exclusao/exclusaoespecies.spec.ts --headed',    
     exclusaocotacao: 'npx playwright test tests/exclusao/exclusaocotacao.spec.ts --headed',    
     exclusaogrupos: 'npx playwright test tests/exclusao/exclusaogrupos.spec.ts --headed',    
