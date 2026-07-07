@@ -13,17 +13,23 @@ body {
 /* 🔥 ocupa tela toda */
 .container {
   display: flex;
-  height: 100vh;
+  margin-top: 60px;      /* altura do header */
+  margin-left: 290px;    /* largura do menu */
+  height: calc(100vh - 60px);
 }
 
 /* MENU */
 .menu {
+  position: fixed;       /* fixa na lateral */
+  top: 60px;             /* abaixo do header (ajuste conforme altura do header) */
+  left: 0;
   width: 290px;
   background: #0b0264; 
   padding: 15px;
   overflow-y: auto;
-  border-radius: 0 15px 0 0 ; /* só os cantos inferiores */
+  border-radius: 0 45px 0 0;
   box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+  height: calc(100vh - 60px); /* ocupa altura da tela menos o header */
 }
 
 /* título do menu */
@@ -73,6 +79,7 @@ body {
 
 .btn-descarregar {
   background-color:  #245bf1;
+  margin-left: -10px;
   color: #fff;
   border: none;
   padding: 8px 14px;
@@ -88,7 +95,7 @@ body {
 }
 
 .btn-limpar {
-  background-color: rgb(192, 57, 43); 
+  background-color: rgb(192, 57, 43);   
   color: #fff;
   border: none;
   padding: 8px 14px;
@@ -109,12 +116,16 @@ body {
 }
 
 .header {
-  position: relative;
+  position: fixed;       /* fixa no topo */
+  top: 0;
+  left: 0;
+  width: 100%;           /* ocupa toda a largura */
   display: flex;
   align-items: center;
   background: #080147;
   color: #fff;
   padding: 15px 15px;
+  z-index: 1000;         /* garante que fique acima do conteúdo */
 }
 
 /* título central */
@@ -140,7 +151,7 @@ body {
 
 /* banner */
 .marquee {
-  margin-left: 950px;
+  margin-left: 970px;
   overflow: hidden;
   white-space: nowrap;
   background: #080147;
