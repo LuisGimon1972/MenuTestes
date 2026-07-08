@@ -63,14 +63,16 @@ body {
   font-family: Arial;
   padding: 15px;
   border-radius: 8px;
+  margin-left: 10px !important;
 }
 
 #log {
   width: 1580px;
+  margin-left: 10px !important;
   height: calc(100vh - 60px); 
   background: #f5f7f8;
   font-family: Arial;
-  font-size: 14px;
+  font-size: 16px;
   color: #04205c;
   padding: 10px;
   overflow-y: auto;
@@ -79,7 +81,7 @@ body {
 
 .btn-descarregar {
   background-color:  #245bf1;
-  margin-left: -10px;
+  margin-left: 800px  !important;
   color: #fff;
   border: none;
   padding: 8px 14px;
@@ -96,6 +98,7 @@ body {
 
 .btn-limpar {
   background-color: rgb(192, 57, 43);   
+  margin-left: 10px  !important;
   color: #fff;
   border: none;
   padding: 8px 14px;

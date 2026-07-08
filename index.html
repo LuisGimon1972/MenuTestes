@@ -273,17 +273,21 @@
 
 </div>
 
-  <div class="logs">    
-  <div style="display: flex; justify-content: space-between; align-items: center; margin: 35px; ">
+  
+  <div style="display: flex; justify-content: space-between; align-items: center; margin: 35px; position: fixed; ">
     <h4 style ="margin-left: 35px; margin-top: 2px;">🖥️ EXECUÇÃO E MONITORAMENTO DE TESTES</h4>
     <div style="display: flex; gap: 15px;">
       <button class="btn-descarregar" onclick="downloadLogs()">📥 Descarregar Logs</button>
       <button class="btn-limpar" onclick="limparLogs()">🧹 Limpar Logs</button>
     </div>
-  </div>
+  
 
-  <pre id="log"style="margin-left:50px;  margin-top: -45px;"></pre>
+  
 </div>
+<div class="log">
+  <pre id="log"style="margin-top: 50px;"></pre>
+</div>
+
 <div class="toast" id="toast"></div>
 
 
