@@ -81,7 +81,7 @@ body {
 
 .btn-descarregar {
   background-color:  #245bf1;
-  margin-left: 800px  !important;
+  margin-left: 40px  !important;
   color: #fff;
   border: none;
   padding: 8px 14px;
@@ -98,7 +98,7 @@ body {
 
 .btn-limpar {
   background-color: rgb(192, 57, 43);   
-  margin-left: 10px  !important;
+  margin-left: 5px  !important;
   color: #fff;
   border: none;
   padding: 8px 14px;
@@ -129,6 +129,19 @@ body {
   color: #fff;
   padding: 15px 15px;
   z-index: 1000;         /* garante que fique acima do conteúdo */
+}
+
+.execucao {
+  position: fixed;       /* fixa no topo */
+  top: 53px;
+  left: 284px;
+  width: 83%;           /* ocupa toda a largura */
+  display: flex;
+  align-items: left;
+  background: #0b0264; 
+  color: #fff;
+  padding: 9px 10px;
+  z-index: 600;         /* garante que fique acima do conteúdo */
 }
 
 /* título central */
