@@ -62,7 +62,7 @@ const comandos = {
   funcionarios: "Cadastro de Funcionários",
   produtos: "Cadastro de Produtos",
   faturamento: "Cadastro de Vendas",
-  compras: "Cadastro de Compras",
+  compra: "Cadastro de Compras",
   especies: "Cadastro de Espécies",
   cotacao: "Cadastro de Cotação de moedas",
   grupos: "Cadastro de Grupos",
@@ -239,7 +239,7 @@ async function executarTodos() {
   
   const comandos = [
     'login', 'seguranca','integridade', 'navegacao', 'pessoas', 'fornecedor',
-    'usuarios','perfil', 'funcionarios','produtos', 'faturamento', 'compras', 'especies','cotacao',
+    'usuarios','perfil', 'funcionarios','produtos', 'faturamento', 'compra', 'especies','cotacao',
     'grupos','subgrupos','marcas', 'edicaopessoas', 
     'edicaoprodutos', 'edicaofuncionarios','edicaocotacao','edicaoespecies',  
     'edicaogrupos','edicaosubgrupos', 'edicaomarcas',
