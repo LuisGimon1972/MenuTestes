@@ -22,6 +22,7 @@ function limparCache() {
 }
 
 app.post('/executar', (req, res) => {
+  
   const { cmd } = req.body
 
   const comandos = {
