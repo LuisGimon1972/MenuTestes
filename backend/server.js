@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import { spawn } from 'child_process'
+import { exec } from 'child_process'
 import fs from 'fs'
 import path from 'path'
 
@@ -108,33 +108,19 @@ app.post('/executar', (req, res) => {
     todos: 'npx playwright test --headed'
   }
 
-    const comando = comandos[cmd]
-  if (!comando) {
-    return res.status(400).send('Comando inválido!')
-  }
+  const comando = comandos[cmd]
 
-  limparCache()
-
-  const [programa, ...args] = comando.split(' ')
-  const processo = spawn(programa, args, { cwd: 'C:/SGMWPyTestes', shell: true })
-
-  res.writeHead(200, {
-    'Content-Type': 'text/plain',
-    'Transfer-Encoding': 'chunked'
-  })
-
-  processo.stdout.on('data', (data) => {
-    res.write(data.toString()) 
-  })
-
-  processo.stderr.on('data', (data) => {
-    res.write(data.toString()) 
-  })
-
-  processo.on('close', (code) => {
-    res.write(`\nProcesso finalizado!`)
-    res.end()
+    if (!comando) {
+    return res.status(400).send('Comando inválido')
+  }  
+  limparCache()  
+  exec(comando, { cwd: 'C:/SGMWPyTestes', shell: true }, (err, stdout, stderr) => {    
     limparCache()
+    if (err) {
+      console.error(err)
+      return res.status(500).send(err.message)
+    }
+    res.send(stdout || 'Sem retorno')
   })
 })
 
