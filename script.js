@@ -151,6 +151,7 @@ let resultadoCmd = comandos[cmd] || "Comando não encontrado";
 
   } catch (err) {
     log.innerText += '❌ Erro: ' + err.message + '\n'
+    showToast("⚠️ Não foi possível conectar ao servidor de testes!", "error");
   }
 
   log.scrollTop = log.scrollHeight
