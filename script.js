@@ -13,7 +13,7 @@ async function executar(cmd) {
 
   const relacaoComandoSecao = {
       pessoas: "cadastros", fornecedor: "cadastros", usuarios: "cadastros", perfil: "cadastros",
-      funcionarios: "cadastros", produtos: "cadastros", especies: "cadastros", cotacao: "cadastros",
+      funcionarios: "cadastros", produtos: "cadastros", faturamento: "cadastros", dav: "cadastros", compra: "cadastros", especies: "cadastros", cotacao: "cadastros",
       grupos: "cadastros", subgrupos: "cadastros", marcas: "cadastros",
       validacaopessoas: "validacoes", validacaoprodutos: "validacoes", validacaofuncionarios: "validacoes",
       validacaoespecies: "validacoes", validacaousuarios: "validacoes", validacaocotacao: "validacoes",
@@ -62,6 +62,7 @@ const comandos = {
   funcionarios: "Cadastro de Funcionários",
   produtos: "Cadastro de Produtos",
   faturamento: "Cadastro de Vendas",
+  dav: "Cadastro de DAV",
   compra: "Cadastro de Compras",
   especies: "Cadastro de Espécies",
   cotacao: "Cadastro de Cotação de moedas",
@@ -240,7 +241,7 @@ async function executarTodos() {
   
   const comandos = [
     'login', 'seguranca','integridade', 'navegacao', 'pessoas', 'fornecedor',
-    'usuarios','perfil', 'funcionarios','produtos', 'faturamento', 'compra', 'especies','cotacao',
+    'usuarios','perfil', 'funcionarios','produtos', 'faturamento', 'dav', 'compra', 'especies','cotacao',
     'grupos','subgrupos','marcas', 'edicaopessoas', 
     'edicaoprodutos', 'edicaofuncionarios','edicaocotacao','edicaoespecies',  
     'edicaogrupos','edicaosubgrupos', 'edicaomarcas',
