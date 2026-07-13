@@ -20,7 +20,7 @@ async function executar(cmd) {
       validacaoperfil: "validacoes", validacaogrupos: "validacoes", validacaosubgrupos: "validacoes", validacaomarcas: "validacoes",
       edicaopessoas: "edicoes", edicaofuncionarios: "edicoes", edicaoprodutos: "edicoes",
       edicaoespecies: "edicoes", edicaocotacao: "edicoes", edicaogrupos: "edicoes",
-      edicaosubgrupos: "edicoes", edicaomarcas: "edicoes", finalizarvenda: "finalizacoes",
+      edicaosubgrupos: "edicoes", edicaomarcas: "edicoes", finalizarvenda: "finalizacao",
       exclusaopessoas: "exclusoes", exclusaoprodutos: "exclusoes", exclusaofuncionarios: "exclusoes",
       exclusaoespecies: "exclusoes", exclusaocotacao: "exclusoes", exclusaogrupos: "exclusoes",
       exclusaosubgrupos: "exclusoes", exclusaomarcas: "exclusoes",
@@ -158,7 +158,7 @@ let resultadoCmd = comandos[cmd] || "Comando não encontrado";
 }
 
 function toggleSection(id) {
-  const sections = ["cadastros", "validacoes", "edicoes", "exclusoes", "buscas", "desempenho", "responsividade", "integracao", "finalizacoes"];
+  const sections = ["cadastros", "validacoes", "edicoes", "exclusoes", "buscas", "desempenho", "responsividade", "integracao", "finalizacao"];
   
   sections.forEach(sec => {
     const el = document.getElementById(sec);
