@@ -55,7 +55,7 @@ const comandos = {
   seguranca: "Segurança do Sistema",
   integridade:"Integridade do Sistema",
   navegacao: "Navegação do Sistema",  
-  pessoas: "Cadastro de Pessoas",
+  pessoas: "Cadastro de Clientes",
   fornecedor: "Cadastro de Fornecedores",
   usuarios: "Cadastro de Usuários",
   perfil: "Cadastro de Perfil de Acesso",
