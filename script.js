@@ -20,7 +20,7 @@ async function executar(cmd) {
       validacaoperfil: "validacoes", validacaogrupos: "validacoes", validacaosubgrupos: "validacoes", validacaomarcas: "validacoes",
       edicaopessoas: "edicoes", edicaofuncionarios: "edicoes", edicaoprodutos: "edicoes",
       edicaoespecies: "edicoes", edicaocotacao: "edicoes", edicaogrupos: "edicoes",
-      edicaosubgrupos: "edicoes", edicaomarcas: "edicoes",
+      edicaosubgrupos: "edicoes", edicaomarcas: "edicoes", finalizarvenda: "finalizacoes",
       exclusaopessoas: "exclusoes", exclusaoprodutos: "exclusoes", exclusaofuncionarios: "exclusoes",
       exclusaoespecies: "exclusoes", exclusaocotacao: "exclusoes", exclusaogrupos: "exclusoes",
       exclusaosubgrupos: "exclusoes", exclusaomarcas: "exclusoes",
