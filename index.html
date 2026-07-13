@@ -128,6 +128,20 @@
     <button class="btn-sectioncad" onclick="executar('edicaomarcas')">Edição de Marcas</button>        
   </div> 
 
+  <button class="btn-sectioncadt" onclick="toggleSection('finalizacoes')" 
+      style="height:40px; line-height:32px; padding:0; font-size:14px;">
+    <table style="width:100%; border-collapse:collapse; height:100%;">
+      <tr>
+        <td style="width:30px; margin-left: 10px;">✏️</td>
+        <td style="text-align:center;">Testes de Finalização de Faturas</td>
+        <td style="width:30px; margin-right: 10px;">▼</td>
+      </tr>
+    </table>
+  </button>
+  <div id="finalizacoes" style="display:none">
+    <button class="btn-sectioncad" onclick="executar('finalizarvenda')">Finalização de Vendas</button>            
+  </div> 
+
   <button class="btn-sectioncadt" onclick="toggleSection('buscas')" 
       style="height:40px; line-height:32px; padding:0; font-size:14px;">
     <table style="width:100%; border-collapse:collapse; height:100%;">

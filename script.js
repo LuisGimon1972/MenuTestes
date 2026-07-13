@@ -45,10 +45,8 @@ async function executar(cmd) {
         const el = document.getElementById(sec);
         if (el) el.style.display = (sec === secaoAlvo) ? "block" : "none";
       });
-    } 
-  
-
-  
+    }  
+ 
 
 const comandos = {
   login: "Autenticação do Sistema",
@@ -100,6 +98,7 @@ const comandos = {
   edicaogrupos:"Edição de Dados Grupos",
   edicaosubgrupos:"Edição de Dados Subgrupos",
   edicaomarcas:"Edição de Dados Marcas",
+  finalizarvenda:"Finalizar fatura de venda",
   exclusaopessoas:"Exclusão de Dados Pessoas",
   exclusaoprodutos:"Exclusão de Dados Protutos",
   exclusaofuncionarios:"Exclusão de Dados Funcionários",
@@ -159,7 +158,7 @@ let resultadoCmd = comandos[cmd] || "Comando não encontrado";
 }
 
 function toggleSection(id) {
-  const sections = ["cadastros", "validacoes", "edicoes", "exclusoes", "buscas", "desempenho", "responsividade", "integracao"];
+  const sections = ["cadastros", "validacoes", "edicoes", "exclusoes", "buscas", "desempenho", "responsividade", "integracao", "finalizacoes"];
   
   sections.forEach(sec => {
     const el = document.getElementById(sec);
@@ -244,7 +243,7 @@ async function executarTodos() {
     'usuarios','perfil', 'funcionarios','produtos', 'faturamento', 'dav', 'compra', 'especies','cotacao',
     'grupos','subgrupos','marcas', 'edicaopessoas', 
     'edicaoprodutos', 'edicaofuncionarios','edicaocotacao','edicaoespecies',  
-    'edicaogrupos','edicaosubgrupos', 'edicaomarcas',
+    'edicaogrupos','edicaosubgrupos', 'edicaomarcas', 'finalizarvenda',
     'buscapessoas', 'buscaprodutos', 'buscafaturamento', 
     'buscadav', 'buscalote', 'buscausuarios','buscaperfil', 'buscaespecies',
     'buscacotacao', 'buscagrupos', 'buscasubgrupos', 'buscamarcas', 'buscafuncionario',          
