@@ -9,7 +9,6 @@ body {
   background: #1F2937;
 }
 
-
 /* 🔥 ocupa tela toda */
 .container {
   display: flex;
@@ -81,7 +80,6 @@ body {
 
 .btn-descarregar {
   background-color:  #245bf1;
-  margin-left: 40px  !important;
   color: #fff;
   border: none;
   padding: 8px 14px;
@@ -98,7 +96,6 @@ body {
 
 .btn-limpar {
   background-color: rgb(192, 57, 43);   
-  margin-left: 5px  !important;
   color: #fff;
   border: none;
   padding: 8px 14px;
@@ -131,17 +128,34 @@ body {
   z-index: 1000;         /* garante que fique acima do conteúdo */
 }
 
+/* --- EXECUÇÃO DESKTOP CORRIGIDA --- */
 .execucao {
   position: fixed;       /* fixa no topo */
   top: 53px;
   left: 284px;
-  width: 83%;           /* ocupa toda a largura */
+  width: 90%;           /* ocupa toda a largura */
   display: flex;
-  align-items: left;
+  align-items: center;
+  justify-content: space-between; /* Alinha o título à esquerda e joga os botões para a extrema direita */
   background: #0b0264; 
   color: #fff;
-  padding: 9px 10px;
-  z-index: 600;         /* garante que fique acima do conteúdo */
+  padding: 14px 10px;
+  z-index: 600;         
+  margin: 30px;         
+  box-sizing: border-box;
+}
+
+.execucao h4 {
+  margin-left: 20px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+/* Container de botões Desktop */
+.botoes-log-container {
+  display: flex;
+  gap: 10px;
+  margin-right: 180px; /* Margem do canto direito para não colar na borda da tela */
 }
 
 /* título central */
@@ -205,7 +219,7 @@ body {
 
 .btn-sectioncadt {
   background: #3B82F6 !important; 
-  color: white-space !important; 
+  color: white !important; 
   margin-top: -6px !important;      
   border-bottom: 2px solid #1071f0 !important;
 }
@@ -296,5 +310,40 @@ button.ativo {
 .classpara
 {
  font-size: 18px !important; 
- margin-top: 10px !important;;
+ margin-top: 10px !important;
+}
+
+
+@media screen and (max-width: 820px) {
+  .execucao {
+    display: flex !important;
+    flex-direction: row !important;   /* Título e botões na mesma linha */
+    align-items: center !important;
+    justify-content: flex-start !important; /* 🔥 Tudo alinhado à esquerda */
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .execucao h4 {
+    margin: 0 !important;
+    font-size: 10px !important;
+    white-space: nowrap !important;
+  }
+
+  .botoes-log-container {
+    display: flex !important;
+    justify-content: left important; /* 🔥 Botões à esquerda */
+    align-items: center !important;
+    gap: 4px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 5px !important; /* Não ocupar 100% */
+    margin-left: -50px !important;
+  }
+
+  .btn-descarregar, .btn-limpar {
+    margin: 0 !important;
+    padding: 5px 8px !important;
+    font-size: 8px !important;
+  }
 }

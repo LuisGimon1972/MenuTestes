@@ -287,13 +287,12 @@
   </button>            
 </div>
   
-  <div class="execucao" style="display: flex; justify-content: left; align-items: center; margin: 30px; position: fixed; ">
-    <h4 style ="margin-left: 20px; margin-top: 2px;">🖥️ EXECUÇÃO E MONITORAMENTO DE TESTES</h4>
-    <div style="display: flex; gap: 10px; margin-left: 800px">
-      <button class="btn-descarregar" onclick="downloadLogs()">📥 Descarregar Logs</button>
-      <button class="btn-limpar" onclick="limparLogs()">🧹 Limpar Logs</button>
-    </div> 
-  
+<div class="execucao">
+  <h4>🖥️ EXECUÇÃO E MONITORAMENTO DE TESTES</h4>
+  <div class="botoes-log-container">
+    <button class="btn-descarregar" onclick="downloadLogs()">📥 Download Logs</button>
+    <button class="btn-limpar" onclick="limparLogs()">🧹 Limpar Logs</button>
+  </div> 
 </div>
 <div class="log">
   <pre id="log"style="margin-top: 50px;"></pre>
