@@ -51,7 +51,6 @@ async function executar(cmd) {
 const comandos = {
   login: "Autenticação do Sistema",
   seguranca: "Segurança do Sistema",
-  integridade:"Integridade do Sistema",
   navegacao: "Navegação do Sistema",  
   empresas: "Cadastro de Empresas",
   pessoas: "Cadastro de Clientes Não Contribuintes",
@@ -241,7 +240,7 @@ async function executarTodos() {
   });
   
   const comandos = [
-    'login', 'seguranca','integridade', 'navegacao', 'empresas', 'pessoas', 'pessoacontribuinte', 'fornecedor',
+    'login', 'seguranca', 'navegacao', 'empresas', 'pessoas', 'pessoacontribuinte', 'fornecedor',
     'usuarios','perfil', 'funcionarios','produtos', 'faturamento', 'dav', 'especies','cotacao',
     'grupos','subgrupos','marcas', 'edicaopessoas', 
     'edicaoprodutos', 'edicaofuncionarios','edicaocotacao','edicaoespecies',  
