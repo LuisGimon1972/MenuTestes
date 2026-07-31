@@ -14,7 +14,7 @@ async function executar(cmd) {
   const relacaoComandoSecao = {
       empresas: "cadastros", pessoas: "cadastros", pessoacontribuinte: "Cadastros", fornecedor: "cadastros", usuarios: "cadastros", perfil: "cadastros",
       funcionarios: "cadastros", produtos: "cadastros", pagar: "cadastros", rebeber: "cadastros", caixa: "cadastros", bancos: "cadastros",
-      faturamento: "cadastros", dav: "cadastros", especies: "cadastros", cotacao: "cadastros",
+      vendas: "cadastros", dav: "cadastros", especies: "cadastros", cotacao: "cadastros",
       grupos: "cadastros", subgrupos: "cadastros", marcas: "cadastros",
       validacaopessoas: "validacoes", validacaoprodutos: "validacoes", validacaofuncionarios: "validacoes",
       validacaoespecies: "validacoes", validacaousuarios: "validacoes", validacaocotacao: "validacoes",
@@ -65,7 +65,7 @@ const comandos = {
   receber: "Cadastro de Recebimento",
   caixa: "Cadastro do Caixa",
   bancos: "Cadastro de Bancos",
-  faturamento: "Cadastro de Vendas",
+  vendas: "Cadastro de Vendas",
   dav: "Cadastro de DAV",  
   especies: "Cadastro de Espécies",
   cotacao: "Cadastro de Cotação de moedas",
@@ -246,7 +246,7 @@ async function executarTodos() {
   
   const comandos = [
     'login', 'seguranca', 'navegacao', 'empresas', 'pessoas', 'pessoacontribuinte', 'fornecedor',
-    'usuarios','perfil', 'funcionarios','produtos', 'pagar', 'receber', 'caixa', 'bancos', 'faturamento', 'dav', 'especies','cotacao',
+    'usuarios','perfil', 'funcionarios','produtos', 'pagar', 'receber', 'caixa', 'bancos', 'vendas', 'dav', 'especies','cotacao',
     'grupos','subgrupos','marcas', 'edicaopessoas', 
     'edicaoprodutos', 'edicaofuncionarios','edicaocotacao','edicaoespecies',  
     'edicaogrupos','edicaosubgrupos', 'edicaomarcas', 'finalizarvenda', 'compra',
