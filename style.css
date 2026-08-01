@@ -181,7 +181,7 @@ body {
 
 /* banner */
 .marquee {
-  margin-left: 970px;
+  margin-left: 1040px;
   overflow: hidden;
   white-space: nowrap;
   background: #080147;
@@ -204,7 +204,7 @@ body {
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(-200%);
+    transform: translateX(-300%);
   }
 }
 
