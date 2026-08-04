@@ -45,6 +45,7 @@ app.post('/executar', (req, res) => {
     subgrupos: 'npx playwright test tests/cadastros/subgrupo.spec.ts --headed',         
     marcas: 'npx playwright test tests/cadastros/marca.spec.ts --headed',     
     centrocusto: 'npx playwright test tests/cadastros/centrocusto.spec.ts --headed',     
+    planoconta: 'npx playwright test tests/cadastros/planoconta.spec.ts --headed',     
     pagar: 'npx playwright test tests/cadastros/pagar.spec.ts --headed',
     receber: 'npx playwright test tests/cadastros/receber.spec.ts --headed',
     caixa: 'npx playwright test tests/cadastros/caixa.spec.ts --headed',
