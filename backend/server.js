@@ -48,6 +48,7 @@ app.post('/executar', (req, res) => {
     grupos: 'npx playwright test tests/cadastros/grupo.spec.ts --headed',
     subgrupos: 'npx playwright test tests/cadastros/subgrupo.spec.ts --headed',     
     marcas: 'npx playwright test tests/cadastros/marca.spec.ts --headed',     
+    centrocusto: 'npx playwright test tests/cadastros/centrocusto.spec.ts --headed',     
     validacaopessoas: 'npx playwright test tests/validacoes/validacaopessoas.spec.ts --headed',
     validacaoprodutos: 'npx playwright test tests/validacoes/validacaoprodutos.spec.ts --headed',
     validacaofuncionarios: 'npx playwright test tests/validacoes/validacaofuncionarios.spec.ts --headed',
