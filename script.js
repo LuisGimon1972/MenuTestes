@@ -41,7 +41,7 @@ async function executar(cmd) {
 
     const secaoAlvo = relacaoComandoSecao[cmd];
     if (secaoAlvo) {
-      const sections = ["cadastros", "validacoes", "edicoes", "exclusoes", "buscas", "desempenho", "responsividade", "integracao"];
+      const sections = ["cadastros", "cadastrosbas", "cadastrosfin", "validacoes", "edicoes", "exclusoes", "buscas", "desempenho", "responsividade", "integracao"];
       sections.forEach(sec => {
         const el = document.getElementById(sec);
         if (el) el.style.display = (sec === secaoAlvo) ? "block" : "none";
@@ -165,7 +165,7 @@ let resultadoCmd = comandos[cmd] || "Comando não encontrado";
 }
 
 function toggleSection(id) {
-  const sections = ["cadastros", "validacoes", "edicoes", "exclusoes", "buscas", "desempenho", "responsividade", "integracao", "finalizacao"];
+  const sections = ["cadastros", "cadastrosbas", "cadastrosfin", "validacoes", "edicoes", "exclusoes", "buscas", "desempenho", "responsividade", "integracao", "finalizacao"];
   
   sections.forEach(sec => {
     const el = document.getElementById(sec);
@@ -239,7 +239,7 @@ async function executarTodos() {
   
   const btnTodos = document.querySelector(`button[onclick*='executarTodos']`);
 
-  const sections = ["cadastros", "validacoes", "edicoes", "exclusoes", "buscas", "desempenho", "responsividade", "integracao"];
+  const sections = ["cadastros", "cadastrosfin", "validacoes", "edicoes", "exclusoes", "buscas", "desempenho", "responsividade", "integracao"];
   sections.forEach(sec => {
     const el = document.getElementById(sec);
     if (el) el.style.display = "none";

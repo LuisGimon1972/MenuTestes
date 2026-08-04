@@ -74,7 +74,7 @@
     <table style="width:100%; border-collapse:collapse; height:100%;">
       <tr>
         <td style="width:30px; margin-left: 10px;">📝</td>
-        <td style="text-align:center;">Testes de Cadastros</td>
+        <td style="text-align:center;">Testes de Cadastros Principais</td>
         <td style="width:30px; margin-right: 10px;">▼</td>
       </tr>
     </table>
@@ -85,22 +85,48 @@
     <button class="btn-sectioncad submenu" onclick="executar('pessoas')">Cadastro de Clientes Não Contribuintes</button>
     <button class="btn-sectioncad submenu" onclick="executar('pessoacontribuinte')">Cadastro de Clientes Contribuintes</button>
     <button class="btn-sectioncad" onclick="executar('fornecedor')">Cadastro de Fornecedores</button>
+    <button class="btn-sectioncad" onclick="executar('produtos')">Cadastro de Produtos</button>        
     <button class="btn-sectioncad" onclick="executar('usuarios')">Cadastro de Usuários</button>
     <button class="btn-sectioncad" onclick="executar('perfil')">Cadastro de Perfil de Acesso</button>
-    <button class="btn-sectioncad" onclick="executar('funcionarios')">Cadastro de Funcionários</button>
-    <button class="btn-sectioncad" onclick="executar('produtos')">Cadastro de Produtos</button>
-    <button class="btn-sectioncad" onclick="executar('pagar')">Cadastro de Pagamento</button>
-    <button class="btn-sectioncad" onclick="executar('receber')">Cadastro de Recebimento</button>
-    <button class="btn-sectioncad" onclick="executar('caixa')">Cadastro do Caixa</button>
-    <button class="btn-sectioncad" onclick="executar('bancos')">Cadastro de Bancos</button>
-    <button class="btn-sectioncad" onclick="executar('vendas')">Cadastro de Vendas</button>
-    <button class="btn-sectioncad" onclick="executar('dav')">Cadastro de DAV</button>    
+    <button class="btn-sectioncad" onclick="executar('funcionarios')">Cadastro de Funcionários</button>    
+  </div>
+
+  <button class="btn-sectioncadt" onclick="toggleSection('cadastrosbas')" 
+        style="height:40px; line-height:32px; padding:0; font-size:14px;">
+    <table style="width:100%; border-collapse:collapse; height:100%;">
+      <tr>
+        <td style="width:30px; margin-left: 10px;">📝</td>
+        <td style="text-align:center;">Testes de Cadastros Básicos</td>
+        <td style="width:30px; margin-right: 10px;">▼</td>
+      </tr>
+    </table>
+  </button>
+
+  <div id="cadastrosbas" style="display:none;">
     <button class="btn-sectioncad" onclick="executar('especies')">Cadastro de Espécies</button>
     <button class="btn-sectioncad" onclick="executar('cotacao')">Cadastro de Cotação Moedas</button>
     <button class="btn-sectioncad" onclick="executar('grupos')">Cadastro de Grupos</button>
     <button class="btn-sectioncad" onclick="executar('subgrupos')">Cadastro de Subgrupos</button>
     <button class="btn-sectioncad" onclick="executar('marcas')">Cadastro de Marcas</button>
     <button class="btn-sectioncad" onclick="executar('centrocusto')">Cadastro de Centro de Custo</button>
+  </div>
+
+  <button class="btn-sectioncadt" onclick="toggleSection('cadastrosfin')" 
+        style="height:40px; line-height:32px; padding:0; font-size:14px;">
+    <table style="width:100%; border-collapse:collapse; height:100%;">
+      <tr>
+        <td style="width:30px; margin-left: 10px;">📝</td>
+        <td style="text-align:center;">Testes de Cadastros Financeiros</td>
+        <td style="width:30px; margin-right: 10px;">▼</td>
+      </tr>
+    </table>
+  </button>
+
+  <div id="cadastrosfin" style="display:none;">    
+    <button class="btn-sectioncad" onclick="executar('pagar')">Cadastro de Pagamento</button>
+    <button class="btn-sectioncad" onclick="executar('receber')">Cadastro de Recebimento</button>
+    <button class="btn-sectioncad" onclick="executar('caixa')">Cadastro do Caixa</button>
+    <button class="btn-sectioncad" onclick="executar('bancos')">Cadastro de Bancos</button>    
   </div>
 
   <button class="btn-sectioncadt" onclick="toggleSection('edicoes')" 
