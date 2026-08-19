@@ -87,6 +87,7 @@ app.post('/executar', (req, res) => {
     edicaomarcas: 'npx playwright test tests/edicao/edicaomarcas.spec.ts --headed',        
     finalizarvenda: 'npx playwright test tests/finalizacao/finalizarvenda.spec.ts --headed',    
     finalizardav: 'npx playwright test tests/finalizacao/finalizardav.spec.ts --headed',    
+    importardav: 'npx playwright test tests/finalizacao/importardav.spec.ts --headed',    
     compra: 'npx playwright test tests/finalizacao/compra.spec.ts --headed',    
     exclusaopessoas: 'npx playwright test tests/exclusao/exclusaopessoas.spec.ts --headed',    
     exclusaoprodutos: 'npx playwright test tests/exclusao/exclusaoprodutos.spec.ts --headed',    
