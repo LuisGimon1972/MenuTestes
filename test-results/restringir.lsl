@@ -1,9 +1,9 @@
 // CONFIGURAÇÕES PADRÃO
 string status = "Disponível";
 integer preco = 500;
-integer dias = 7;
+integer dias = 5;
 
-// CANAIS DE MENU, TEXTBOX E CONFIRMAÇÃO
+// CANAIS DE MENU E CONFIRMAÇÃO
 integer canalMenu = -999;
 integer canalFluxoCadastro = -555;
 integer canalConfirmacaoBloqueio = -777;
@@ -29,7 +29,6 @@ key clientePagouID = NULL_KEY;
 integer valorPagoPendente = 0;
 integer aguardandoConfirmacao = FALSE;
 integer prontoParaConfirmar = FALSE; 
-integer aguardandoBloqueio = FALSE;
 
 // FUNÇÃO AUXILIAR: Formata o Unix Timestamp para "DD/MM/AAAA HH:MM"
 string formatarDataHora(integer timestamp)
@@ -95,15 +94,15 @@ atualizarTexto()
     {
         if (aguardandoConfirmacao)
         {
-            llSetText("--- AGUARDANDO CONFIRMAÇÃO ---\nPagamento de: " + llKey2Name(clientePagouID) + " (L$ " + (string)valorPagoPendente + ")\n[ Dono precisa confirmar no Menu ]", <1.0, 0.5, 0.0>, 1.0);
+            llSetText("🟡 AGUARDANDO CONFIRMAÇÃO\nPagamento de: " + llKey2Name(clientePagouID) + " (L$ " + (string)valorPagoPendente + ")\n[ Dono precisa confirmar no Menu ]", <1.0, 0.5, 0.0>, 1.0);
         }
         else if (prontoParaConfirmar)
         {
-            llSetText("--- CADASTRO PREPARADO ---\nOcupante: " + tempOcupante + " | L$ " + (string)tempValor + "\n[ Clique em 'Confirmar' no menu ]", <1.0, 0.5, 0.0>, 1.0);
+            llSetText("✅ CADASTRO PREPARADO\nOcupante: " + tempOcupante + " | L$ " + (string)tempValor + " (" + (string)tempTempo + " dias)\n[ Clique em 'Confirmar' no menu ]", <1.0, 0.5, 0.0>, 1.0);
         }
         else
         {
-            llSetText("--- PROPRIEDADE DISPONÍVEL ---\nValor: L$ " + (string)preco + " (" + (string)dias + " dias)", <0.0, 1.0, 0.0>, 1.0);
+            llSetText("🟢 PROPRIEDADE DISPONÍVEL\nValor: L$ " + (string)preco + " (" + (string)dias + " dias)", <0.0, 1.0, 0.0>, 1.0);
             llSetPayPrice(PAY_HIDE, [preco, PAY_HIDE, PAY_HIDE, PAY_HIDE]);
         }
     }
@@ -117,11 +116,11 @@ atualizarTexto()
         
         string dataVencFormatada = formatarDataHora(dataVencimento);
 
-        llSetText("--- PROPRIEDADE OCUPADA ---\nVencimento: " + dataVencFormatada + "\nOcupante: " + locatarioNome + " | Valor: L$ " + (string)preco + "\nTempo Restante: " + (string)d + " dias e " + (string)h + " horas", <1.0, 0.0, 0.0>, 1.0);
+        llSetText("🔴 PROPRIEDADE OCUPADA\nVencimento: " + dataVencFormatada + "\nOcupante: " + locatarioNome + " | Valor: L$ " + (string)preco + "\nTempo Restante: " + (string)d + " dias e " + (string)h + " horas", <1.0, 0.0, 0.0>, 1.0);
     }
     else if (status == "Bloqueada")
     {
-        llSetText("--- PROPRIEDADE BLOQUEADA ---\n[ Acesso restrito ]", <1.0, 0.0, 0.0>, 1.0);
+        llSetText("🚫 PROPRIEDADE BLOQUEADA\n[ Acesso restrito ]", <1.0, 0.0, 0.0>, 1.0);
     }
 }
 
@@ -256,7 +255,6 @@ default
     {
         if (channel == canalMenu)
         {
-            // Validação 1: Impede Cadastrar se já estiver Ocupado ou com cadastro salvo pendente de confirmação
             if (message == "Cadastrar" && (status == "Ocupada" || prontoParaConfirmar))
             {
                 if (status == "Ocupada")
@@ -266,7 +264,6 @@ default
                 return;
             }
 
-            // Validação 2: Impede Confirmar se o imóvel estiver Ocupado sem nenhuma pendência
             if (message == "Confirmar" && status == "Ocupada")
             {
                 llOwnerSay("⚠️ Ação negada: O imóvel já está ocupado.");
@@ -276,6 +273,8 @@ default
             if (message == "Cadastrar")
             {
                 etapaCadastro = 1;
+                tempValor = preco; 
+                tempTempo = dias;  
                 llTextBox(id, "Passo 1/3: Digite o nome do OCUPANTE:", canalFluxoCadastro);
             }
             else if (message == "Confirmar")
@@ -397,49 +396,63 @@ default
             {
                 string nomeInformado = llStringTrim(message, STRING_TRIM);
                 
-                // Validação para evitar nome em branco
                 if (nomeInformado == "")
                 {
-                    llTextBox(id, "⚠️ Nome inválido!\nDigite o nome do OCUPANTE (não pode ser vazio):", canalFluxoCadastro);
-                    return; // Mantém na etapa 1 aguardando um nome válido
+                    llTextBox(id, "⚠️ Nome inválido!\nDigite o nome do OCUPANTE:", canalFluxoCadastro);
+                    return;
                 }
 
                 tempOcupante = llToUpper(nomeInformado);
                 etapaCadastro = 2;
-                llTextBox(id, "Passo 2/3: Digite o VALOR em L$ (maior que 0):", canalFluxoCadastro);
+                
+                // Substituído por menu de botões mostrando o valor anterior com destaque
+                llDialog(id, "Passo 2/3: Escolha o VALOR em L$\n(Valor Atual: L$ " + (string)tempValor + ")", [(string)tempValor, "Outro...", "Cancelar"], canalFluxoCadastro);
             }
             else if (etapaCadastro == 2)
             {
-                integer valorInformado = (integer)message;
-                
-                // Validação para evitar valor zerado ou negativo
-                if (valorInformado <= 0)
+                if (message == "Outro...")
                 {
-                    llTextBox(id, "⚠️ Valor inválido!\nDigite um VALOR em L$ maior que 0:", canalFluxoCadastro);
-                    return; // Mantém na etapa 2 aguardando um valor válido
+                    llTextBox(id, "Digite o novo VALOR em L$:", canalFluxoCadastro);
                 }
+                else if (message == "Cancelar")
+                {
+                    etapaCadastro = 0;
+                    llOwnerSay("❌ Cadastro cancelado.");
+                }
+                else
+                {
+                    // Se clicou no botão com o valor anterior ou digitou algo válido
+                    integer valorInformado = (integer)message;
+                    if (valorInformado > 0) tempValor = valorInformado;
 
-                tempValor = valorInformado;
-                etapaCadastro = 3;
-                llTextBox(id, "Passo 3/3: Digite o TEMPO (entre 1 e 365 dias):", canalFluxoCadastro);
+                    etapaCadastro = 3;
+                    // Substituído por menu de botões mostrando o tempo anterior com destaque
+                    llDialog(id, "Passo 3/3: Escolha o TEMPO em dias\n(Tempo Atual: " + (string)tempTempo + " dias)", [(string)tempTempo, "Outro...", "Cancelar"], canalFluxoCadastro);
+                }
             }
             else if (etapaCadastro == 3)
             {
-                integer diasInformados = (integer)message;
-                
-                // Validação do tempo mínimo (1 dia) e máximo (365 dias)
-                if (diasInformados < 1 || diasInformados > 365)
+                if (message == "Outro...")
                 {
-                    llTextBox(id, "⚠️ Tempo inválido!\nDigite um TEMPO entre 1 e 365 dias:", canalFluxoCadastro);
-                    return; // Mantém na etapa 3 aguardando um valor válido
+                    llTextBox(id, "Digite o novo TEMPO em dias:", canalFluxoCadastro);
                 }
+                else if (message == "Cancelar")
+                {
+                    etapaCadastro = 0;
+                    llOwnerSay("❌ Cadastro cancelado.");
+                }
+                else
+                {
+                    // Se clicou no botão com o tempo anterior ou digitou algo válido
+                    integer diasInformados = (integer)message;
+                    if (diasInformados >= 1 && diasInformados <= 365) tempTempo = diasInformados;
 
-                tempTempo = diasInformados;
-                etapaCadastro = 0;
-                prontoParaConfirmar = TRUE; 
+                    etapaCadastro = 0;
+                    prontoParaConfirmar = TRUE; 
 
-                atualizarTexto();
-                llOwnerSay("📝 Dados salvos temporariamente!\n- Ocupante: " + tempOcupante + "\n- Valor: L$ " + (string)tempValor + "\n- Tempo: " + (string)tempTempo + " dias\n👉 Vá ao menu e clique em 'Confirmar' para efetivar a Ocupação.");
+                    atualizarTexto();
+                    llOwnerSay("📝 Dados configurados!\n- Ocupante: " + tempOcupante + "\n- Valor: L$ " + (string)tempValor + "\n- Tempo: " + (string)tempTempo + " dias\n👉 Clique em 'Confirmar' no menu principal para efetivar.");
+                }
             }
         }
     }
@@ -450,7 +463,7 @@ default
         {
             clientePagouID = id;
             valorPagoPendente = amount;
-            aguardandoConfirmacao = TRUE;
+            aguardandoConfirmacao = TRUE; 
             
             atualizarTexto();
             llRegionSayTo(id, 0, "Pagamento recebido! Aguardando confirmação do proprietário.");
