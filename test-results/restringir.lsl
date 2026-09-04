@@ -356,7 +356,6 @@ default
             }
             else if (message == "Restringir")
             {
-                // Pergunta de confirmação antes de restringir/bloquear de fato
                 llDialog(id, "⚠️ TEM CERTEZA QUE DESEJA RESTRIGIR/BLOQUEAR O IMÓVEL?\nIsso vai encerrar a locação atual (se houver).", ["Sim", "Não"], canalConfirmacaoBloqueio);
             }
             else if (message == "Fechar")
@@ -396,19 +395,46 @@ default
         {
             if (etapaCadastro == 1)
             {
-                tempOcupante = message;
+                string nomeInformado = llStringTrim(message, STRING_TRIM);
+                
+                // Validação para evitar nome em branco
+                if (nomeInformado == "")
+                {
+                    llTextBox(id, "⚠️ Nome inválido!\nDigite o nome do OCUPANTE (não pode ser vazio):", canalFluxoCadastro);
+                    return; // Mantém na etapa 1 aguardando um nome válido
+                }
+
+                tempOcupante = llToUpper(nomeInformado);
                 etapaCadastro = 2;
-                llTextBox(id, "Passo 2/3: Digite o VALOR em L$:", canalFluxoCadastro);
+                llTextBox(id, "Passo 2/3: Digite o VALOR em L$ (maior que 0):", canalFluxoCadastro);
             }
             else if (etapaCadastro == 2)
             {
-                tempValor = (integer)message;
+                integer valorInformado = (integer)message;
+                
+                // Validação para evitar valor zerado ou negativo
+                if (valorInformado <= 0)
+                {
+                    llTextBox(id, "⚠️ Valor inválido!\nDigite um VALOR em L$ maior que 0:", canalFluxoCadastro);
+                    return; // Mantém na etapa 2 aguardando um valor válido
+                }
+
+                tempValor = valorInformado;
                 etapaCadastro = 3;
-                llTextBox(id, "Passo 3/3: Digite o TEMPO (em dias):", canalFluxoCadastro);
+                llTextBox(id, "Passo 3/3: Digite o TEMPO (entre 1 e 365 dias):", canalFluxoCadastro);
             }
             else if (etapaCadastro == 3)
             {
-                tempTempo = (integer)message;
+                integer diasInformados = (integer)message;
+                
+                // Validação do tempo mínimo (1 dia) e máximo (365 dias)
+                if (diasInformados < 1 || diasInformados > 365)
+                {
+                    llTextBox(id, "⚠️ Tempo inválido!\nDigite um TEMPO entre 1 e 365 dias:", canalFluxoCadastro);
+                    return; // Mantém na etapa 3 aguardando um valor válido
+                }
+
+                tempTempo = diasInformados;
                 etapaCadastro = 0;
                 prontoParaConfirmar = TRUE; 
 
