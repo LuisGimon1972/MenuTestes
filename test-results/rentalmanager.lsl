@@ -1,39 +1,39 @@
-// CONFIGURAÇÕES PADRÃO
-string status = "Disponível";
+// DEFAULT SETTINGS
+string status = "Available";
 integer preco = 500;
 integer dias = 5;
 
-// CANAIS DE MENU E CONFIRMAÇÃO
+// MENU AND CONFIRMATION CHANNELS
 integer canalMenu = -999;
 integer canalFluxoCadastro = -555;
 integer canalConfirmacaoBloqueio = -777;
 
-// DADOS DO CLIENTE / OCUPANTE E PENDÊNCIA
+// CLIENT / OCCUPANT DATA AND PENDING STATUS
 key locatarioID = NULL_KEY;
-string locatarioNome = "Nenhum";
+string locatarioNome = "None";
 integer dataVencimento = 0;
 
-// HISTÓRICO DE INQUILINOS E VALORES
-string historicoInquilinos = "Nenhum registro anterior.";
+// TENANT AND VALUE HISTORY
+string historicoInquilinos = "No previous records.";
 integer totalArrecadadoGeral = 0;
 
-// Variáveis temporárias para o fluxo de cadastro
+// Temporary variables for registration flow
 string tempOcupante = "";
 integer tempValor = 0;
 integer tempTempo = 0;
 integer etapaCadastro = 0; 
 
-// Variáveis de controle de pendência
+// Pending status control variables
 string nomeTemporario = "";
 key clientePagouID = NULL_KEY;
 integer valorPagoPendente = 0;
 integer aguardandoConfirmacao = FALSE;
 integer prontoParaConfirmar = FALSE; 
 
-// FUNÇÃO AUXILIAR: Formata o Unix Timestamp para "DD/MM/AAAA HH:MM"
+// HELPER FUNCTION: Formats Unix Timestamp to "DD/MM/YYYY HH:MM"
 string formatarDataHora(integer timestamp)
 {
-    integer tempoLocal = timestamp - 10800; // GMT-3 (Brasil)
+    integer tempoLocal = timestamp - 10800; // GMT-3 (Brazil)
     if (tempoLocal < 0) tempoLocal = 0;
 
     integer ano = 1970;
@@ -87,26 +87,26 @@ string formatarDataHora(integer timestamp)
     return sDia + "/" + sMes + "/" + (string)ano + " " + sHora + ":" + sMinuto;
 }
 
-// FUNÇÃO: Atualiza o Texto Flutuante
+// FUNCTION: Updates Floating Text
 atualizarTexto()
 {
-    if (status == "Disponível")
+    if (status == "Available")
     {
         if (aguardandoConfirmacao)
         {
-            llSetText("🟡 AGUARDANDO CONFIRMAÇÃO\nPagamento de: " + llKey2Name(clientePagouID) + " (L$ " + (string)valorPagoPendente + ")\n[ Dono precisa confirmar no Menu ]", <1.0, 0.5, 0.0>, 1.0);
+            llSetText("🟡 AWAITING CONFIRMATION\nPayment from: " + llKey2Name(clientePagouID) + " (L$ " + (string)valorPagoPendente + ")\n[ Owner must confirm in Menu ]", <1.0, 0.5, 0.0>, 1.0);
         }
         else if (prontoParaConfirmar)
         {
-            llSetText("✅ CADASTRO PREPARADO\nOcupante: " + tempOcupante + " | L$ " + (string)tempValor + " (" + (string)tempTempo + " dias)\n[ Clique em 'Confirmar' no menu ]", <1.0, 0.5, 0.0>, 1.0);
+            llSetText("✅ REGISTRATION READY\nOccupant: " + tempOcupante + " | L$ " + (string)tempValor + " (" + (string)tempTempo + " days)\n[ Click 'Confirm' in the menu ]", <1.0, 0.5, 0.0>, 1.0);
         }
         else
         {
-            llSetText("🟢 PROPRIEDADE DISPONÍVEL\nValor: L$ " + (string)preco + " (" + (string)dias + " dias)", <0.0, 1.0, 0.0>, 1.0);
+            llSetText("🟢 PROPERTY AVAILABLE\nPrice: L$ " + (string)preco + " (" + (string)dias + " days)", <0.0, 1.0, 0.0>, 1.0);
             llSetPayPrice(PAY_HIDE, [preco, PAY_HIDE, PAY_HIDE, PAY_HIDE]);
         }
     }
-    else if (status == "Ocupada")
+    else if (status == "Occupied")
     {
         integer tempoRestante = dataVencimento - llGetUnixTime();
         if (tempoRestante < 0) tempoRestante = 0;
@@ -117,22 +117,22 @@ atualizarTexto()
         string dataVencFormatada = formatarDataHora(dataVencimento);
 
         llSetText(
-        "🔴 PROPRIEDADE OCUPADA\n"
-        + "Ocupante: " + locatarioNome + "\n"
-        + "Aluguel: L$ " + (string)preco + "\n"
-        + "Vencimento: " + dataVencFormatada + "\n"
-        + "Tempo Restante: " + (string)d + " dias e " + (string)h + " horas",
+        "🔴 PROPERTY OCCUPIED\n"
+        + "Occupant: " + locatarioNome + "\n"
+        + "Rent: L$ " + (string)preco + "\n"
+        + "Expires: " + dataVencFormatada + "\n"
+        + "Time Remaining: " + (string)d + " days and " + (string)h + " hours",
         <1.0, 0.0, 0.0>,
         1.0
         );
     }
-    else if (status == "Bloqueada")
+    else if (status == "Blocked")
     {
-        llSetText("🚫 PROPRIEDADE BLOQUEADA\n[ Acesso restrito ]", <1.0, 0.0, 0.0>, 1.0);
+        llSetText("🚫 PROPERTY BLOCKED\n[ Restricted access ]", <1.0, 0.0, 0.0>, 1.0);
     }
 }
 
-// FUNÇÃO: Salva os dados na memória interna
+// FUNCTION: Saves data to internal memory
 salvarDadosInquilino()
 {
     llLinksetDataWrite("status", status);
@@ -148,7 +148,7 @@ salvarDadosInquilino()
     llLinksetDataWrite("totalArrecadadoGeral", (string)totalArrecadadoGeral);
 }
 
-// FUNÇÃO: Carrega os dados salvos
+// FUNCTION: Loads saved data
 carregarDadosInquilino()
 {
     if (llLinksetDataRead("status") != "")
@@ -172,10 +172,10 @@ carregarDadosInquilino()
     }
 }
 
-// FUNÇÃO: Adiciona ao histórico
+// FUNCTION: Adds to history
 adicionarAoHistorico(string nomeAntigo, integer valorPago)
 {
-    if (nomeAntigo != "Nenhum" && nomeAntigo != "")
+    if (nomeAntigo != "None" && nomeAntigo != "")
     {
         totalArrecadadoGeral += valorPago;
 
@@ -189,9 +189,9 @@ adicionarAoHistorico(string nomeAntigo, integer valorPago)
         }
         registro += "L$ " + (string)valorPago;
 
-        if (historicoInquilinos == "Nenhum registro anterior.")
+        if (historicoInquilinos == "No previous records.")
         {
-            historicoInquilinos = "OCUPANTE       VALOR\n" + registro;
+            historicoInquilinos = "OCCUPANT       PRICE\n" + registro;
         }
         else
         {
@@ -207,7 +207,7 @@ default
         llSetObjectName("Rental Manager v1.00");
         carregarDadosInquilino();
         
-        if (status == "Ocupada") llSetTimerEvent(60.0);
+        if (status == "Occupied") llSetTimerEvent(60.0);
         
         llListen(canalMenu, "", llGetOwner(), "");
         llListen(canalFluxoCadastro, "", llGetOwner(), "");
@@ -222,39 +222,39 @@ default
 
         if (avatarID == llGetOwner())
         {
-            list botoes = ["Histórico", "Fechar", "Restringir", "Cadastrar", "Confirmar", "Liberar"];
+            list botoes = ["History", "Close", "Restrict", "Register", "Confirm", "Release"];
             
-            string mensagemPainel = "Painel de Controle do Imóvel\n\n" +
+            string mensagemPainel = "Property Control Panel\n\n" +
                                     "👤 " + locatarioNome + "\n" +
                                     "💰 L$ " + (string)preco + "\n" +
-                                    "⏱️ " + (string)dias + " dias\n" +
-                                    "📅 Vencimento: " + formatarDataHora(dataVencimento) + "\n" +
-                                    "📊 Total Arrecadado: L$ " + (string)totalArrecadadoGeral + "\n" +
+                                    "⏱️ " + (string)dias + " days\n" +
+                                    "📅 Expires: " + formatarDataHora(dataVencimento) + "\n" +
+                                    "📊 Total Collected: L$ " + (string)totalArrecadadoGeral + "\n" +
                                     "📌 Status: " + status;
             
             if (aguardandoConfirmacao)
             {
-                mensagemPainel = "🚨 PAGAMENTO PENDENTE DE: " + llKey2Name(clientePagouID) + " (L$ " + (string)valorPagoPendente + ")\nClique em 'Confirmar' para aceitar.";
+                mensagemPainel = "🚨 PENDING PAYMENT FROM: " + llKey2Name(clientePagouID) + " (L$ " + (string)valorPagoPendente + ")\nClick 'Confirm' to accept.";
             }
             else if (prontoParaConfirmar)
             {
-                mensagemPainel = "📝 CADASTRO PRONTO PARA EFETIVAR!\n- Ocupante: " + tempOcupante + "\n- Valor: L$ " + (string)tempValor + "\n- Tempo: " + (string)tempTempo + " dias\nClique em 'Confirmar' para mudar para Ocupada.";
+                mensagemPainel = "📝 REGISTRATION READY TO APPLY!\n- Occupant: " + tempOcupante + "\n- Price: L$ " + (string)tempValor + "\n- Time: " + (string)tempTempo + " days\nClick 'Confirm' to change to Occupied.";
             }
 
             llDialog(avatarID, mensagemPainel, botoes, canalMenu);
         }
         else
         {
-            if (status == "Disponível")
+            if (status == "Available")
             {
                 if (aguardandoConfirmacao || prontoParaConfirmar)
-                    llRegionSayTo(avatarID, 0, "Esta propriedade está aguardando finalização pelo proprietário.");
+                    llRegionSayTo(avatarID, 0, "This property is awaiting finalization by the owner.");
                 else
-                    llRegionSayTo(avatarID, 0, "Para alugar, clique com o botão direito na propriedade e escolha 'Pagar' (L$ " + (string)preco + ").");
+                    llRegionSayTo(avatarID, 0, "To rent, right-click the property and choose 'Pay' (L$ " + (string)preco + ").");
             }
             else
             {
-                llRegionSayTo(avatarID, 0, "Esta propriedade já está alugada.");
+                llRegionSayTo(avatarID, 0, "This property is already rented.");
             }
         }
     }
@@ -263,33 +263,33 @@ default
     {
         if (channel == canalMenu)
         {
-            if (message == "Cadastrar" && (status == "Ocupada" || prontoParaConfirmar))
+            if (message == "Register" && (status == "Occupied" || prontoParaConfirmar))
             {
-                if (status == "Ocupada")
-                    llOwnerSay("⚠️ Ação negada: O imóvel está ocupado. Libere-o primeiro.");
+                if (status == "Occupied")
+                    llOwnerSay("⚠️ Action denied: The property is occupied. Release it first.");
                 else
-                    llOwnerSay("⚠️ Ação negada: Já existe um cadastro salvo aguardando confirmação.");
+                    llOwnerSay("⚠️ Action denied: There is already a saved registration awaiting confirmation.");
                 return;
             }
 
-            if (message == "Confirmar" && status == "Ocupada")
+            if (message == "Confirm" && status == "Occupied")
             {
-                llOwnerSay("⚠️ Ação negada: O imóvel já está ocupado.");
+                llOwnerSay("⚠️ Action denied: The property is already occupied.");
                 return;
             }
 
-            if (message == "Cadastrar")
+            if (message == "Register")
             {
                 etapaCadastro = 1;
                 tempValor = preco; 
                 tempTempo = dias;  
-                llTextBox(id, "Passo 1/3: Digite o nome do OCUPANTE:", canalFluxoCadastro);
+                llTextBox(id, "Step 1/3: Type the OCCUPANT's name:", canalFluxoCadastro);
             }
-            else if (message == "Confirmar")
+            else if (message == "Confirm")
             {
                 if (prontoParaConfirmar)
                 {
-                    if (locatarioNome != "Nenhum" && locatarioNome != "") 
+                    if (locatarioNome != "None" && locatarioNome != "") 
                         adicionarAoHistorico(locatarioNome, preco);
 
                     locatarioNome = tempOcupante;
@@ -297,7 +297,7 @@ default
                     dias = tempTempo;
                     locatarioID = NULL_KEY;
 
-                    status = "Ocupada";
+                    status = "Occupied";
                     dataVencimento = llGetUnixTime() + (dias * 86400);
                     
                     prontoParaConfirmar = FALSE;
@@ -307,11 +307,11 @@ default
                     llSetTimerEvent(60.0);
                     atualizarTexto();
 
-                    llOwnerSay("✅ Status alterado para OCUPADA! Ocupante: " + locatarioNome + " (L$ " + (string)preco + ")");
+                    llOwnerSay("✅ Status changed to OCCUPIED! Occupant: " + locatarioNome + " (L$ " + (string)preco + ")");
                 }
                 else if (aguardandoConfirmacao || nomeTemporario != "")
                 {
-                    if (locatarioNome != "Nenhum" && locatarioNome != "") 
+                    if (locatarioNome != "None" && locatarioNome != "") 
                         adicionarAoHistorico(locatarioNome, preco);
 
                     if (nomeTemporario != "") locatarioNome = nomeTemporario;
@@ -321,7 +321,7 @@ default
 
                     if (valorPagoPendente > 0) preco = valorPagoPendente;
 
-                    status = "Ocupada";
+                    status = "Occupied";
                     dataVencimento = llGetUnixTime() + (dias * 86400);
                     aguardandoConfirmacao = FALSE;
                     nomeTemporario = "";
@@ -330,22 +330,22 @@ default
                     llSetTimerEvent(60.0);
                     atualizarTexto();
 
-                    llOwnerSay("✅ Aluguel efetivado para: " + locatarioNome + " (L$ " + (string)preco + ")");
-                    if (locatarioID != NULL_KEY) llRegionSayTo(locatarioID, 0, "Sua locação foi confirmada pelo proprietário!");
+                    llOwnerSay("✅ Rent finalized for: " + locatarioNome + " (L$ " + (string)preco + ")");
+                    if (locatarioID != NULL_KEY) llRegionSayTo(locatarioID, 0, "Your rental has been confirmed by the owner!");
                 }
                 else
                 {
-                    llOwnerSay("⚠️ Nenhuma pendência ou cadastro aguardando confirmação.");
+                    llOwnerSay("⚠️ No pending issues or registrations awaiting confirmation.");
                 }
             }
-            else if (message == "Liberar")
+            else if (message == "Release")
             {
-                if (locatarioNome != "Nenhum" && status != "Bloqueada") 
+                if (locatarioNome != "None" && status != "Blocked") 
                     adicionarAoHistorico(locatarioNome, preco);
 
-                status = "Disponível";
+                status = "Available";
                 locatarioID = NULL_KEY;
-                locatarioNome = "Nenhum";
+                locatarioNome = "None";
                 dataVencimento = 0;
                 nomeTemporario = "";
                 aguardandoConfirmacao = FALSE;
@@ -355,17 +355,17 @@ default
                 llSetTimerEvent(0.0);
                 salvarDadosInquilino();
                 atualizarTexto();
-                llOwnerSay("Imóvel liberado e salvo no histórico. Status: Disponível.");
+                llOwnerSay("Property released and saved in history. Status: Available.");
             }
-            else if (message == "Histórico")
+            else if (message == "History")
             {
-                llOwnerSay("📜 HISTÓRICO DE OCUPANTES:\n\n" + historicoInquilinos + "\n----------------------------------\nTOTAL         L$ " + (string)totalArrecadadoGeral);
+                llOwnerSay("📜 OCCUPANT HISTORY:\n\n" + historicoInquilinos + "\n----------------------------------\nTOTAL         L$ " + (string)totalArrecadadoGeral);
             }
-            else if (message == "Restringir")
+            else if (message == "Restrict")
             {
-                llDialog(id, "⚠️ TEM CERTEZA QUE DESEJA RESTRIGIR/BLOQUEAR O IMÓVEL?\nIsso vai encerrar a locação atual (se houver).", ["Sim", "Não"], canalConfirmacaoBloqueio);
+                llDialog(id, "⚠️ ARE YOU SURE YOU WANT TO RESTRICT/BLOCK THE PROPERTY?\nThis will end the current rental (if any).", ["Yes", "No"], canalConfirmacaoBloqueio);
             }
-            else if (message == "Fechar")
+            else if (message == "Close")
             {
                 aguardandoConfirmacao = FALSE;
                 prontoParaConfirmar = FALSE;
@@ -374,28 +374,28 @@ default
                 nomeTemporario = "";
                 tempOcupante = "";
                 atualizarTexto();
-                llOwnerSay("❌ Operação pendente descartada.");
+                llOwnerSay("❌ Pending operation discarded.");
             }
         }
         else if (channel == canalConfirmacaoBloqueio)
         {
-            if (message == "Sim")
+            if (message == "Yes")
             {
-                if (locatarioNome != "Nenhum" && status == "Ocupada") 
+                if (locatarioNome != "None" && status == "Occupied") 
                     adicionarAoHistorico(locatarioNome, preco);
 
-                status = "Bloqueada";
+                status = "Blocked";
                 locatarioID = NULL_KEY;
-                locatarioNome = "Bloqueado";
+                locatarioNome = "Blocked";
                 dataVencimento = 0;
                 salvarDadosInquilino();
                 llSetTimerEvent(0.0);
                 atualizarTexto();
-                llOwnerSay("🔒 Imóvel restrito/bloqueado com sucesso.");
+                llOwnerSay("🔒 Property successfully restricted/blocked.");
             }
             else
             {
-                llOwnerSay("❌ Operação de restrição cancelada.");
+                llOwnerSay("❌ Restriction operation canceled.");
             }
         }
         else if (channel == canalFluxoCadastro)
@@ -406,52 +406,48 @@ default
                 
                 if (nomeInformado == "")
                 {
-                    llTextBox(id, "⚠️ Nome inválido!\nDigite o nome do OCUPANTE:", canalFluxoCadastro);
+                    llTextBox(id, "⚠️ Invalid name!\nType the OCCUPANT's name:", canalFluxoCadastro);
                     return;
                 }
 
                 tempOcupante = llToUpper(nomeInformado);
                 etapaCadastro = 2;
                 
-                // Substituído por menu de botões mostrando o valor anterior com destaque
-                llDialog(id, "Passo 2/3: Escolha o VALOR em L$\n(Valor Atual: L$ " + (string)tempValor + ")", [(string)tempValor, "Outro...", "Cancelar"], canalFluxoCadastro);
+                llDialog(id, "Step 2/3: Choose the PRICE in L$\n(Current Price: L$ " + (string)tempValor + ")", [(string)tempValor, "Other...", "Cancel"], canalFluxoCadastro);
             }
             else if (etapaCadastro == 2)
             {
-                if (message == "Outro...")
+                if (message == "Other...")
                 {
-                    llTextBox(id, "Digite o novo VALOR em L$:", canalFluxoCadastro);
+                    llTextBox(id, "Type the new PRICE in L$:", canalFluxoCadastro);
                 }
-                else if (message == "Cancelar")
+                else if (message == "Cancel")
                 {
                     etapaCadastro = 0;
-                    llOwnerSay("❌ Cadastro cancelado.");
+                    llOwnerSay("❌ Registration canceled.");
                 }
                 else
                 {
-                    // Se clicou no botão com o valor anterior ou digitou algo válido
                     integer valorInformado = (integer)message;
                     if (valorInformado > 0) tempValor = valorInformado;
 
                     etapaCadastro = 3;
-                    // Substituído por menu de botões mostrando o tempo anterior com destaque
-                    llDialog(id, "Passo 3/3: Escolha o TEMPO em dias\n(Tempo Atual: " + (string)tempTempo + " dias)", [(string)tempTempo, "Outro...", "Cancelar"], canalFluxoCadastro);
+                    llDialog(id, "Step 3/3: Choose the TIME in days\n(Current Time: " + (string)tempTempo + " days)", [(string)tempTempo, "Other...", "Cancel"], canalFluxoCadastro);
                 }
             }
             else if (etapaCadastro == 3)
             {
-                if (message == "Outro...")
+                if (message == "Other...")
                 {
-                    llTextBox(id, "Digite o novo TEMPO em dias:", canalFluxoCadastro);
+                    llTextBox(id, "Type the new TIME in days:", canalFluxoCadastro);
                 }
-                else if (message == "Cancelar")
+                else if (message == "Cancel")
                 {
                     etapaCadastro = 0;
-                    llOwnerSay("❌ Cadastro cancelado.");
+                    llOwnerSay("❌ Registration canceled.");
                 }
                 else
                 {
-                    // Se clicou no botão com o tempo anterior ou digitou algo válido
                     integer diasInformados = (integer)message;
                     if (diasInformados >= 1 && diasInformados <= 365) tempTempo = diasInformados;
 
@@ -459,7 +455,7 @@ default
                     prontoParaConfirmar = TRUE; 
 
                     atualizarTexto();
-                    llOwnerSay("📝 Dados configurados!\n- Ocupante: " + tempOcupante + "\n- Valor: L$ " + (string)tempValor + "\n- Tempo: " + (string)tempTempo + " dias\n👉 Clique em 'Confirmar' no menu principal para efetivar.");
+                    llOwnerSay("📝 Data configured!\n- Occupant: " + tempOcupante + "\n- Price: L$ " + (string)tempValor + "\n- Time: " + (string)tempTempo + " days\n👉 Click 'Confirm' in the main menu to apply.");
                 }
             }
         }
@@ -467,29 +463,29 @@ default
 
     money(key id, integer amount)
     {
-        if (status == "Disponível" && amount == preco)
+        if (status == "Available" && amount == preco)
         {
             clientePagouID = id;
             valorPagoPendente = amount;
             aguardandoConfirmacao = TRUE; 
             
             atualizarTexto();
-            llRegionSayTo(id, 0, "Pagamento recebido! Aguardando confirmação do proprietário.");
-            llOwnerSay("💰 PAGAMENTO DE " + llKey2Name(id) + " (L$ " + (string)amount + "). Vá ao menu e clique em 'Confirmar'.");
+            llRegionSayTo(id, 0, "Payment received! Awaiting owner confirmation.");
+            llOwnerSay("💰 PAYMENT FROM " + llKey2Name(id) + " (L$ " + (string)amount + "). Go to the menu and click 'Confirm'.");
         }
-        else if (status == "Ocupada" && id == locatarioID && amount == preco)
+        else if (status == "Occupied" && id == locatarioID && amount == preco)
         {
             dataVencimento = dataVencimento + (dias * 86400);
             totalArrecadadoGeral += amount; 
             salvarDadosInquilino();
             atualizarTexto();
             
-            llRegionSayTo(id, 0, "Renovação aceita! Mais " + (string)dias + " dias adicionados.");
-            llOwnerSay("🔄 Aluguel renovado por " + locatarioNome + " (+ L$ " + (string)amount + ")");
+            llRegionSayTo(id, 0, "Renewal accepted! Extra " + (string)dias + " days added.");
+            llOwnerSay("🔄 Rent renewed by " + locatarioNome + " (+ L$ " + (string)amount + ")");
         }
         else
         {
-            llRegionSayTo(id, 0, "Valor incorreto ou imóvel ocupado. Estornando pagamento.");
+            llRegionSayTo(id, 0, "Incorrect amount or property occupied. Refunding payment.");
             llGiveMoney(id, amount);
         }
     }
@@ -499,16 +495,16 @@ default
         integer agora = llGetUnixTime();
         atualizarTexto();
 
-        if (agora >= dataVencimento && status == "Ocupada")
+        if (agora >= dataVencimento && status == "Occupied")
         {
-            llOwnerSay("🚨 O aluguel de " + locatarioNome + " venceu!");
-            llRegionSayTo(locatarioID, 0, "Seu prazo de locação terminou.");
+            llOwnerSay("🚨 The rent of " + locatarioNome + " has expired!");
+            llRegionSayTo(locatarioID, 0, "Your rental period has ended.");
             
             adicionarAoHistorico(locatarioNome, preco);
             
-            status = "Disponível";
+            status = "Available";
             locatarioID = NULL_KEY;
-            locatarioNome = "Nenhum";
+            locatarioNome = "None";
             dataVencimento = 0;
             nomeTemporario = "";
             aguardandoConfirmacao = FALSE;
