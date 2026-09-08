@@ -204,7 +204,7 @@ default
 {
     state_entry()
     {
-        llSetObjectName("Rental Manager v1.00");
+        llSetObjectName("Rental Manager v1.00 EN");
         carregarDadosInquilino();
         
         if (status == "Occupied") llSetTimerEvent(60.0);
@@ -439,7 +439,7 @@ default
             {
                 if (message == "Other...")
                 {
-                    llTextBox(id, "Type the new TIME in days:", canalFluxoCadastro);
+                    llTextBox(id, "Type the new TIME in days (1 to 365):", canalFluxoCadastro);
                 }
                 else if (message == "Cancel")
                 {
@@ -449,13 +449,22 @@ default
                 else
                 {
                     integer diasInformados = (integer)message;
-                    if (diasInformados >= 1 && diasInformados <= 365) tempTempo = diasInformados;
+                    
+                    // Validação de 1 a 365 dias (Time validation)
+                    if (diasInformados >= 1 && diasInformados <= 365) 
+                    {
+                        tempTempo = diasInformados;
+                        etapaCadastro = 0;
+                        prontoParaConfirmar = TRUE; 
 
-                    etapaCadastro = 0;
-                    prontoParaConfirmar = TRUE; 
-
-                    atualizarTexto();
-                    llOwnerSay("📝 Data configured!\n- Occupant: " + tempOcupante + "\n- Price: L$ " + (string)tempValor + "\n- Time: " + (string)tempTempo + " days\n👉 Click 'Confirm' in the main menu to apply.");
+                        atualizarTexto();
+                        llOwnerSay("📝 Data configured!\n- Occupant: " + tempOcupante + "\n- Price: L$ " + (string)tempValor + "\n- Time: " + (string)tempTempo + " days\n👉 Click 'Confirm' in the main menu to apply.");
+                    }
+                    else
+                    {
+                        // Repete a pergunta em inglês se o valor for inválido
+                        llTextBox(id, "⚠️ INVALID VALUE!\nPlease enter a time between 1 and 365 days:", canalFluxoCadastro);
+                    }
                 }
             }
         }
