@@ -1,7 +1,7 @@
-// AGENDA PESSOAL E DE EVENTOS - SECOND LIFE (LSL) v4.05
-// Validação Instantânea com Retorno à Mesma Etapa em caso de Erro
+// AGENDA PESSOAL E DE EVENTOS - SECOND LIFE (LSL) v4.06
+// Validação e Bloqueio de Passado Sincronizados no Cadastro e na Edição
 
-string versao = "Agenda v4.05";
+string versao = "Agenda v4.06";
 
 integer canalMenu = -8811;
 integer canalFluxo = -8822;
@@ -183,7 +183,7 @@ default
 {
     state_entry()
     {
-        llSetObjectName("Agenda Pessoal v4.05");
+        llSetObjectName("Agenda Pessoal v4.06");
         carregarEstado();
         llSetTimerEvent(60.0);
         
@@ -197,7 +197,7 @@ default
     {
         if (llDetectedKey(0) == llGetOwner())
         {
-            list botoes = ["Excluir", "Historico", "Zerar Tudo", "Ver Lista", "Adicionar", "Editar"];
+            list botoes = ["Ver Lista", "Adicionar", "Editar", "Excluir", "Historico", "Zerar Tudo"];
             llDialog(llGetOwner(), "Painel da Agenda Pessoal\nEscolha uma opção:", botoes, canalMenu);
         }
         else
@@ -326,7 +326,7 @@ default
                 etapa = 4;
                 llTextBox(id, "Passo 4/5: Digite o HORÁRIO no formato HH:MM\n(Ex: 14:30):", canalFluxo);
             }
-            // CADASTRO - 4: Hora (Se falhar, mantém na etapa 4 para redigitar)
+            // CADASTRO - 4: Hora
             else if (etapa == 4)
             {
                 tempHora = llStringTrim(message, STRING_TRIM);
@@ -347,19 +347,18 @@ default
                     return;
                 }
 
-                // Testa se a combinação inteira já passou
                 integer testeTemp = checarValidadeTimestamp(tempDia, tempHora);
                 if (testeTemp == -1)
                 {
-                    llOwnerSay("❌ ERRO NO ENVIO: A data/horário (" + tempDia + " às " + tempHora + ") já passou! Digite um horário futuro:");
+                    llOwnerSay("❌ ERRO NO ENVIO: A data/horário (" + tempDia + " às " + tempHora + ") já passou!");
                     llTextBox(id, "Passo 4/5: Digite um HORÁRIO futuro válido (HH:MM):", canalFluxo);
-                    return; // MANTÉM NA ETAPA 4
+                    return;
                 }
                 else if (testeTemp == 0)
                 {
                     llOwnerSay("❌ ERRO NO ENVIO: Data ou horário inválidos.");
                     llTextBox(id, "Passo 4/5: Digite um HORÁRIO válido (HH:MM):", canalFluxo);
-                    return; // MANTÉM NA ETAPA 4
+                    return;
                 }
 
                 etapa = 5;
@@ -474,7 +473,7 @@ default
                 etapa = 10;
                 llTextBox(id, "Digite o NOVO HORÁRIO no formato HH:MM:", canalFluxo);
             }
-            // EDIÇÃO - 4: Novo Horário (Se falhar, mantém na etapa 10 para redigitar)
+            // EDIÇÃO - 4: Novo Horário (Valida Data + Hora conjuntamente com as mesmas regras do cadastro!)
             else if (etapa == 10)
             {
                 tempHora = llStringTrim(message, STRING_TRIM);
@@ -495,7 +494,7 @@ default
                     return;
                 }
 
-                // Testa se o novo conjunto já passou
+                // Valida a nova data informada na etapa anterior combinada com este novo horário
                 integer testeTemp = checarValidadeTimestamp(tempDia, tempHora);
                 if (testeTemp == -1)
                 {
@@ -511,7 +510,7 @@ default
                 }
 
                 etapa = 11;
-                llDialog(id, "Nova antecedência para el alerta:", ["0", "15", "30", "60"], canalFluxo);
+                llDialog(id, "Nova antecedência para o alerta:", ["0", "15", "30", "60"], canalFluxo);
             }
             // EDIÇÃO - 5: Confirmação e Gravação Final
             else if (etapa == 11)
