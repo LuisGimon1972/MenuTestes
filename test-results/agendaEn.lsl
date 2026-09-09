@@ -1,20 +1,20 @@
-// AGENDA PESSOAL E DE EVENTOS - SECOND LIFE (LSL) v4.06
-// Validação e Bloqueio de Passado Sincronizados no Cadastro e na Edição
+// PERSONAL PLANNER & EVENTS - SECOND LIFE (LSL) v4.07
+// With Security Confirmation (Validation) for "Reset All" in English
 
-string versao = "Agenda v4.06";
+string versao = "Personal Planner v1.00 EN";
 
 integer canalMenu = -8811;
 integer canalFluxo = -8822;
 
 integer etapa = 0; 
 string tempTitulo = "";
-string tempTipo = "Evento";
+string tempTipo = "Event";
 string tempDia = "";
 string tempHora = "";
 integer tempAntecedencia = 15;
 integer idAlvoEdicao = 0;
 
-string historicoCompromissos = "Nenhum histórico registrado.";
+string historicoCompromissos = "No history recorded.";
 
 string formatarDataHora(integer timestamp)
 {
@@ -113,7 +113,7 @@ adicionarAoHistorico(string titulo, string tipo, string acao, integer timestamp)
 {
     string registro = acao + ": " + titulo + " (" + tipo + ") - Ref: " + formatarDataHora(timestamp);
     
-    if (historicoCompromissos == "Nenhum histórico registrado.")
+    if (historicoCompromissos == "No history recorded.")
     {
         historicoCompromissos = registro;
     }
@@ -135,13 +135,13 @@ atualizarTextoFlutuante()
     integer total = (integer)llLinksetDataRead("total_eventos");
     if (total <= 0)
     {
-        llSetText("📅 AGENDA PESSOAL\nNenhum compromisso cadastrado.", <0.0, 1.0, 0.0>, 1.0);
+        llSetText("📅 PERSONAL PLANNER\nNo appointments registered.", <0.0, 1.0, 0.0>, 1.0);
         return;
     }
 
     integer agora = llGetUnixTime();
     integer menorTempo = 2147483647;
-    string proximoNome = "Nenhum";
+    string proximoNome = "None";
 
     integer i = 1;
     while (i <= total)
@@ -154,7 +154,7 @@ atualizarTextoFlutuante()
             string tipo = llList2String(partes, 1);
             integer timestamp = (integer)llList2String(partes, 2);
 
-            if (tipo == "Aniversario" && timestamp < agora)
+            if (tipo == "Birthday" && timestamp < agora)
             {
                 timestamp += 31536000; 
             }
@@ -170,12 +170,12 @@ atualizarTextoFlutuante()
 
     if (menorTempo == 2147483647)
     {
-        llSetText("📅 AGENDA PESSOAL\nNenhum evento futuro próximo.", <1.0, 1.0, 0.0>, 1.0);
+        llSetText("📅 PERSONAL PLANNER\nNo upcoming future events.", <1.0, 1.0, 0.0>, 1.0);
     }
     else
     {
         string dataFmt = formatarDataHora(menorTempo);
-        llSetText("📅 PRÓXIMO COMPROMISSO:\n" + proximoNome + "\n🕒 " + dataFmt, <0.0, 0.8, 1.0>, 1.0);
+        llSetText("📅 NEXT APPOINTMENT:\n" + proximoNome + "\n🕒 " + dataFmt, <0.0, 0.8, 1.0>, 1.0);
     }
 }
 
@@ -183,7 +183,7 @@ default
 {
     state_entry()
     {
-        llSetObjectName("Agenda Pessoal v4.06");
+        llSetObjectName("Personal Planner v4.07 EN");
         carregarEstado();
         llSetTimerEvent(60.0);
         
@@ -197,12 +197,12 @@ default
     {
         if (llDetectedKey(0) == llGetOwner())
         {
-            list botoes = ["Ver Lista", "Adicionar", "Editar", "Excluir", "Historico", "Zerar Tudo"];
-            llDialog(llGetOwner(), "Painel da Agenda Pessoal\nEscolha uma opção:", botoes, canalMenu);
+            list botoes = ["Delete", "History", "Reset All", "View List", "Add", "Edit"];
+            llDialog(llGetOwner(), "Personal Planner Panel\nChoose an option:", botoes, canalMenu);
         }
         else
         {
-            llRegionSayTo(llDetectedKey(0), 0, "Esta é uma agenda pessoal restrita ao proprietário.");
+            llRegionSayTo(llDetectedKey(0), 0, "This personal planner is restricted to the owner.");
         }
     }
 
@@ -210,22 +210,22 @@ default
     {
         if (channel == canalMenu)
         {
-            if (message == "Adicionar")
+            if (message == "Add")
             {
                 etapa = 1;
                 tempTitulo = "";
-                llTextBox(id, "Passo 1/5: Digite o TÍTULO do compromisso:", canalFluxo);
+                llTextBox(id, "Step 1/5: Enter the appointment TITLE:", canalFluxo);
             }
-            else if (message == "Ver Lista")
+            else if (message == "View List")
             {
                 integer total = (integer)llLinksetDataRead("total_eventos");
                 if (total <= 0)
                 {
-                    llOwnerSay("📂 Sua agenda está vazia.");
+                    llOwnerSay("📂 Your planner is empty.");
                     return;
                 }
 
-                string listaCompleta = "📂 SEUS COMPROMISSOS CADASTRADOS:\n\n";
+                string listaCompleta = "📂 YOUR REGISTERED APPOINTMENTS:\n\n";
                 integer i = 1;
                 while (i <= total)
                 {
@@ -238,77 +238,74 @@ default
                         integer timestamp = (integer)llList2String(partes, 2);
                         integer antecedencia = (integer)llList2String(partes, 3);
                         
-                        listaCompleta += "[" + (string)i + "] " + titulo + " (" + tipo + ") - " + formatarDataHora(timestamp) + " [Alerta: " + (string)antecedencia + "m]\n";
+                        listaCompleta += "[" + (string)i + "] " + titulo + " (" + tipo + ") - " + formatarDataHora(timestamp) + " [Alert: " + (string)antecedencia + "m]\n";
                     }
                     i++;
                 }
                 llOwnerSay(listaCompleta);
             }
-            else if (message == "Editar")
+            else if (message == "Edit")
             {
                 integer total = (integer)llLinksetDataRead("total_eventos");
                 if (total <= 0)
                 {
-                    llOwnerSay("⚠️ Não há eventos para editar.");
+                    llOwnerSay("⚠️ There are no events to edit.");
                     return;
                 }
                 etapa = 7;
-                llTextBox(id, "Digite o NÚMERO do evento que deseja EDITAR:", canalFluxo);
+                llTextBox(id, "Enter the NUMBER of the event you want to EDIT:", canalFluxo);
             }
-            else if (message == "Excluir")
+            else if (message == "Delete")
             {
                 integer total = (integer)llLinksetDataRead("total_eventos");
                 if (total <= 0)
                 {
-                    llOwnerSay("⚠️ Não há eventos para excluir.");
+                    llOwnerSay("⚠️ There are no events to delete.");
                     return;
                 }
                 etapa = 6;
-                llTextBox(id, "Digite o NÚMERO do compromisso que deseja cancelar/apagar:", canalFluxo);
+                llTextBox(id, "Enter the NUMBER of the appointment you want to cancel/remove:", canalFluxo);
             }
-            else if (message == "Historico")
+            else if (message == "History")
             {
-                llOwnerSay("📜 HISTÓRICO DE COMPROMISSOS:\n\n" + historicoCompromissos);
+                llOwnerSay("📜 APPOINTMENT HISTORY:\n\n" + historicoCompromissos);
             }
-            else if (message == "Zerar Tudo")
+            else if (message == "Reset All")
             {
-                llLinksetDataReset();
-                llLinksetDataWrite("total_eventos", "0");
-                historicoCompromissos = "Nenhum histórico registrado.";
-                atualizarTextoFlutuante();
-                llOwnerSay("🗑️ Agenda e histórico completamente limpos!");
+                etapa = 12;
+                llTextBox(id, "⚠️ WARNING: You requested to erase EVERYTHING!\n\nThis will permanently remove all registered appointments and event history.\n\nTo confirm, type exactly: YES", canalFluxo);
             }
         }
         else if (channel == canalFluxo)
         {
-            // CADASTRO - 1: Título
+            // ADD - 1: Title
             if (etapa == 1)
             {
                 tempTitulo = llStringTrim(message, STRING_TRIM);
                 if (tempTitulo == "")
                 {
-                    llTextBox(id, "⚠️ Título inválido. Digite novamente:", canalFluxo);
+                    llTextBox(id, "⚠️ Invalid title. Please enter again:", canalFluxo);
                     return;
                 }
                 etapa = 2;
-                llDialog(id, "Passo 2/5: Escolha o tipo de compromisso:", ["Evento", "Aniversario"], canalFluxo);
+                llDialog(id, "Step 2/5: Choose the appointment type:", ["Event", "Birthday"], canalFluxo);
             }
-            // CADASTRO - 2: Tipo
+            // ADD - 2: Type
             else if (etapa == 2)
             {
                 tempTipo = message;
                 etapa = 3;
-                llTextBox(id, "Passo 3/5: Digite a DATA no formato DD/MM/AAAA\n(Ex: 25/12/2026):", canalFluxo);
+                llTextBox(id, "Step 3/5: Enter the DATE in DD/MM/YYYY format\n(Ex: 25/12/2026):", canalFluxo);
             }
-            // CADASTRO - 3: Data
+            // ADD - 3: Date
             else if (etapa == 3)
             {
                 tempDia = llStringTrim(message, STRING_TRIM);
                 list pData = llParseString2List(tempDia, ["/"], []);
                 if (llGetListLength(pData) != 3)
                 {
-                    llOwnerSay("❌ ERRO: Formato de data incorreto! Use DD/MM/AAAA.");
-                    llTextBox(id, "Passo 3/5: Digite a DATA novamente no formato DD/MM/AAAA:", canalFluxo);
+                    llOwnerSay("❌ ERROR: Incorrect date format! Use DD/MM/YYYY.");
+                    llTextBox(id, "Step 3/5: Enter the DATE again in DD/MM/YYYY format:", canalFluxo);
                     return;
                 }
 
@@ -318,23 +315,23 @@ default
 
                 if (anoVal < 2024 || mesVal < 1 || mesVal > 12 || diaVal < 1 || diaVal > 31)
                 {
-                    llOwnerSay("❌ ERRO: Data inválida (dia, mês ou ano fora dos limites).");
-                    llTextBox(id, "Passo 3/5: Digite uma DATA válida (DD/MM/AAAA):", canalFluxo);
+                    llOwnerSay("❌ ERROR: Invalid date (day, month, or year out of bounds).");
+                    llTextBox(id, "Step 3/5: Enter a valid DATE (DD/MM/YYYY):", canalFluxo);
                     return;
                 }
 
                 etapa = 4;
-                llTextBox(id, "Passo 4/5: Digite o HORÁRIO no formato HH:MM\n(Ex: 14:30):", canalFluxo);
+                llTextBox(id, "Step 4/5: Enter the TIME in HH:MM format\n(Ex: 14:30):", canalFluxo);
             }
-            // CADASTRO - 4: Hora
+            // ADD - 4: Time
             else if (etapa == 4)
             {
                 tempHora = llStringTrim(message, STRING_TRIM);
                 list pHora = llParseString2List(tempHora, [":"], []);
                 if (llGetListLength(pHora) != 2)
                 {
-                    llOwnerSay("❌ ERRO: Formato de horário incorreto! Use HH:MM.");
-                    llTextBox(id, "Passo 4/5: Digite o HORÁRIO novamente no formato HH:MM:", canalFluxo);
+                    llOwnerSay("❌ ERROR: Incorrect time format! Use HH:MM.");
+                    llTextBox(id, "Step 4/5: Enter the TIME again in HH:MM format:", canalFluxo);
                     return;
                 }
 
@@ -342,29 +339,29 @@ default
                 integer minVal = (integer)llList2String(pHora, 1);
                 if (horaVal < 0 || horaVal > 23 || minVal < 0 || minVal > 59)
                 {
-                    llOwnerSay("❌ ERRO: Horário inválido (horas de 00-23 e minutos de 00-59).");
-                    llTextBox(id, "Passo 4/5: Digite um HORÁRIO válido (HH:MM):", canalFluxo);
+                    llOwnerSay("❌ ERROR: Invalid time (hours 00-23 and minutes 00-59).");
+                    llTextBox(id, "Step 4/5: Enter a valid TIME (HH:MM):", canalFluxo);
                     return;
                 }
 
                 integer testeTemp = checarValidadeTimestamp(tempDia, tempHora);
                 if (testeTemp == -1)
                 {
-                    llOwnerSay("❌ ERRO NO ENVIO: A data/horário (" + tempDia + " às " + tempHora + ") já passou!");
-                    llTextBox(id, "Passo 4/5: Digite um HORÁRIO futuro válido (HH:MM):", canalFluxo);
+                    llOwnerSay("❌ SUBMISSION ERROR: The date/time (" + tempDia + " at " + tempHora + ") has already passed!");
+                    llTextBox(id, "Step 4/5: Enter a valid future TIME (HH:MM):", canalFluxo);
                     return;
                 }
                 else if (testeTemp == 0)
                 {
-                    llOwnerSay("❌ ERRO NO ENVIO: Data ou horário inválidos.");
-                    llTextBox(id, "Passo 4/5: Digite um HORÁRIO válido (HH:MM):", canalFluxo);
+                    llOwnerSay("❌ SUBMISSION ERROR: Invalid date or time.");
+                    llTextBox(id, "Step 4/5: Enter a valid TIME (HH:MM):", canalFluxo);
                     return;
                 }
 
                 etapa = 5;
-                llDialog(id, "Passo 5/5: Minutos de antecedência para o alerta:", ["0", "15", "30", "60"], canalFluxo);
+                llDialog(id, "Step 5/5: Minutes of advance notice for the alert:", ["0", "15", "30", "60"], canalFluxo);
             }
-            // CADASTRO - 5: Antecedência e Gravação Final
+            // ADD - 5: Notice & Final Save
             else if (etapa == 5)
             {
                 tempAntecedencia = (integer)message;
@@ -372,7 +369,7 @@ default
 
                 if (timestampFinal <= 0)
                 {
-                    llOwnerSay("❌ Erro temporal no cadastro. Reinicie o processo.");
+                    llOwnerSay("❌ Temporal error during registration. Restart the process.");
                     etapa = 0;
                     return;
                 }
@@ -386,10 +383,10 @@ default
 
                 etapa = 0;
                 atualizarTextoFlutuante();
-                llOwnerSay("✅ Compromisso cadastrado com sucesso!");
+                llOwnerSay("✅ Appointment successfully registered!");
             }
             
-            // EXCLUSÃO MANUAL
+            // MANUAL DELETION
             else if (etapa == 6)
             {
                 integer idExcluir = (integer)message;
@@ -403,20 +400,20 @@ default
                     string tipo = llList2String(partes, 1);
                     integer timestamp = (integer)llList2String(partes, 2);
 
-                    adicionarAoHistorico(titulo, tipo, "❌ Cancelado/Removido", timestamp);
+                    adicionarAoHistorico(titulo, tipo, "❌ Cancelled/Removed", timestamp);
 
                     llLinksetDataDelete("evento_" + (string)idExcluir);
-                    llOwnerSay("🗑️ Evento #" + (string)idExcluir + " (" + titulo + ") cancelado e enviado para o histórico.");
+                    llOwnerSay("🗑️ Event #" + (string)idExcluir + " (" + titulo + ") cancelled and sent to history.");
                     atualizarTextoFlutuante();
                 }
                 else
                 {
-                    llOwnerSay("⚠️ Número inválido.");
+                    llOwnerSay("⚠️ Invalid number.");
                 }
                 etapa = 0;
             }
 
-            // EDIÇÃO - 1: Selecionar ID
+            // EDIT - 1: Select ID
             else if (etapa == 7)
             {
                 idAlvoEdicao = (integer)message;
@@ -430,32 +427,32 @@ default
                     tempTipo = llList2String(partes, 1);
 
                     etapa = 8;
-                    llTextBox(id, "Editando Evento #" + (string)idAlvoEdicao + "\nDigite o NOVO TÍTULO (Atual: " + tempTitulo + "):", canalFluxo);
+                    llTextBox(id, "Editing Event #" + (string)idAlvoEdicao + "\nEnter the NEW TITLE (Current: " + tempTitulo + "):", canalFluxo);
                 }
                 else
                 {
-                    llOwnerSay("⚠️ Número inválido para edição.");
+                    llOwnerSay("⚠️ Invalid number for editing.");
                     etapa = 0;
                 }
             }
-            // EDIÇÃO - 2: Novo Título
+            // EDIT - 2: New Title
             else if (etapa == 8)
             {
                 string novoTitulo = llStringTrim(message, STRING_TRIM);
                 if (novoTitulo != "") tempTitulo = novoTitulo;
 
                 etapa = 9;
-                llTextBox(id, "Digite a NOVA DATA no formato DD/MM/AAAA:", canalFluxo);
+                llTextBox(id, "Enter the NEW DATE in DD/MM/YYYY format:", canalFluxo);
             }
-            // EDIÇÃO - 3: Nova Data
+            // EDIT - 3: New Date
             else if (etapa == 9)
             {
                 tempDia = llStringTrim(message, STRING_TRIM);
                 list pData = llParseString2List(tempDia, ["/"], []);
                 if (llGetListLength(pData) != 3)
                 {
-                    llOwnerSay("❌ ERRO: Formato de data incorreto! Use DD/MM/AAAA.");
-                    llTextBox(id, "Digite a NOVA DATA novamente (DD/MM/AAAA):", canalFluxo);
+                    llOwnerSay("❌ ERROR: Incorrect date format! Use DD/MM/YYYY.");
+                    llTextBox(id, "Enter the NEW DATE again (DD/MM/YYYY):", canalFluxo);
                     return;
                 }
 
@@ -465,23 +462,23 @@ default
 
                 if (anoVal < 2024 || mesVal < 1 || mesVal > 12 || diaVal < 1 || diaVal > 31)
                 {
-                    llOwnerSay("❌ ERRO: Data inválida.");
-                    llTextBox(id, "Digite uma NOVA DATA válida (DD/MM/AAAA):", canalFluxo);
+                    llOwnerSay("❌ ERROR: Invalid date.");
+                    llTextBox(id, "Enter a valid NEW DATE (DD/MM/YYYY):", canalFluxo);
                     return;
                 }
 
                 etapa = 10;
-                llTextBox(id, "Digite o NOVO HORÁRIO no formato HH:MM:", canalFluxo);
+                llTextBox(id, "Enter the NEW TIME in HH:MM format:", canalFluxo);
             }
-            // EDIÇÃO - 4: Novo Horário (Valida Data + Hora conjuntamente com as mesmas regras do cadastro!)
+            // EDIT - 4: New Time
             else if (etapa == 10)
             {
                 tempHora = llStringTrim(message, STRING_TRIM);
                 list pHora = llParseString2List(tempHora, [":"], []);
                 if (llGetListLength(pHora) != 2)
                 {
-                    llOwnerSay("❌ ERRO: Formato de horário incorreto! Use HH:MM.");
-                    llTextBox(id, "Digite o NOVO HORÁRIO novamente (HH:MM):", canalFluxo);
+                    llOwnerSay("❌ ERROR: Incorrect time format! Use HH:MM.");
+                    llTextBox(id, "Enter the NEW TIME again (HH:MM):", canalFluxo);
                     return;
                 }
 
@@ -489,30 +486,29 @@ default
                 integer minVal = (integer)llList2String(pHora, 1);
                 if (horaVal < 0 || horaVal > 23 || minVal < 0 || minVal > 59)
                 {
-                    llOwnerSay("❌ ERRO: Horário inválido.");
-                    llTextBox(id, "Digite um NOVO HORÁRIO válido (HH:MM):", canalFluxo);
+                    llOwnerSay("❌ ERROR: Invalid time.");
+                    llTextBox(id, "Enter a valid NEW TIME (HH:MM):", canalFluxo);
                     return;
                 }
 
-                // Valida a nova data informada na etapa anterior combinada com este novo horário
                 integer testeTemp = checarValidadeTimestamp(tempDia, tempHora);
                 if (testeTemp == -1)
                 {
-                    llOwnerSay("❌ ERRO NA EDIÇÃO: A nova data/horário (" + tempDia + " às " + tempHora + ") já passou!");
-                    llTextBox(id, "Digite um NOVO HORÁRIO futuro válido (HH:MM):", canalFluxo);
-                    return; // MANTÉM NA ETAPA 10
+                    llOwnerSay("❌ EDIT ERROR: The new date/time (" + tempDia + " at " + tempHora + ") has already passed!");
+                    llTextBox(id, "Enter a valid future NEW TIME (HH:MM):", canalFluxo);
+                    return;
                 }
                 else if (testeTemp == 0)
                 {
-                    llOwnerSay("❌ ERRO NA EDIÇÃO: Data ou horário inválidos.");
-                    llTextBox(id, "Digite um NOVO HORÁRIO válido (HH:MM):", canalFluxo);
-                    return; // MANTÉM NA ETAPA 10
+                    llOwnerSay("❌ EDIT ERROR: Invalid date or time.");
+                    llTextBox(id, "Enter a valid NEW TIME (HH:MM):", canalFluxo);
+                    return;
                 }
 
                 etapa = 11;
-                llDialog(id, "Nova antecedência para o alerta:", ["0", "15", "30", "60"], canalFluxo);
+                llDialog(id, "New notice lead time:", ["0", "15", "30", "60"], canalFluxo);
             }
-            // EDIÇÃO - 5: Confirmação e Gravação Final
+            // EDIT - 5: Confirmation & Final Save
             else if (etapa == 11)
             {
                 tempAntecedencia = (integer)message;
@@ -520,7 +516,7 @@ default
 
                 if (timestampFinal <= 0)
                 {
-                    llOwnerSay("❌ Erro temporal na edição.");
+                    llOwnerSay("❌ Temporal error during editing.");
                     etapa = 0;
                     return;
                 }
@@ -528,11 +524,30 @@ default
                 string novoRegistro = tempTitulo + "|" + tempTipo + "|" + (string)timestampFinal + "|" + (string)tempAntecedencia;
                 llLinksetDataWrite("evento_" + (string)idAlvoEdicao, novoRegistro);
 
-                adicionarAoHistorico(tempTitulo, tempTipo, "✏️ Editado/Reagendado", timestampFinal);
+                adicionarAoHistorico(tempTitulo, tempTipo, "✏️ Edited/Rescheduled", timestampFinal);
 
                 etapa = 0;
                 atualizarTextoFlutuante();
-                llOwnerSay("✅ Evento #" + (string)idAlvoEdicao + " atualizado com sucesso!");
+                llOwnerSay("✅ Event #" + (string)idAlvoEdicao + " successfully updated!");
+            }
+            
+            // RESET ALL - Confirmation Validation
+            else if (etapa == 12)
+            {
+                string resposta = llToUpper(llStringTrim(message, STRING_TRIM));
+                if (resposta == "YES")
+                {
+                    llLinksetDataReset();
+                    llLinksetDataWrite("total_eventos", "0");
+                    historicoCompromissos = "No history recorded.";
+                    atualizarTextoFlutuante();
+                    llOwnerSay("🗑️ Operation complete: Planner and history completely wiped.");
+                }
+                else
+                {
+                    llOwnerSay("🛡️ Operation cancelled for safety. Your data was preserved.");
+                }
+                etapa = 0;
             }
         }
     }
@@ -561,17 +576,17 @@ default
                 {
                     if (antecedenciaMin > 0)
                     {
-                        llOwnerSay("🔔 LEMBRETE ANTECIPADO!\nO compromisso \"" + titulo + "\" (" + tipo + ") começa em " + (string)antecedenciaMin + " minutos!");
+                        llOwnerSay("🔔 EARLY REMINDER!\nThe appointment \"" + titulo + "\" (" + tipo + ") starts in " + (string)antecedenciaMin + " minutes!");
                     }
                     else
                     {
-                        llOwnerSay("🔔 ALERTA DE COMPROMISSO!\nO compromisso \"" + titulo + "\" (" + tipo + ") está acontecendo agora!");
+                        llOwnerSay("🔔 APPOINTMENT ALERT!\nThe appointment \"" + titulo + "\" (" + tipo + ") is happening now!");
                     }
                 }
 
-                if (agora >= timestamp && tipo != "Aniversario")
+                if (agora >= timestamp && tipo != "Birthday")
                 {
-                    adicionarAoHistorico(titulo, tipo, "✔ Realizado", timestamp);
+                    adicionarAoHistorico(titulo, tipo, "✔ Completed", timestamp);
                     llLinksetDataDelete("evento_" + (string)i);
                     atualizarTextoFlutuante();
                 }
