@@ -205,7 +205,23 @@ default
     state_entry()
     {
         llSetObjectName("Rental Manager v1.00 EN");
-        carregarDadosInquilino();
+        
+        // --- TOTAL RESET FOR SALES/PACKAGED VERSION ---
+        // Clears history, totals, and resets the LinksetData memory inside the object instantly
+        historicoInquilinos = "No previous records.";
+        totalArrecadadoGeral = 0;
+        status = "Available";
+        locatarioID = NULL_KEY;
+        locatarioNome = "None";
+        dataVencimento = 0;
+        aguardandoConfirmacao = FALSE;
+        prontoParaConfirmar = FALSE;
+        clientePagouID = NULL_KEY;
+        valorPagoPendente = 0;
+        
+        // Overwrites LinksetData memory with fresh factory defaults
+        salvarDadosInquilino();
+        // ---------------------------------------------
         
         if (status == "Occupied") llSetTimerEvent(60.0);
         
@@ -450,7 +466,6 @@ default
                 {
                     integer diasInformados = (integer)message;
                     
-                    // Validação de 1 a 365 dias (Time validation)
                     if (diasInformados >= 1 && diasInformados <= 365) 
                     {
                         tempTempo = diasInformados;
@@ -462,7 +477,6 @@ default
                     }
                     else
                     {
-                        // Repete a pergunta em inglês se o valor for inválido
                         llTextBox(id, "⚠️ INVALID VALUE!\nPlease enter a time between 1 and 365 days:", canalFluxoCadastro);
                     }
                 }
